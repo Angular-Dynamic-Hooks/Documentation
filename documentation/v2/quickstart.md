@@ -51,11 +51,10 @@ That's it! If `<app-example>` is the selector of `ExampleComponent`, it will aut
 
 The following <a href="https://stackblitz.com/edit/ngx-dynamic-hooks-quickstart" target="_blank">Stackblitz example</a> showcases how to load a couple of simple components from a string:
 
-<div 
-  class='stackblitz' 
-  data-url="https://stackblitz.com/edit/ngx-dynamic-hooks-quickstart" 
-  data-fileQueryParam="file=src%2Fapp%2Fapp.component.ts"
-  data-image="{{ "/assets/images/stackblitz/quickstart_v2.jpg" | relative_url }}"
-></div>
+<app-stackblitz 
+  url="https://stackblitz.com/edit/ngx-dynamic-hooks-quickstart" 
+  fileQueryParam="file=src%2Fapp%2Fapp.component.ts"
+  image="{{ "/assets/images/stackblitz/quickstart_v2.jpg" | relative_url }}"
+></app-stackblitz>
 
 This is a very simple example. Check out the [Configuration]({{ "documentation/v2/configuration" | relative_url }}) or even [Writing your own HookParser]({{ "documentation/v2/parsers#writing-your-own-hookparser" | relative_url }}) sections to find out how to tailor everything to your exact needs.

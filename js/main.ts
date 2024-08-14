@@ -1,6 +1,8 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+import { initComponents } from './angular';
+
 import { SidebarSectionsWidget } from './widgets/sidebarSections';
 import { ArticleTocWidget } from './widgets/articleToc';
 import { bootstrapWidgets, Widget } from './widgetBootstrap';
@@ -9,7 +11,6 @@ import { DarkmodeWidget } from './widgets/darkmode';
 import { VersionWarningLinkWidget } from './widgets/version/versionWarningLink';
 import { initCopyrightDate } from './misc';
 import { SidebarToggleWidget } from './widgets/sidebarToggle';
-import { StackblitzWidget } from './widgets/stackblitz';
 import { CodeCopyWidget } from './widgets/codeCopy';
 import { initLandingPage } from './landing';
 import { LandingMenuWidget } from './widgets/landing/landingMenu';
@@ -36,10 +37,12 @@ if (!location.pathname.includes('documentation')) {
     SidebarVersionButtonWidget,
     ArticleTocWidget,
     VersionWarningLinkWidget,
-    StackblitzWidget,
     CodeCopyWidget
   ]);
 }
 
 // Misc
 initCopyrightDate();
+
+// Load Angular components
+initComponents();

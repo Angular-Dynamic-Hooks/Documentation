@@ -15,8 +15,10 @@
   {%- seo -%}
   
   {% for file in site.static_files %}
-    {% if file.path contains "/assets" and file.path contains ".css" %}
-      <link rel="stylesheet" href="{{ file.path | relative_url }}">
+    {% if file.path contains "/assets/" and file.path contains ".css" %}
+      {% unless file.path contains ".map"%}
+        <link rel="stylesheet" href="{{ file.path | relative_url }}">
+      {% endunless %}
     {% endif %}
   {% endfor %}
 

@@ -92,7 +92,7 @@ function findWidgetAnchorsAndData(container: Element, selector: string): {anchor
 }
 
 function processDataAttrs(data: DOMStringMap) {
-    const result = {};
+    const result: any = {};
     for (const [key, value] of Object.entries(data)) {
       if (value === '' || value === undefined) {
         result[key] = null;

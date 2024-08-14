@@ -7,6 +7,9 @@ Gemfile.lock
 /_site
 /assets/build
 
+# Angular
+.angular
+
 # Node
 /node_modules
 /package-lock.json

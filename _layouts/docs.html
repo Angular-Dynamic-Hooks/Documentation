@@ -16,7 +16,7 @@
       
       <div id="wrapper">
 
-        <article class="article">    
+        <article class="article">
           {% assign isDeprecated = page.deprecated | default: false %}
           {% if isDeprecated %}  
             {% include docs/widgets/notice.html content='

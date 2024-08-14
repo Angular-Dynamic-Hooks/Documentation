@@ -56,7 +56,9 @@
 </script>
   
 {% for file in site.static_files %}
-  {% if file.path contains "/assets/build" and file.path contains ".js" %}
-    <script src="{{ file.path | relative_url }}"></script>
+  {% if file.path contains "/assets/build/" and file.path contains ".js" %}
+    {% unless file.path contains ".map"%}
+      <script src="{{ file.path | relative_url }}"></script>
+    {% endunless %}
   {% endif %}
 {% endfor %}

@@ -45,12 +45,11 @@ That's it! If `<app-example>` is the selector of `ExampleComponent`, it will aut
 
 ## See it in action
 
-<div 
-  class='stackblitz' 
-  data-url="https://stackblitz.com/github/Angular-Dynamic-Hooks/Example-v3-Quickstart" 
-  data-fileQueryParam="file=src%2Fapp%2Fapp.component.ts"
-  data-image="{{ "/assets/images/stackblitz/quickstart.jpg" | relative_url }}"
-></div>
+<app-stackblitz
+  url="https://stackblitz.com/github/Angular-Dynamic-Hooks/Example-v3-Quickstart" 
+  fileQueryParam="file=src%2Fapp%2Fapp.component.ts"
+  image="{{ "/assets/images/stackblitz/quickstart.jpg" | relative_url }}"
+></app-stackblitz>
 
 ## About using modules
 

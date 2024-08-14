@@ -215,12 +215,11 @@ export class AppComponent {
 
 See it in action in this Stackblitz:
 
-<div 
-  class='stackblitz' 
-  data-url="https://stackblitz.com/github/Angular-Dynamic-Hooks/Example-v3-Parsers-Minimal" 
-  data-fileQueryParam="file=src%2Fapp%2Fapp.component.ts"
-  data-image="{{ "/assets/images/stackblitz/parser_minimal.jpg" | relative_url }}"
-></div>
+<app-stackblitz 
+  url="https://stackblitz.com/github/Angular-Dynamic-Hooks/Example-v3-Parsers-Minimal" 
+  fileQueryParam="file=src%2Fapp%2Fapp.component.ts"
+  image="{{ "/assets/images/stackblitz/parser_minimal.jpg" | relative_url }}"
+></app-stackblitz>
 
 ## Example 2: Emoji parser
 
@@ -270,12 +269,11 @@ export class EmojiParser implements HookParser {
 
 See it in action in this Stackblitz:
 
-<div 
-  class='stackblitz' 
-  data-url="https://stackblitz.com/github/Angular-Dynamic-Hooks/Example-v3-Parsers-Emoji" 
-  data-fileQueryParam="file=src%2Fapp%2Fapp.component.ts"
-  data-image="{{ "/assets/images/stackblitz/parser_emoji.jpg" | relative_url }}"
-></div>
+<app-stackblitz  
+  url="https://stackblitz.com/github/Angular-Dynamic-Hooks/Example-v3-Parsers-Emoji" 
+  fileQueryParam="file=src%2Fapp%2Fapp.component.ts"
+  image="{{ "/assets/images/stackblitz/parser_emoji.jpg" | relative_url }}"
+></app-stackblitz>
 
 ## Example 3: Image parser
 
@@ -322,12 +320,11 @@ Our `ClickableImgComponent` will then use `src` to render the image in the artic
 
 See it in action in this Stackblitz:
 
-<div 
-  class='stackblitz' 
-  data-url="https://stackblitz.com/github/Angular-Dynamic-Hooks/Example-v3-Parsers-Image" 
-  data-fileQueryParam="file=src%2Fapp%2Fapp.component.ts"
-  data-image="{{ "/assets/images/stackblitz/parser_image.jpg" | relative_url }}"
-></div>
+<app-stackblitz 
+  url="https://stackblitz.com/github/Angular-Dynamic-Hooks/Example-v3-Parsers-Image" 
+  fileQueryParam="file=src%2Fapp%2Fapp.component.ts"
+  image="{{ "/assets/images/stackblitz/parser_image.jpg" | relative_url }}"
+></app-stackblitz>
 
 ## Example 4: Link parser
 
@@ -384,9 +381,8 @@ export class DynamicLinkParser implements HookParser {
 
 See it in action in this Stackblitz:
 
-<div 
-  class='stackblitz' 
-  data-url="https://stackblitz.com/github/Angular-Dynamic-Hooks/Example-v3-Parsers-Link" 
-  data-fileQueryParam="file=src%2Fapp%2Fapp.component.ts"
-  data-image="{{ "/assets/images/stackblitz/parser_link.jpg" | relative_url }}"
-></div>
+<app-stackblitz 
+  url="https://stackblitz.com/github/Angular-Dynamic-Hooks/Example-v3-Parsers-Link" 
+  fileQueryParam="file=src%2Fapp%2Fapp.component.ts"
+  image="{{ "/assets/images/stackblitz/parser_link.jpg" | relative_url }}"
+></app-stackblitz>

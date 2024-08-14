@@ -77,7 +77,7 @@ export class VersionSelectWidget implements Widget {
     const entries = document.querySelectorAll('.version-select-dropdown-entry')!;
     for (const entry of entries) {
       entry.addEventListener('click', event => {
-        this.onVersionSelect(parseInt((event.target as HTMLElement).dataset.version!)); 
+        this.onVersionSelect(parseInt((event.target as HTMLElement).dataset['version']!)); 
       });
     }
   }
@@ -117,26 +117,6 @@ export class VersionSelectWidget implements Widget {
         left: `${x}px`,
         top: `${y}px`,
       });
-
-      // Positioning the tooltip arrow
-      /*
-      const oppositeSide = {
-        top: 'bottom',
-        right: 'left',
-        bottom: 'top',
-        left: 'right',
-      }[placement.split('-')[0]] as string;
-
-      const arrowX = middlewareData.arrow?.x;
-      const arrowY = middlewareData.arrow?.y;
-      Object.assign(tooltipArrow.style, {
-        left: arrowX != null ? `${arrowX}px` : '',
-        top: arrowY != null ? `${arrowY}px` : '',
-        right: '',
-        bottom: '',
-        [oppositeSide]: '-4px',
-      });
-      */
     });
   }
 

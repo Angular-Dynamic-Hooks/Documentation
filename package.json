@@ -6,28 +6,25 @@
   "scripts": {
     "jekyll-serve": "bundle exec jekyll serve",
     "jekyll-build": "bundle exec jekyll build",
-    "webpack": "webpack",
-    "webpack-prod": "NODE_ENV=production webpack",
-    "webpack-watch": "webpack --watch"
+    "ng-build": "ng build",
+    "ng-watch": "ng build --watch"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@angular-devkit/build-angular": "^18.0.6",
+    "@angular/cli": "^18.0.6",
+    "@angular/common": "^18.0.6",
+    "@angular/compiler": "^18.0.6",
+    "@angular/compiler-cli": "^18.0.6",
+    "@angular/core": "^18.0.6",
+    "@angular/localize": "^18.0.6",
+    "@angular/platform-browser": "^18.0.6",
     "@floating-ui/dom": "^1.6.5",
-    "css-loader": "^7.1.2",
-    "css-minimizer-webpack-plugin": "^7.0.0",
     "gsap": "^3.12.5",
-    "mini-css-extract-plugin": "^2.9.0",
-    "postcss-loader": "^8.1.1",
-    "sass": "^1.77.8",
-    "sass-loader": "^14.2.1",
-    "source-map-loader": "^5.0.0",
-    "style-loader": "^4.0.0",
-    "ts-loader": "^9.5.1",
-    "webpack": "^5.91.0",
-    "webpack-remove-empty-scripts": "^1.0.4"
-  },
-  "devDependencies": {
-    "webpack-cli": "^5.1.4"
+    "ngx-dynamic-hooks": "^3.0.0-beta.1",
+    "rxjs": "~7.8.0",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.14.3"
   }
 }
