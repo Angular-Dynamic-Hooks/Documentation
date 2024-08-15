@@ -1,0 +1,6 @@
+<div class="darkmode">
+  <img class="darkmode-icon" [src]="darkmodeIsActive ? moonIcon : sunIcon">
+  <div class='darkmode-toggle' [ngClass]="{active: darkmodeIsActive}" (click)="setDarkmode(!darkmodeIsActive)">
+    <div class='darkmode-toggle-slider'></div>
+  </div>
+</div>

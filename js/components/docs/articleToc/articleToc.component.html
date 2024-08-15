@@ -1,0 +1,16 @@
+<div class='toc'>
+  <ul class="toc-list">
+    @for (titleElement of titleElements; track $index) {
+
+      <li #tocEntry class='toc-entry' [ngClass]="{active: titleElement.id === activeTitleId}">
+        <a class='toc-entry-link' [href]="location.href.split('#')[0] + '#' + titleElement.id">
+          <div class='toc-entry-slider'>
+            <div class='toc-entry-slider-thumb'></div>
+          </div>
+          <div class='toc-entry-content {{ titleElement.tagName.toLowerCase() }}'>{{ titleElement.textContent }}</div>
+        </a>
+      </li>
+
+    }
+  </ul>
+</div>

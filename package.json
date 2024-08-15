@@ -6,7 +6,8 @@
   "scripts": {
     "jekyll-serve": "bundle exec jekyll serve",
     "jekyll-build": "bundle exec jekyll build",
-    "ng-build": "ng build",
+    "ng-build": "ng build && rm ./assets/build/index.html",
+    "ng-build-prod": "ng build --configuration production && rm ./assets/build/index.html",
     "ng-watch": "ng build --watch"
   },
   "author": "",

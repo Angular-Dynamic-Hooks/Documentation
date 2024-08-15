@@ -41,7 +41,7 @@ The context object is typically a simple object literal that provides some value
 
 ![communication-flow](https://github.com/user-attachments/assets/eadf3992-c07e-4188-8406-441bf562c957)
 
-{% include docs/widgets/notice.html content="
+{% include docs/notice.html content="
   <h4>About global code</h4>
   <p>Please note that the context object is the <b>only</b> variable that can accessed in inputs/outputs of component selector hooks. No variables or functions, global or otherwise, can be used besides it. This is an intentional security measure.</p>
 " %}

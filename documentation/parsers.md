@@ -50,7 +50,7 @@ Property | Type | Default | Description
 
 See the [How to use]({{ "documentation/how-to-use#load-by-any-selector" | relative_url }}) page for a simple `SelectorHookParserConfig` example.
 
-{% include docs/widgets/notice.html content="
+{% include docs/notice.html content="
   <p>Please note that you cannot use full CSS selectors in the <code>selector</code> field if you set <code>enclosing</code> to <code>false</code> or use a custom <code>bracketStyle</code> as you aren't looking for valid HTML elements at that point. The selector can then only be the direct tag name, e.g. <code>app-example</code>.</p>
 " %}
 
@@ -96,7 +96,7 @@ How your hook looks like and how you find these indexes is completely up to you.
 
 To make your life easier, you can just use the `HookFinder` service that comes with this library. Its easy to use and safely finds both singletag and enclosing patterns in a string. You can see it in action in the ["Emoji parser" example]({{ "documentation/parsers#example-2-emoji-parser" | relative_url }}).
 
-{% include docs/widgets/notice.html content="
+{% include docs/notice.html content="
   <span><code>findHooks()</code> is only needed if you want to find text hooks. For element hooks, see <code>findHookElements()</code>.</span>
 " %}
 
@@ -114,7 +114,7 @@ Finding element hooks is rather easy as you can interact directly with the actua
 return Array.from(contentElement.querySelectorAll('.myHook'));
 ```
 
-{% include docs/widgets/notice.html content="
+{% include docs/notice.html content="
   <span><code>findHookElements()</code> is only needed if you want to find element hooks. For text hooks, see <code>findHooks()</code>.</span>
 " %}
 
@@ -159,7 +159,7 @@ Both `inputs` and `outputs` must contain an object where each key is the name of
 
 How you determine the values for the component bindings is - again - completely up to you. You could for example have a look at the `HookValue` and read them from the hook itself (like property bindings in selector hooks, e.g. `[input]="'Hello!'`"). You could of course also just pass static values into the component.
 
-{% include docs/widgets/notice.html content="
+{% include docs/notice.html content="
   <h4>Warning</h4>
   <p>Don't use JavaScript's <code>eval()</code> function to parse values from text into code, if you can help it. It can create massive security loopholes. If all you need is a way to safely parse strings into standard JavaScript data types like strings, numbers, arrays, object literals etc., you can simply use the <code>evaluate()</code> method from the <code>DataTypeParser</code> service that you can also import from this library.</p>
 " %}

@@ -102,7 +102,7 @@ import { DynamicHooksModule, DynamicHooksInheritance } from 'ngx-dynamic-hooks';
 export class LazilyLoadedChildModule {}
 ```
 
-{% include docs/widgets/notice.html content="
+{% include docs/notice.html content="
   <h4>Warning</h4>
   <p>Do not use or set the <code>lazyInheritance</code> option to anything other than <code>All</code> in eagerly-loaded modules. The other options will not work as Angular near-seamlessly merges eager modules with the root module and using it will almost certainly result in unexpected behaviour.</p>
 " %}
@@ -135,7 +135,7 @@ The full <a href="https://github.com/angular-dynamic-hooks/ngx-dynamic-hooks/blo
 
 That's all there is to it! `LazyComponent` will now automatically be lazy-loaded if `<app-lazy>...</app-lazy>` is found in the content string.
 
-{% include docs/widgets/notice.html content="
+{% include docs/notice.html content="
   <h4>Note</h4>
   <p><code>importPromise</code> must contain a function returning the import-promise, not the import-promise itself! Otherwise the promise would be executed right where it is defined, which defeats the point of lazy-loading.</p>
 " %}

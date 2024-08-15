@@ -10,6 +10,14 @@ Angular Dynamic Hooks can be used in standalone mode, allowing you to load Angul
 
 This is ideal for mounting Angular components as "frontend widgets" onto HTML that can come from anywhere, such as a CMS like Wordpress, a dedicated backend framework like Laravel or even just static HTML pages.
 
+
+
+{% include docs/notice.html content='
+  <h4>Fun fact</h4>
+  <p>You are seeing standalone mode in action right now! Though this documentation consists only of static HTML files, all interactive elements are actually Angular components! Like this one:</p>  
+  <app-example message="This is an Angular component!"></app-example>
+' %}
+
 ## Getting started
 
 To use standalone mode, simply import the `parseHooks` function from the library and call it with the content, parsers etc. you need. It is the equivalent of [DynamicHooksService.parse]({{ "documentation/how-to-use#programmatic-usage-with-service" | relative_url }}), just outside of Angular.  The full signature looks like this:
@@ -83,7 +91,7 @@ const parentScope = createProviders([...]);
 const childScope = createProviders([...], parentScope);
 ```
 
-{% include docs/widgets/notice.html content='
+{% include docs/notice.html content='
   <p><b>Tip</b>: If your service is decorated with <a href="https://angular.dev/guide/di/creating-injectable-service#creating-an-injectable-service" target="_blank"><code>@Injectable(providedIn: "root")</code></a>, you do not even need a scope and the services will be shared naturally.</p>  
 ' %}
 
@@ -119,7 +127,7 @@ Then call `ng build` to build the finished JS files!
   image="{{ "/assets/images/stackblitz/standalone_cli.jpg" | relative_url }}"
 ></app-stackblitz>
 
-{% include docs/widgets/notice.html content='
+{% include docs/notice.html content='
   <h4>Bundled or separate file?</h4>
   <p>If you have unrelated TS/JS code that should be bundled along with <code>parseHooks</code>, you could simply point <code>ng build</code> to a common entry point file (like <code>main.ts</code>).</p>
   <p>Alternatively, you could compile the <code>parseHooks</code> call separately into its own file and then include that file independently in the browser (via a script tag or otherwise) when you want to load the Angular components - a bit like Angular Elements.</p>

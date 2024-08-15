@@ -45,8 +45,7 @@
 
   <div class="footer-bottom">
     <div class="footer-wrapper">
-      <span class="copyright-title">Copyright (c) <span class="copyright-date"></span> <a href="https://github.com/MTobisch" target="_blank">Marvin Tobisch</a></span>
-      <span class="copyright-desc"><span class="copyright-desc-span">Both the library and the documentation use the </span><a href="https://github.com/angular-dynamic-hooks/ngx-dynamic-hooks/blob/master/LICENSE.md" target="_blank">MIT License</a></span>
+      <app-copyright></app-copyright>
     </div>
   </div>
 </footer>
@@ -54,11 +53,19 @@
 <script>
   window.baseUrl = "{{ '' | relative_url }}"
 </script>
-  
+
 {% for file in site.static_files %}
-  {% if file.path contains "/assets/build/" and file.path contains ".js" %}
+  {% if file.path contains "/assets/build/" and file.path contains "polyfills" and file.path contains ".js" %}
     {% unless file.path contains ".map"%}
-      <script src="{{ file.path | relative_url }}"></script>
+      <script type="module" src="{{ file.path | relative_url }}"></script>
+    {% endunless %}
+  {% endif %}
+{% endfor %}
+
+{% for file in site.static_files %}
+  {% if file.path contains "/assets/build/" and file.path contains "main" and file.path contains ".js" %}
+    {% unless file.path contains ".map"%}
+      <script type="module" src="{{ file.path | relative_url }}"></script>
     {% endunless %}
   {% endif %}
 {% endfor %}

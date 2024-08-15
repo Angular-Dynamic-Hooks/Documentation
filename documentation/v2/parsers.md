@@ -109,7 +109,7 @@ Both `inputs` and `outputs` must contain an object where each key is the name of
 
 How you determine the values for the component bindings is - again - completely up to you. You could for example have a look at the <a href="https://github.com/angular-dynamic-hooks/ngx-dynamic-hooks/blob/9b31ba5872a057c33a5464f638ac234fd6144963/projects/ngx-dynamic-hooks/src/lib/interfacesPublic.ts#L106" target="_blank">`HookValue`</a> and read them from the hook itself (like property bindings in selector hooks, e.g. `[input]="'Hello!'`"). You could of course also just pass static values into the component.
 
-{% include docs/widgets/notice.html content="
+{% include docs/notice.html content="
   <h4>Warning</h4>
   <p>Don't use JavaScript's <code>eval()</code> function to parse values from text into code, if you can help it. It can create massive security loopholes. If all you need is a way to safely parse strings into standard JavaScript data types like strings, numbers, arrays, object literals etc., you can simply use the <code>evaluate()</code> method from the <a href='https://github.com/angular-dynamic-hooks/ngx-dynamic-hooks/blob/9b31ba5872a057c33a5464f638ac234fd6144963/projects/ngx-dynamic-hooks/src/lib/utils/dataTypeParser.ts' target='_blank'><code>DataTypeParser</code></a> service that you can also import from this library.</p>
 " %}

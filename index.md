@@ -136,7 +136,6 @@ highlights:
           <span class="l-snippet-image-bottom-comp">Component</span>
           <span class="l-snippet-image-dots">...</span>
         </div>
-
       </div>
       <div class="l-snippet-text">
         <p class="l-snippet-line">What if you wanted to load components not just from static templates, but from <b>dynamic content</b> - such as string variables, HTML elements or even the whole browser DOM?</p>

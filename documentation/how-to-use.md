@@ -32,7 +32,7 @@ export class AppComponent {
 <ngx-dynamic-hooks [content]="content" [parsers]="parsers"></ngx-dynamic-hooks>
 ```
 
-{% include docs/widgets/notice.html content='
+{% include docs/notice.html content='
   <span>This example uses a string as the content, but you can always also use an actual HTML element. The hooks/components will be loaded in the same way.</span>
 ' %}
 
@@ -111,7 +111,7 @@ See it in action in this Stackblitz:
   image="{{ "/assets/images/stackblitz/global_settings.jpg" | relative_url }}"
 ></app-stackblitz>
 
-{% include docs/widgets/notice.html content='
+{% include docs/notice.html content='
   <span>If you are using modules, you can put the call to "provideDynamicHooks" into the "providers" decorator field of your module instead.</span>
 ' %}
 
@@ -232,7 +232,7 @@ See it in action in this Stackblitz:
   image="{{ "/assets/images/stackblitz/service.jpg" | relative_url }}"
 ></app-stackblitz>
 
-{% include docs/widgets/notice.html content="
+{% include docs/notice.html content="
   <h4>About component lifecycles</h4>
   <p>When loading components this way, keep in mind that the submitted content is only parsed once. The inputs of contained components aren't automatically updated.</p>
   <p>Also, make sure to properly destroy the created components when they are no longer needed to prevent memory leaks. You can simply use <code>ParseResult.destroy()</code> or <code>DynamicHooksService.destroy(hookIndex: HookIndex)</code> for this purpose.</p>

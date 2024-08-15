@@ -1,0 +1,22 @@
+<div class="version-select">
+  <div class='version-select-container'>
+
+    <div class='version-select-display' (click)="toggleDropdown()">
+      <span class="version-select-display-label">Version</span>
+      <span class="version-select-display-version">{{ currentVersion }}.x</span>
+      <img class="version-select-display-arrow" [src]="infoService.baseUrl + '/assets/images/narrow_arrow_down.png'">
+    </div>
+
+    <div #dropdownContainer class='version-select-dropdown-container' [ngClass]="{open: dropdownIsOpen}">
+      <div #dropdown class='version-select-dropdown'>
+        @for (version of allVersions; track $index) {
+          <span class='version-select-dropdown-entry' 
+            [ngClass]="{current: version === currentVersion}"
+            (click)="onVersionSelect(version)"
+          >Version {{ version }}.x</span>
+        }
+      </div>
+    </div>
+
+  </div>
+</div>

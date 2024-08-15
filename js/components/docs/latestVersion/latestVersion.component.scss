@@ -1,0 +1,28 @@
+:host {
+    display: block;
+    width: 100%;
+}
+
+.npmversion {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 8px 0px;
+    box-sizing: border-box;
+    text-decoration: none !important;
+  }
+  :root[data-theme=dark] .npmversion {
+    background-color: #202228;
+  }
+  .npmversion:hover {
+    filter: brightness(1.1);
+  }
+
+    .npmversion-label {
+      margin: 0px 8px 0px 0px;
+      color: grey !important;
+    }
+
+    .npmversion-text {
+      font-weight: bold;          
+    }

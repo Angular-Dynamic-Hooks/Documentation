@@ -1,0 +1,31 @@
+@import "../../../css/vars.scss";
+
+:host {
+    display: block;
+    width: 100%;
+}
+
+.copyright {
+    display: flex;
+    justify-content: space-between;
+}
+
+    .copyright-title {
+
+    }
+
+        .copyright-date {
+            margin: 0px 10px 0px 0px;
+        }
+
+    .copyright-desc {
+
+    }
+
+    .copyright-desc-span {
+        display: none;
+
+        @include minMd() {
+        display: inline;
+        }
+    }

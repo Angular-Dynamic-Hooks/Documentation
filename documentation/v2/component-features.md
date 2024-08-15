@@ -36,7 +36,7 @@ The context object is typically a simple object literal that provides some value
 
 ![Communication flow](https://i.imgur.com/K63SQGU.jpg)
 
-{% include docs/widgets/notice.html content="
+{% include docs/notice.html content="
   <h4>About using code</h4>
   <p>Please note that the context object is the <b>only</b> piece of live code that can accessed directly within the content string. No variables or functions, global or otherwise, can be used besides it. This is an intentional security measure.</p>
 " %}

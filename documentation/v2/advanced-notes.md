@@ -51,7 +51,7 @@ class SomeComponentOrService {
   }
 ```
 
-{% include docs/widgets/notice.html content="
+{% include docs/notice.html content="
   <h4>About component lifecycles</h4>
   <p>When loading components this way, keep in mind that the submitted content string is only parsed once. The inputs of contained components aren't automatically updated as they would be when using the component normally.</p>
   <p>Also, make sure to properly destroy the created components when they are no longer needed to prevent memory leaks. You can simply use <a href='https://github.com/angular-dynamic-hooks/ngx-dynamic-hooks/blob/9b31ba5872a057c33a5464f638ac234fd6144963/projects/ngx-dynamic-hooks/src/lib/components/outlet/services/outletService.ts#L119' target='_blank'><code>OutletService.destroy(hookIndex: HookIndex)</code></a> for this purpose.</p>

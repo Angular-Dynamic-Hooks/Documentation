@@ -1,3 +1,7 @@
+/*
+
+DEPRECATED: Using Angular components loaded via Angular Dynamic Hooks now
+
 export interface Widget {
   onMount: (hostElement: Element, data: {[key: string]: any}, controller: WidgetController<any>) => void;
 }
@@ -67,7 +71,7 @@ export function bootstrapWidgets<T extends WidgetConstructor> (container: Elemen
  * @param {*} element - The element to search
  * @param {string} selector - A selector to use for querying and finding the widget anchors
  * @return {Array} - An array of objects, each consisting of the widget anchor as well as its parsed data attributes
- */
+ *
 function findWidgetAnchorsAndData(container: Element, selector: string): {anchor: Element, data: any}[] {
     const result: {anchor: Element, data: any}[] = [];
 
@@ -105,3 +109,4 @@ function processDataAttrs(data: DOMStringMap) {
 
     return result;
 }
+*/

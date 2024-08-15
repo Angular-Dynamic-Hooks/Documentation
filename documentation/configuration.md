@@ -140,7 +140,7 @@ That's all there is to it! `LazyComponent` will now be lazily-loaded if `<app-la
 
 **Tip:** It you are using a custom parser, you can pass your `LazyLoadComponentConfig` in the `HookComponentData` returned by `loadComponent()` instead.
 
-{% include docs/widgets/notice.html content="
+{% include docs/notice.html content="
   <p>Note that <code>importPromise</code> must contain a function returning the import-promise, not the import-promise itself! Otherwise the promise would be executed right where it is defined, which defeats the point of lazy-loading.</p>
 " %}
 
