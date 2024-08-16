@@ -10,8 +10,6 @@ Angular Dynamic Hooks can be used in standalone mode, allowing you to load Angul
 
 This is ideal for mounting Angular components as "frontend widgets" onto HTML that can come from anywhere, such as a CMS like Wordpress, a dedicated backend framework like Laravel or even just static HTML pages.
 
-
-
 {% include docs/notice.html content='
   <h4>Fun fact</h4>
   <p>You are seeing standalone mode in action right now! Though this documentation consists only of static HTML files, all interactive elements are actually Angular components! Like this one:</p>  
@@ -20,10 +18,10 @@ This is ideal for mounting Angular components as "frontend widgets" onto HTML th
 
 ## Getting started
 
-To use standalone mode, simply import the `parseHooks` function from the library and call it with the content, parsers etc. you need. It is the equivalent of [DynamicHooksService.parse]({{ "documentation/how-to-use#programmatic-usage-with-service" | relative_url }}), just outside of Angular.  The full signature looks like this:
+To use standalone mode, simply import the <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/standalone.ts#L158" target="_blank">`parse`</a> function from the library and call it with the content, parsers etc. you need. It is the equivalent of [DynamicHooksService.parse]({{ "documentation/how-to-use#programmatic-usage-with-service" | relative_url }}), just outside of Angular.  The full signature looks like this:
 
 ```ts
-const parseHooks = async (
+const parse = async (
   content: any,
   parsers: HookParserEntry[],
   context: any = null,  
@@ -37,13 +35,13 @@ const parseHooks = async (
 At its most basic, you really only need to pass the **content** as well as a list of **parsers**. The [starter example from the How to use page]({{ "/documentation/how-to-use#starting-out" | relative_url }}) would then look like this in standalone mode:
 
 ```ts
-import { parseHooks } from 'ngx-dynamic-hooks';
+import { parse } from 'ngx-dynamic-hooks';
 import { ExampleComponent } from 'somewhere';
 
 const content = 'Load a component here: <app-example></app-example>';
 const parsers = [ExampleComponent];
 
-parseHooks(content, parsers).then(result => {
+parse(content, parsers).then(result => {
   // Do whatever
 });
 ```
@@ -51,14 +49,14 @@ parseHooks(content, parsers).then(result => {
 Often, you may want to parse the whole page for components. In such cases, you can simply pass `document.body` as content: 
 
 ```ts
-parseHooks(document.body, parsers)
+parse(document.body, parsers)
 ```
 
 Angular components will then be loaded into all hooks/selectors found anywhere in the browser. For a live example of standalone mode being used, see the Stackblitz embeds further below.
 
 ## Adding providers
 
-You can **optionally** specify a list of providers for the loaded components to use, just like in a normal Angular app. For this, import the `createProviders` function:
+You can **optionally** specify a list of providers for the loaded components to use, just like in a normal Angular app. For this, import the <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/standalone.ts#L50" target="_blank">`createProviders`</a> function:
 
 ```ts
 const createProviders = (
@@ -67,7 +65,7 @@ const createProviders = (
 ): ProvidersScope
 ```
 
-This will return a scope with its own internal `parseHooks` method that makes use of the specified providers. A simple example could look like this:
+This will return a scope with its own internal <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/standalone.ts#L158" target="_blank">`parse`</a> method that makes use of the specified providers. A simple example could look like this:
 
 ```ts 
 import { createProviders } from 'ngx-dynamic-hooks';
@@ -79,7 +77,7 @@ const scope = createProviders([
   // Other providers...
 ]);
 
-scope.parseHooks(document.body, [ExampleComponent]).then(result => {
+scope.parse(document.body, [ExampleComponent]).then(result => {
   // Do whatever
 });
 ```
@@ -129,8 +127,8 @@ Then call `ng build` to build the finished JS files!
 
 {% include docs/notice.html content='
   <h4>Bundled or separate file?</h4>
-  <p>If you have unrelated TS/JS code that should be bundled along with <code>parseHooks</code>, you could simply point <code>ng build</code> to a common entry point file (like <code>main.ts</code>).</p>
-  <p>Alternatively, you could compile the <code>parseHooks</code> call separately into its own file and then include that file independently in the browser (via a script tag or otherwise) when you want to load the Angular components - a bit like Angular Elements.</p>
+  <p>If you have unrelated TS/JS code that should be bundled as well, you could simply point <code>ng build</code> to a common entry point file (like <code>main.ts</code>).</p>
+  <p>Alternatively, you could compile the standalone mode logic with the Angular components separately into their own file and then include that file independently in the browser (via a script tag or otherwise) when you want to load the Angular components - a bit like Angular Elements.</p>
 ' %}
 
 ### b) Build with Webpack
@@ -157,24 +155,24 @@ That said, the rest of the code can be identical as when using the CLI. Here is 
 
 It is often a good idea to automatically parse the content again when some of its elements change, so the corresponding components are loaded immediately.
 
-For this purpose, you can use the `observeElement` function. It automatically picks up on DOM changes and runs a callback function whenever new elements are added to your content. Here is a simple usage example:
+For this purpose, you can use the <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/standaloneHelper.ts#L11" target="_blank">`observeElement`</a> function. It automatically picks up on DOM changes and runs a callback function whenever new elements are added to your content. Here is a simple usage example:
 
 ```ts
-import { parseHooks, observeElement } from 'ngx-dynamic-hooks';
+import { parse, observeElement } from 'ngx-dynamic-hooks';
 ...
 
 observeElement(document.body, element => {
-  parseHooks(element, parsers);
+  parse(element, parsers);
 });
 ```
 
 ### Trigger from other scripts
 
-If you want to trigger `parseHooks` manually, but need to do so from another script, using custom browser events for communication is a good solution. For example, add the following to your `parseHooks` script:
+If you want to trigger <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/standalone.ts#L158" target="_blank">`parse`</a> manually, but need to do so from another script, using custom browser events for communication is a good solution. For example, add the following to your <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/standalone.ts#L158" target="_blank">`parse`</a> script:
 
 ```ts
   document.addEventListener('parseHooks', event => {
-    parseHooks((event as CustomEvent).detail, parsers)
+    parse((event as CustomEvent).detail, parsers)
   });
 ```
 
@@ -190,7 +188,7 @@ In Angular, services are only constructed when they are requested by a component
 
 This can be a problem if you have a service that takes care of some global tasks and should always work.
 
-To prevent this from happening, you can use the `APP_INITIALIZER` token provided by Angular. Simply "subscribe" to the the `APP_INITIALIZER` token in the providers given to `createProviders()` and your service will always be constructed when calling `scope.parseHooks`, irrespective if it finds anything.
+To prevent this from happening, you can use the `APP_INITIALIZER` token provided by Angular. Simply "subscribe" to the the `APP_INITIALIZER` token in the providers given to <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/standalone.ts#L50" target="_blank">`createProviders`</a> and your service will always be constructed when calling `scope.parse`, irrespective if it finds anything.
 
 ```ts
   import { APP_INITIALIZER } from '@angular/core';

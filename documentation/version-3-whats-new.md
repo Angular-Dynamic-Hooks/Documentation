@@ -15,15 +15,15 @@ Version 3 marks a significant overhaul and modernization of the Angular Dynamic 
 
 The whole library was converted to the more modern standalone component structure. As such, there is no more `DynamicHooksModule`.
 
-Instead, you can now use `provideDynamicHooks()` to register the global settings in your app's root providers and import the `DynamicHooksComponent` (`<ngx-dynamic-hooks>`) in the components/modules [where you need it]({{ "documentation/quickstart" | relative_url }})).
+Instead, you can now use [provideDynamicHooks]({{ "/documentation/how-to-use#global-settings" | relative_url }}) to register the global settings in your app's root providers and import the <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/components/dynamicHooksComponent.ts" target="_blank">`DynamicHooksComponent`</a> (`<ngx-dynamic-hooks>`) [where you need it]({{ "documentation/quickstart" | relative_url }}).
 
 ### Less boilerplate
 
-With version 3, configuring global settings/providers has become optional. So you don't need to use `provideDynamicHooks` at all. You can directly import the `DynamicHooksComponent` and start using the library.
+With version 3, configuring global settings/providers has become optional. So you don't need to use <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/dynamicHooksProviders.ts" target="_blank"><a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/dynamicHooksProviders.ts" target="_blank">`provideDynamicHooks`</a></a> at all. You can directly import the <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/components/dynamicHooksComponent.ts" target="_blank">`DynamicHooksComponent`</a> and start using the library.
 
 In addition, you can now simply use the component classes themselves to set up a standard parser for them (see the [Quickstart example]({{ "documentation/quickstart" | relative_url }})).
 
-**Tip:** You can do the same thing with `provideDynamicHooks`. Just give it an array of component classes like `provideDynamicHooks([MyComponent])` and the library will globally look for `MyComponent` in any submitted content.
+**Tip:** You can do the same thing with <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/dynamicHooksProviders.ts" target="_blank">`provideDynamicHooks`</a>. Just give it an array of component classes like `provideDynamicHooks([MyComponent])` and the library will globally look for `MyComponent` in any submitted content.
 
 ### SSR-Compatibility
 
@@ -53,9 +53,9 @@ In case you just need to load a single dynamic component in your template, a new
 
 As the library has transitioned to standalone components, trying to use `DynamicHooksModule.forRoot()` will throw an error. 
 
-Instead, use the new `provideDynamicHooks()` function to create the global settings. Note that creating global settings is itself now completely optional.
+Instead, use the new <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/dynamicHooksProviders.ts" target="_blank">`provideDynamicHooks`</a> function to create the global settings. Note that creating global settings is itself now completely optional.
 
-The properties of the settings object to pass to `provideDynamicHooks()` have also been simplified and now look like this:
+The properties of the settings object to pass to <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/dynamicHooksProviders.ts" target="_blank">`provideDynamicHooks`</a> have also been simplified and now look like this:
 
 ```ts
 interface DynamicHooksSettings {
@@ -67,11 +67,11 @@ interface DynamicHooksSettings {
 
 ### DynamicHooksComponent
 
-If you want to use `<ngx-dynamic-hooks>` in your templates, you will now have to import the `DynamicHooksComponent`. Simply put it into the `imports` field of the component/module that needs it.
+If you want to use `<ngx-dynamic-hooks>` in your templates, you will now have to import the <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/components/dynamicHooksComponent.ts" target="_blank">`DynamicHooksComponent`</a>. Simply put it into the `imports` field of the component/module that needs it.
 
 ### Child modules
 
-If you were previously using `DynamicHooksModule.forChild()`, you can now simply call `provideDynamicHooks()` again in your child providers to register the child settings. You can do this as deeply nested as you want.
+If you were previously using `DynamicHooksModule.forChild()`, you can now simply call <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/dynamicHooksProviders.ts" target="_blank">`provideDynamicHooks`</a> again in your child providers to register the child settings. You can do this as deeply nested as you want.
 
 Also, note that `DynamicHooksInheritance.LINEAR` is now the default option (instead of `ALL`) as its more in line with angular's default behaviour.
 
@@ -79,10 +79,10 @@ Also, note that `DynamicHooksInheritance.LINEAR` is now the default option (inst
 
 Several classes, interfaces, methods etc. were renamed to better reflect their new roles. 
 
-- `OutletComponent` is now `DynamicHooksComponent`
-- `OutletService` is now `DynamicHooksService`. Also, the order of the parameters for the `parse` method [has changed]({{ "documentation/how-to-use#programmatic-usage-with-service" | relative_url }}).
-- `OutletParseResult` is now `ParseResult` and returns more properties
-- `OutletOptions` is now `ParseOptions`
+- `OutletComponent` is now <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/components/dynamicHooksComponent.ts" target="_blank">`DynamicHooksComponent`</a>
+- `OutletService` is now <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/services/dynamicHooksService.ts" target="_blank">`DynamicHooksService`</a>. Also, the order of the parameters for the `parse` method [has changed]({{ "documentation/how-to-use#programmatic-usage-with-service" | relative_url }}).
+- `OutletParseResult` is now <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/interfacesPublic.ts#L224" target="_blank">`ParseResult`</a> and returns more properties
+- `OutletOptions` is now <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/services/settings/options.ts" target="_blank">`ParseOptions`</a>
 - `HookFinder.findStandaloneHooks` is now `HookFinder.findSingletagHooks`. You can now also just use `HookFinder.find` for both singletag or enclosing hooks.
 
 ## Minor changes

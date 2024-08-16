@@ -5,13 +5,13 @@
 
 ### **Some of my elements/attributes are not rendering!**
 
-This might be due to sanitization. This library uses Angular's native `DomSanitizer` to remove potentially malicious code like `<script>`-tags from the content. To ensure maximum security, the sanitizer is fairly aggressive and will also remove seemingly harmless elements, like `<input>` or attributes like `id`.
+This might be due to sanitization. This library uses Angular's native <a href="https://angular.dev/api/platform-browser/DomSanitizer" target="_blank">DOMSanitizer</a> to remove potentially malicious code like `<script>`-tags from the content. To ensure maximum security, the sanitizer is fairly aggressive and will also remove seemingly harmless elements, like `<input>` or attributes like `id`.
 
 You can turn off sanitization at any time through the [ParseOptions]({{ "documentation/configuration#parseoptions" | relative_url }}). Note that you will then have to ensure that the content is safe to render yourself!
 
 ### **Error: `ngx-dynamic-hooks` is not a known element**
 
-It might be that you have not imported the `DynamicHooksComponent` into the `imports` field of either your component (if using standalone components) or module.
+It might be that you have not imported the <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/components/dynamicHooksComponent.ts" target="_blank">`DynamicHooksComponent`</a> into the `imports` field of either your component (if using standalone components) or module.
 
 ### **Error: Data type for following input was not recognized and could not be parsed**
 
@@ -31,6 +31,6 @@ It is important to remember that `getBindings()` on hook parsers is called anyti
 
 You can avoid that by storing and reusing the previous references if they haven't changed. 
 
-If you need a way to tell if the bindings are deeply identical by value for this, you can import the `Deep Comparer` service from this library and use the `isEqual()` method (or alternatively use Underscore's <a href="https://underscorejs.org/#isEqual" target="_blank">isEqual()</a> or Lodash's <a href="https://lodash.com/docs/#isEqual" target="_blank">isEqual()</a>.
+If you need a way to tell if the bindings are deeply identical by value for this, you can import the <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/services/utils/deepComparer.ts" target="_blank">`DeepComparer`</a> service from this library and use the `isEqual()` method (or alternatively use Underscore's <a href="https://underscorejs.org/#isEqual" target="_blank">isEqual()</a> or Lodash's <a href="https://lodash.com/docs/#isEqual" target="_blank">isEqual()</a>.
 
 If you don't want to bother with any of that, you can also simply set the `compareInputsByValue`/`compareOutputsByValue`-options in [ParseOptions]({{ "documentation/configuration#parseoptions" | relative_url }}) to true, which does this automatically, though it will then apply to all active parsers.

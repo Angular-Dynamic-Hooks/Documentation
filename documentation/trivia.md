@@ -20,19 +20,19 @@ If you are curious about the inner workings of the library, here's a general des
 4. For each found hook, the `loadComponent()`-method of its parser is called to get the component class. With it, the components are loaded into the marked anchor elements via Angular's `createComponent()`.
 5. For each created component, the `getBindings()`-method of its parser is called and the returned inputs/outputs passed to and subscribed with the component.
 6. On future update requests (by default, on every change detection run), `getBindings()` is called again to see if it returns different values than before. If so, the components will be updated accordingly.
-7. When the `DynamicHooksComponent` is destroyed, all dynamically-loaded components are destroyed as well.
+7. When the <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/components/dynamicHooksComponent.ts" target="_blank">`DynamicHooksComponent`</a> is destroyed, all dynamically-loaded components are destroyed as well.
 
 ## Security
 
 One of the goals of this library was to make it **safe to use even with potentially unsafe input**, such as user-generated content. It also allows developers easy control over which components can load and how. It uses the following techniques to achieve this:
 
-Most notably, it uses Angular's `DOMSanitizer` by default to remove all unsafe HTML, CSS and JS in the content. If you want, you may turn this setting off in the [ParseOptions]({{ "documentation/configuration#parseoptions" | relative_url }}). You will then have to ensure yourself that the rendered content does not include <a href="https://en.wikipedia.org/wiki/Cross-site_scripting" target="_blank">Cross Site Scripting attacks (XSS)</a> or other malicious code, however.
+Most notably, it uses Angular's <a href="https://angular.dev/api/platform-browser/DomSanitizer" target="_blank">DOMSanitizer</a> by default to remove all unsafe HTML, CSS and JS in the content. If you want, you may turn this setting off in the [ParseOptions]({{ "documentation/configuration#parseoptions" | relative_url }}). You will then have to ensure yourself that the rendered content does not include <a href="https://en.wikipedia.org/wiki/Cross-site_scripting" target="_blank">Cross Site Scripting attacks (XSS)</a> or other malicious code, however.
 
 To prevent attack vectors through component bindings like inputs, the standard `SelectorHookParser` that comes with this library does not rely on JavaScript's dangerous `eval()` function to evaluate them and instead internally uses `JSON.parse()` to safely turn strings into variables. Ensure that when writing custom parsers for hooks that take their inputs/outputs directly from untrusted content, similar security precautions are taken!
 
 In addition, the scope of code that is accessible to the (perhaps also untrusted) author of the content is limited by the [context object]({{ "documentation/component-features" | relative_url }}), which you can customize to your liking. 
 
-Finally, which components/hooks can be used by the author can be [freely adjusted]({{ "documentation/configuration#dynamichookscomponent" | relative_url }}) for each `DynamicHooksComponent`, as can their allowed inputs/outputs.
+Finally, which components/hooks can be used by the author can be [freely adjusted]({{ "documentation/configuration#dynamichookscomponent" | relative_url }}) for each <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/components/dynamicHooksComponent.ts" target="_blank">`DynamicHooksComponent`</a>, as can their allowed inputs/outputs.
 
 ## Caveats
 

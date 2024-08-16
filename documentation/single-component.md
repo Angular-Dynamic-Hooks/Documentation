@@ -6,9 +6,9 @@
   <h1 class="page-title-text">Single component</h1>
 </div>
 
-While you can always load just one component with the `DynamicHooksComponent`, sometimes that can feel a bit verbose and it would be more convenient to have a dedicated tool for the job.
+While you can always load just one component via the <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/components/dynamicHooksComponent.ts" target="_blank">`DynamicHooksComponent`</a>, sometimes that can feel a bit verbose and it would be more convenient to have a dedicated tool for the job.
 
-For that purpose, you can simply use the `DynamicSingleComponent`. It loads a single dynamic component with inputs/outputs whereever you need it.
+For that purpose, you can simply use the <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/components/dynamicSingleComponent.ts" target="_blank">`DynamicSingleComponent`</a>. It loads a single dynamic component with inputs/outputs whereever you need it.
 
 ```html
 <ngx-dynamic-single
@@ -27,9 +27,9 @@ Input name | Type | Description
 `component` | Any component class | The component class to load.
 `inputs` | Object literal | An object literal where the keys are the input names and the values are their values.
 `outputs` | Object literal | An object literal where the keys are the output names and the values are functions that will be called when they emit.
-`options` | `DynamicHooksSingleOptions` | A couple of options to modify how the component works.
+`options` | <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/components/dynamicSingleComponent.ts#L10" target="_blank">`DynamicHooksSingleOptions`</a> | A couple of options to modify how the component works.
 
-A `DynamicHooksSingleOptions` object is just an abbreviated version of a [ParseOptions]({{ "documentation/configuration#parseoptions" | relative_url }}) object and works the same:
+A <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/components/dynamicSingleComponent.ts#L10" target="_blank">`DynamicHooksSingleOptions`</a> object is just an abbreviated version of a [ParseOptions]({{ "documentation/configuration#parseoptions" | relative_url }}) object and works the same:
 
 ```ts
 interface DynamicHooksSingleOptions {
@@ -50,4 +50,4 @@ Input name | Type | Description
 --- | --- | ---
 `componentLoaded` | `EventEmitter<ComponentRef>` | Will emit the `ComponentRef` when the component has loaded
 
-The `DynamicSingleComponent` will automatically reload the internal component whenever the `component`-input changes and keep updating it if any other input changes.
+The <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/components/dynamicSingleComponent.ts" target="_blank">`DynamicSingleComponent`</a> will automatically reload the internal component whenever the `component`-input changes and keep updating it if any other input changes.

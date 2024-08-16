@@ -6,11 +6,11 @@
   <h1 class="page-title-text">How to use</h1>
 </div>
 
-There are two ways to use the library in Angular: In a template via the `DynamicHooksComponent` or programmatically via the `DynamicHooksService`.
+There are two ways to use the library in Angular: In a template via the [DynamicHooksComponent]({{ "documentation/configuration#dynamichookscomponent" | relative_url }}) or programmatically via the [DynamicHooksService]({{ "documentation/how-to-use#programmatic-usage-with-service" | relative_url }}).
 
 ## Starting out
 
-In the [Quickstart example]({{ 'documentation/quickstart' | relative_url }}), we have already seen how to use the component in a minimal way. Just import the `DynamicHooksComponent` where you need it and pass in your content as well as the components to look for:
+In the [Quickstart example]({{ 'documentation/quickstart' | relative_url }}), we have already seen how to use the component in a minimal way. Just import the <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/components/dynamicHooksComponent.ts" target="_blank">`DynamicHooksComponent`</a> where you need it and pass in your content as well as the components to look for:
 
 
 ```ts
@@ -38,7 +38,7 @@ export class AppComponent {
 
 ## Context and options
 
-There are several more inputs for the `DynamicHooksComponent`, most notably **context** to pass data to the loaded components and **options** to configure how the content should be parsed. 
+There are several more inputs for the <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/components/dynamicHooksComponent.ts" target="_blank">`DynamicHooksComponent`</a>, most notably **context** to pass data to the loaded components and **options** to configure how the content should be parsed. 
 
 ```ts
 @Component({
@@ -75,9 +75,9 @@ See it in action in this Stackblitz:
 
 ## Global settings
 
-If you use `DynamicHooksComponent` more than once, it can become tedious to manually pass along the desired parsers and options every time.
+If you use <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/components/dynamicHooksComponent.ts" target="_blank">`DynamicHooksComponent`</a> more than once, it can become tedious to manually pass along the desired parsers and options every time.
 
-Instead, you can also register them [globally]({{ "documentation/configuration#global-settings" | relative_url }}) in your app providers:
+Instead, you can also register them [globally]({{ "documentation/configuration#global-settings" | relative_url }}) in your app providers with <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/dynamicHooksProviders.ts" target="_blank">`provideDynamicHooks`</a>:
 
 ```ts
 import { ApplicationConfig } from '@angular/core';
@@ -97,7 +97,7 @@ export const appConfig: ApplicationConfig = {
 };
 ```
 
-Every `DynamicHookComponent` will then use them by default (unless locally overwritten). Now we can pass just the `content`-input:
+Every <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/components/dynamicHooksComponent.ts" target="_blank">`DynamicHooksComponent`</a> will then use them by default (unless locally overwritten). Now we can pass just the `content`-input:
 
 ```html
 <ngx-dynamic-hooks [content]="content"></ngx-dynamic-hooks>
@@ -115,7 +115,7 @@ See it in action in this Stackblitz:
   <span>If you are using modules, you can put the call to "provideDynamicHooks" into the "providers" decorator field of your module instead.</span>
 ' %}
 
-You can also call `provideDynamicHooks` again in the providers fields of child injectors, such as in lazily-loaded routes. These [child settings]({{ "documentation/configuration#child-settings" | relative_url }}) will automatically inherit the root settings according to the Angular injector hierarchy.
+You can also call <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/dynamicHooksProviders.ts" target="_blank">`provideDynamicHooks`</a> again in the providers fields of child injectors, such as in lazily-loaded routes. These [child settings]({{ "documentation/configuration#child-settings" | relative_url }}) will automatically inherit the root settings according to the Angular injector hierarchy.
 
 ## Load by any selector
 
@@ -147,7 +147,7 @@ export class AppComponent {
 }
 ```
 
-As you can see, we replaced the `ExampleComponent` class in the parsers array with a more explicit configuration object that specifies a `selector`. This is a `SelectorHookParserConfig` and it offers several options to customize how a component is parsed from the content (see the [SelectorHookParserConfig]({{ "documentation/parsers#selectorhookparserconfig" | relative_url }}) section for the full list).
+As you can see, we replaced the `ExampleComponent` class in the parsers array with a more explicit configuration object that specifies a `selector`. This is a [SelectorHookParserConfig]({{ "documentation/parsers#selectorhookparserconfig" | relative_url }}) and it offers several options to customize how a component is parsed from the content.
 
 See it in action in this Stackblitz:
 
@@ -159,15 +159,15 @@ See it in action in this Stackblitz:
 
 ## Custom parsers
 
-If you need even more flexiblity (such as replacing pure text with components), you can consider implement your own `HookParser`!
+If you need even more flexiblity (such as replacing pure text with components), you can consider implement your own <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/interfacesPublic.ts#L51" target="_blank">`HookParser`</a>!
 
-A `HookParser` is quite simple and just needs three methods: One that tells the library how to find the hooks, one that returns the component class and one that returns the input/output values.
+A <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/interfacesPublic.ts#L51" target="_blank">`HookParser`</a> is quite simple and just needs three methods: One that tells the library how to find the hooks, one that returns the component class and one that returns the input/output values.
 
 For a full guide with stackblitz examples, see the [Writing your own HookParser](http://localhost:4000/ngx-dynamic-hooks/documentation/parsers#writing-your-own-hookparser) section.
 
 ## Programmatic usage (with service)
 
-You can also parse dynamic content directly in Typescript by injecting the `DynamicHooksService` and calling its `parse`-method programmatically.
+You can also parse dynamic content directly in Typescript by injecting the <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/services/dynamicHooksService.ts" target="_blank">`DynamicHooksService`</a> and calling its `parse`-method programmatically.
 
 ```ts
   parse(
@@ -184,11 +184,11 @@ You can also parse dynamic content directly in Typescript by injecting the `Dyna
   ): Observable<ParseResult>
 ```
 
-This looks complicated, but most of the parameters are actually just [the inputs]({{ "documentation/configuration#dynamichookscomponent" | relative_url }}) for the `DynamicHooksComponent` component and therefore optional. You really only need to pass the `content` as you would with the component. 
+This looks complicated, but most of the parameters are actually just [the inputs]({{ "documentation/configuration#dynamichookscomponent" | relative_url }}) for the <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/components/dynamicHooksComponent.ts" target="_blank">`DynamicHooksComponent`</a> component and therefore optional. You really only need to pass the `content` as you would with the component. 
 
 Only some parameters are notable: You can optionally provide a `targetElement` and `targetHookIndex` to fill out for the result. If not, they are automatically created for you. You may also specify custom injectors for the created components. If you don't, the library defaults to the current ones.
 
-The function will return an `ParseResult` observable:
+The function will return an <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/interfacesPublic.ts#L224" target="_blank">`ParseResult`</a> observable:
 
 ```ts
 interface ParseResult {
@@ -202,7 +202,7 @@ interface ParseResult {
     destroy: () => void;                          // Destroys all loaded components of this result
 }
 ```
-`element` is probably the most interesting part here as it contains the finished content with all loaded component elements. `hookIndex` might also prove useful, as it is a fairly in-depth data object that holds various tidbits of info concerning the loaded components (as well as the componentRefs). 
+`element` is probably the most interesting part here as it contains the finished content with all loaded component elements. <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/interfacesPublic.ts#L12" target="_blank">`hookIndex`</a> might also prove useful, as it is a fairly in-depth data object that holds various tidbits of info concerning the loaded components (as well as the componentRefs). 
 
 Calling this function could then look like so:
 

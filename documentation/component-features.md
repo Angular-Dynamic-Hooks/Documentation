@@ -19,13 +19,13 @@ The first works just like in any other component. Simply <a href="https://angula
 
 However, this approach may seem like overkill at times, when you just want to pass in a variable from the parent component into the dynamically-loaded component, perhaps as an input. This is where the **context object** comes into play.
 
-The context object acts as a bridge between the parent component using the `DynamicHooksComponent` and all dynamically loaded components within. Imagine a context object like:
+The context object acts as a bridge between the parent component using the <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/components/dynamicHooksComponent.ts" target="_blank">`DynamicHooksComponent`</a> and all dynamically loaded components within. Imagine a context object like:
 
 ```ts
 const contextObj = {name: 'Kenobi'};
 ```
 
-You can provide it to the `DynamicHooksComponent` as an optional input:
+You can provide it to the <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/components/dynamicHooksComponent.ts" target="_blank">`DynamicHooksComponent`</a> as an optional input:
 
 ```html
 <ngx-dynamic-hooks [content]="..." [context]="contextObj"></ngx-dynamic-hooks>
@@ -107,8 +107,8 @@ There are two small caveats, however:
 
 All of Angular's lifecycle methods work normally in dynamically-loaded components. In addition, this library introduces two new lifecycle methods that you can optionally implement: 
 
-* `OnDynamicMount`: Is called once as soon as **all** dynamic components have rendered (including lazy-loaded ones). It is given an `OnDynamicData`-object as its parameter, containing the context object as well as the content children of the component.
-* `OnDynamicChanges`: Is called any time the context object or the content children change. The `OnDynamicData`-object will only contain the changed value. The method is therefore called:
+* <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/interfacesPublic.ts#L182" target="_blank">`OnDynamicMount`</a>: Is called once as soon as **all** dynamic components have rendered (including lazy-loaded ones). It is given an <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/interfacesPublic.ts#L204" target="_blank">`OnDynamicData`</a>-object as its parameter, containing the context object as well as the content children of the component.
+* <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/interfacesPublic.ts#L197" target="_blank">`OnDynamicChanges`</a>: Is called any time the context object or the content children change. The <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/interfacesPublic.ts#L204" target="_blank">`OnDynamicData`</a>-object will only contain the changed value. The method is therefore called:
     1. Immediately when the component is created (contains the context object, if not undefined)
     2. Once all components have loaded (contains the content children)
     3. Any time the context object changes by reference
@@ -137,7 +137,7 @@ export class DynamicComponent implements OnDynamicMount, OnDynamicChanges {
 }
 ```
 
-**Note:** You may have spotted that content children are given as `DynamicContentChild`-arrays. Each `DynamicContentChild` represents a found component and contains its `ComponentRef`, `HookValue` as well as another `DynamicContentChild`-array with its own content children. It is therefore a hierarchical list of all content children, not a flat one.
+**Note:** You may have spotted that content children are given as <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/interfacesPublic.ts#L212" target="_blank">`DynamicContentChild`</a>-arrays. Each <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/interfacesPublic.ts#L212" target="_blank">`DynamicContentChild`</a> represents a found component and contains its `ComponentRef`, <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/interfacesPublic.ts#L119" target="_blank">`HookValue`</a> as well as another <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/interfacesPublic.ts#L212" target="_blank">`DynamicContentChild`</a>-array with its own content children. It is therefore a hierarchical list of all content children, not a flat one.
 
 ## Change detection
 

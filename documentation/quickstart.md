@@ -14,7 +14,7 @@ Install the library with:
 npm install ngx-dynamic-hooks
 ```
 
-Then import the `DynamicHooksComponent` as well as your dynamic component(s) to load:
+Then import the <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/components/dynamicHooksComponent.ts" target="_blank">`DynamicHooksComponent`</a> as well as your dynamic component(s) to load:
 
 ```ts
 import { Component } from '@angular/core';
@@ -35,7 +35,7 @@ export class AppComponent {
   
 }
 ```
-You can now use the `DynamicHooksComponent` (`<ngx-dynamic-hooks>`) where you want to render the content:
+You can now use the <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/components/dynamicHooksComponent.ts" target="_blank">`DynamicHooksComponent`</a> (`<ngx-dynamic-hooks>`) where you want to render the content:
 
 ```html
 <ngx-dynamic-hooks [content]="content" [parsers]="parsers"></ngx-dynamic-hooks>
@@ -53,7 +53,7 @@ That's it! If `<app-example>` is the selector of `ExampleComponent`, it will aut
 
 ## About using modules
 
-If your app uses modules instead of the new standalone components structure, you can import the `DynamicHooksComponent` there instead:
+If your app uses modules instead of the new standalone components structure, you can import the <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/components/dynamicHooksComponent.ts" target="_blank">`DynamicHooksComponent`</a> there instead:
 
 ```ts
 @NgModule({

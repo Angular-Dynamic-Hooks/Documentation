@@ -41,9 +41,9 @@ export const init = () => {
     provideHttpClient()
   ]);
 
-  scope.parseHooks(document.body, parsers);
+  scope.parse(document.body, parsers);
   observeElement(document.body, () => {
-    scope.parseHooks(document.body, parsers);
+    scope.parse(document.body, parsers);
   });
   
 }

@@ -8,21 +8,21 @@
 
 ## Global settings
 
-You can optionally set up global parsers and options shared between all `DynamicHookComponent`s in your app by using the `provideDynamicHooks` function in your app providers. [See an example here]({{ "documentation/how-to-use#global-settings" | relative_url }}). 
+You can optionally set up global parsers and options shared between all <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/components/dynamicHooksComponent.ts" target="_blank">`DynamicHooksComponent`</a>s in your app by using the <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/dynamicHooksProviders.ts" target="_blank">`provideDynamicHooks`</a> function in your app providers. [See an example here]({{ "documentation/how-to-use#global-settings" | relative_url }}). 
 
-It accepts a `DynamicHooksSettings`-object with the following properties:
+It accepts a <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/services/settings/settings.ts" target="_blank">`DynamicHooksSettings`</a>-object with the following properties:
 
 Name | Type | Description
 --- | --- | ---
-`parsers` | <a href="{{ '/documentation/parsers' | relative_url }}">HookParserEntry</a>`[]` | An list of hook parsers to provide to all `DynamicHookComponent`s
-`options` | <a href="{{ '/documentation/configuration#parseoptions' | relative_url }}">ParseOptions</a> | An options object to provide to all `DynamicHookComponent`s
+`parsers` | <a href="{{ '/documentation/parsers' | relative_url }}">HookParserEntry</a>`[]` | An list of hook parsers to provide to all <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/components/dynamicHooksComponent.ts" target="_blank">`DynamicHooksComponent`</a>s
+`options` | <a href="{{ '/documentation/configuration#parseoptions' | relative_url }}">ParseOptions</a> | An options object to provide to all <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/components/dynamicHooksComponent.ts" target="_blank">`DynamicHooksComponent`</a>s
 `inheritance` | `number` | An enum option from <a href="{{ '/documentation/configuration#child-settings' | relative_url }}">DynamicHooksInheritance</a>
 
 ## Child settings
 
-You can provide additional parsers and options simply by calling `provideDynamicHooks` again in the `providers`-fields of child injector contexts, such on <a href="https://angular.dev/api/router/Route#providers" target="_blank">specific routes</a> or even directly on <a href="https://angular.dev/api/core/Component#providers" target="_blank">components</a>. 
+You can provide additional parsers and options simply by calling <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/dynamicHooksProviders.ts" target="_blank">`provideDynamicHooks`</a> again in the `providers`-fields of child injector contexts, such on <a href="https://angular.dev/api/router/Route#providers" target="_blank">specific routes</a> or even directly on <a href="https://angular.dev/api/core/Component#providers" target="_blank">components</a>. 
 
-The child settings will be merged with other provided settings according to the value of the optional `inheritance` property in the [DynamicHooksSettings]({{ "documentation/configuration#global-settings" | relative_url }}) object. It accepts a value from the `DynamicHooksInheritance` enum, which are as follows:
+The child settings will be merged with other provided settings according to the value of the optional `inheritance` property in the [DynamicHooksSettings]({{ "documentation/configuration#global-settings" | relative_url }}) object. It accepts a value from the <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/services/settings/settings.ts" target="_blank">`DynamicHooksInheritance`</a> enum, which are as follows:
 
 1. `DynamicHooksInheritance.Linear`: (Default) Only merges with settings from direct ancestor injectors (such a father and grandfather injectors, but not "uncle" injectors).
 2. `DynamicHooksInheritance.All`: Merges with settings from all injectors in the app.
@@ -43,7 +43,7 @@ providers: [
 
 ## DynamicHooksComponent
 
-These are all of the inputs you can pass to each `DynamicHooksComponent` (`<ngx-dynamic-hooks>`) individually:
+These are all of the inputs you can pass to each <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/components/dynamicHooksComponent.ts" target="_blank">`DynamicHooksComponent`</a> (`<ngx-dynamic-hooks>`) individually:
 
 Input name | Type | Description
 --- | --- | ---
@@ -60,7 +60,7 @@ Output name | Type | Description
 --- | --- | ---
 `componentsLoaded` | `Observable<LoadedComponent[]>` | Will trigger once all components have loaded (including [lazy-loaded ones]({{ "documentation/configuration#lazy-loading-components" | relative_url }}))
 
-Each `LoadedComponent` from the output represents a dynamically-created component and contains some information you may find interesting:
+Each <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/interfacesPublic.ts#L238" target="_blank">`LoadedComponent`</a> from the output represents a dynamically-created component and contains some information you may find interesting:
 
 ```ts
 interface LoadedComponent {
@@ -73,7 +73,7 @@ interface LoadedComponent {
 
 ## ParseOptions
 
-You can define `ParseOptions` both in the global settings as well as on each `DynamicHooksComponent` indidually (to overwrite the global values). 
+You can define <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/services/settings/options.ts" target="_blank">`ParseOptions`</a> both in the global settings as well as on each <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/components/dynamicHooksComponent.ts" target="_blank">`DynamicHooksComponent`</a> indidually (to overwrite the global values). 
 
 These options can be used to customize the parsing behaviour:
 
@@ -82,7 +82,7 @@ Option name | Type | Default | Description
 `sanitize` | `boolean` | `depends` | Whether to use Angular's `DomSanitizer` to sanitize the content (hooks are unaffected by this). Defaults to `true` if content is a string, `false` if its an HTML element.
 `convertHTMLEntities` | `boolean` | `true` | Whether to replace HTML entities like `&amp;` with normal characters.
 `fixParagraphTags` | `boolean` | `true` | When using a WYSIWYG-editor, enclosing text hooks may collide with its generated HTML (the `<p>`-tag starting before the hook and the corresponding `</p>`-tag ending inside, and vice versa). This will result in faulty HTML when rendered in a browser. This setting removes these ripped-apart tags.
-`updateOnPushOnly` | `boolean` | `false` | Whether to update the bindings of dynamic components only when the context object passed to the `DynamicHooksComponent` changes by reference.
+`updateOnPushOnly` | `boolean` | `false` | Whether to update the bindings of dynamic components only when the context object passed to the <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/components/dynamicHooksComponent.ts" target="_blank">`DynamicHooksComponent`</a> changes by reference.
 `compareInputsByValue` | `boolean` | `false` | Whether to deeply-compare inputs for dynamic components by their value instead of by their reference on updates.
 `compareOutputsByValue` | `boolean` | `false` | Whether to deeply-compare outputs for dynamic components by their value instead of by their reference on updates.
 `compareByValueDepth` | `number` | `5` | When comparing by value, how many levels deep to compare them (may impact performance).
@@ -97,7 +97,7 @@ Option name | Type | Default | Description
 
 You can configure components to lazy-load only when its corresponding hook appears in the content. This reduces the initial bundle size and saves bandwidth if the hook does not appear at all.
 
-To enable this feature, you need to use a `LazyLoadComponentConfig` when setting up your hook parsers:
+To enable this feature, you need to use a <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/interfacesPublic.ts#L157" target="_blank">`LazyLoadComponentConfig`</a> when setting up your hook parsers:
 
 ```ts
 interface LazyLoadComponentConfig {
@@ -108,7 +108,7 @@ interface LazyLoadComponentConfig {
 
 `importPromise` should be a function that returns the import promise for the component file while `importName` should be the name of the exported component class to be used.
 
-With standard selector hooks, you can use this `LazyLoadComponentConfig` in the `component`-field of a [SelectorHookParserConfig]({{ "documentation/parsers#selectorhookparserconfig" | relative_url }}). You also need to manually specify a selector to look for, as it cannot be known before loading the component class. All this would look like so:
+With standard selector hooks, you can use this <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/interfacesPublic.ts#L157" target="_blank">`LazyLoadComponentConfig`</a> in the `component`-field of a [SelectorHookParserConfig]({{ "documentation/parsers#selectorhookparserconfig" | relative_url }}). You also need to manually specify a selector to look for, as it cannot be known before loading the component class. An example would look like so:
 
 ```ts
 import { Component } from '@angular/core';
@@ -138,7 +138,7 @@ export class AppComponent {
 
 That's all there is to it! `LazyComponent` will now be lazily-loaded if `<app-lazy>...</app-lazy>` is found in the content.
 
-**Tip:** It you are using a custom parser, you can pass your `LazyLoadComponentConfig` in the `HookComponentData` returned by `loadComponent()` instead.
+**Tip:** It you are using a custom parser, you can return a <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/interfacesPublic.ts#L157" target="_blank">`LazyLoadComponentConfig`</a> as part of `loadComponent()` instead.
 
 {% include docs/notice.html content="
   <p>Note that <code>importPromise</code> must contain a function returning the import-promise, not the import-promise itself! Otherwise the promise would be executed right where it is defined, which defeats the point of lazy-loading.</p>
@@ -148,8 +148,8 @@ That's all there is to it! `LazyComponent` will now be lazily-loaded if `<app-la
 
 The default implementation of the library should work in both <a href="https://angular.dev/api/platform-browser/bootstrapApplication" target="_blank">browsers</a> as well as during <a href="https://angular.dev/guide/ssr" target="_blank">server-side-rendering</a>. However, there may be more specialized use cases on platforms that are not directly supported.
 
-In such cases, you can create your own `PlatformService`. The `PlatformService` is internally used as a layer of abstraction between the library and the platform it runs on. It offers several functions to interact with the platform and handles platform-specific objects (such as `document` and `HTMLElement` in the case of the default `PlatformService`).
+In such cases, you can create your own <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/services/platform/platformService.ts" target="_blank">`PlatformService`</a>. The <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/services/platform/platformService.ts" target="_blank">`PlatformService`</a> is internally used as a layer of abstraction between the library and the platform it runs on. It offers several functions to interact with the platform and handles platform-specific objects (such as `document` and `HTMLElement` in the case of the default <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/services/platform/platformService.ts" target="_blank">`PlatformService`</a>).
 
-You can implement your own `PlatformService` by creating a class that follows the `PlatformService` interface and pass it as the second parameter to [provideDynamicHooks]({{ "documentation/configuration#global-settings" | relative_url }}).
+You can implement your own <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/services/platform/platformService.ts" target="_blank">`PlatformService`</a> by creating a class that follows the <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/services/platform/platformService.ts" target="_blank">PlatformService interface</a> and pass it as the second parameter to <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/dynamicHooksProviders.ts" target="_blank">`provideDynamicHooks`</a>.
 
-**Tip:** You can partially implement as many methods as you need. For all non-implemented methods, the library falls back to the default `PlatformService`.
+**Tip:** You can partially implement as many methods as you need. For all non-implemented methods, the library falls back to the <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/services/platform/defaultPlatformService.ts" target="_blank">default implementation</a>.

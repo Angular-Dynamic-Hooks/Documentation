@@ -108,6 +108,7 @@ export class LazilyLoadedChildModule {}
 " %}
 
 ## Lazy-loading components
+
 If you are using the Ivy templating engine (Angular 9+), you can configure your hook parsers in such a way that they lazy-load the component class only if it is needed and the corresponding hook appears in the content string.
 
 You may have noticed that the component-property in <a href="https://github.com/angular-dynamic-hooks/ngx-dynamic-hooks/blob/9b31ba5872a057c33a5464f638ac234fd6144963/projects/ngx-dynamic-hooks/src/lib/parsers/selector/config/selectorHookParserConfig.ts" target="_blank">`SelectorHookParserConfig`</a> has the type <a href="https://github.com/angular-dynamic-hooks/ngx-dynamic-hooks/blob/9b31ba5872a057c33a5464f638ac234fd6144963/projects/ngx-dynamic-hooks/src/lib/interfacesPublic.ts#L126" target="_blank">`ComponentConfig`</a> (see [Parsers]({{ "documentation/v2/parsers#selectorhookparserconfig" | relative_url }}) section). This means it can be the component class, but also a <a href="https://github.com/angular-dynamic-hooks/ngx-dynamic-hooks/blob/9b31ba5872a057c33a5464f638ac234fd6144963/projects/ngx-dynamic-hooks/src/lib/interfacesPublic.ts#L140" target="_blank">`LazyLoadComponentConfig`</a>:

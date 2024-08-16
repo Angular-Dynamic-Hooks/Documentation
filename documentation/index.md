@@ -74,7 +74,7 @@ Just use your selectors like in a normal Angular template (such as `<app-mycompo
 
 What is especially neat: Hooks can be anything - not just component selectors! 
 
-Each hook internally has a corresponding `HookParser` that tells the library where and how to instantiate the component. You can easily create [your own hook parsers]({{ "/documentation/parsers" | relative_url }}) that replace any HTML element or text pattern of your choice with Angular components!
+Each hook internally has a corresponding <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/interfacesPublic.ts#L51" target="_blank">`HookParser`</a> that tells the library where and how to instantiate the component. You can easily create [your own hook parsers]({{ "/documentation/parsers" | relative_url }}) that replace any HTML element or text pattern of your choice with Angular components!
 
 ## Do the components work normally?
 
