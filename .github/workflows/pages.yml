@@ -25,7 +25,7 @@ jobs:
 
       - run: echo "Installing ruby gems..."
       - run: |
-          bundle install
+          sudo bundle install
 
       - run: echo "Installing npm deps..."
       - run: |
