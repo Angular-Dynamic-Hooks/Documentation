@@ -33,7 +33,7 @@ RUN sed -i 's/^#LoadModule rewrite_module/LoadModule rewrite_module/' /usr/local
 COPY ./docker/jekyll.conf /usr/local/apache2/conf/extra/jekyll.conf
 RUN echo "Include conf/extra/jekyll.conf" >> /usr/local/apache2/conf/httpd.conf
 
-COPY --from=builder /src/_site ./htdocs/documentation
+COPY --from=builder /src/_site ./htdocs
 
 EXPOSE 80
 EXPOSE 443

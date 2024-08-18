@@ -54,7 +54,7 @@ jobs:
 
       - name: Building Jekyll...
         run: |
-          npm run jekyll-build
+          npm run jekyll-build-pages
           
       - name: Uploading artifact for Github pages...
         # Automatically uploads an artifact from the './_site' directory by default
