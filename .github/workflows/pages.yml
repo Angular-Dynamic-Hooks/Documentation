@@ -21,6 +21,7 @@ concurrency:
   group: "pages"
   cancel-in-progress: false
 
+# Much of the following is copied from: https://github.com/Angular-Dynamic-Hooks/Documentation/new/main?filename=.github%2Fworkflows%2Fjekyll.yml&pages_workflow_template=pages%2Fjekyll
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -55,9 +56,12 @@ jobs:
       - name: Building Jekyll...
         run: |
           npm run jekyll-build-pages
+        env:
+          JEKYLL_ENV: production
           
       - name: Uploading artifact for Github pages...
         # Automatically uploads an artifact from the './_site' directory by default
+        # https://github.com/actions/upload-pages-artifact
         uses: actions/upload-pages-artifact@v3
 
       - run: echo "🍏 This job's status is ${{ job.status }}."
@@ -69,6 +73,7 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
+        # https://github.com/actions/deploy-pages
         uses: actions/deploy-pages@v4
 
       - run: echo "🍏 This job's status is ${{ job.status }}."
