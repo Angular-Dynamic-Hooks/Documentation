@@ -1,7 +1,7 @@
 FROM node:20.10 AS builder
 WORKDIR /src
 
-# Install Ruby & Jekyll
+# Install Ruby
 RUN apt-get update
 RUN apt-get install -y ruby-dev gcc g++ make
 RUN gem install bundler
