@@ -15,28 +15,29 @@ jobs:
 
       - name: Checking out repository code...
         uses: actions/checkout@v4
+        
       - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
 
-      - run: echo "Installing Ruby..."
-      - run: |
+      - name: Installing Ruby...
+        run: |
           sudo apt-get update &&\
           sudo apt-get install -y ruby-dev gcc g++ make &&\
           sudo gem install bundler
 
-      - run: echo "Installing ruby gems..."
-      - run: |
+      - name: "Installing ruby gems..."
+        run: |
           sudo bundle install
 
-      - run: echo "Installing npm deps..."
-      - run: |
+      - name: Installing npm deps...
+        run: |
           npm install
 
-      - run: echo "Building JS..."
-      - run: |
+      - name: Building JS...
+        run: |
           npm run ng-build-prod
 
-      - run: echo "Building Jekyll..."
-      - run: |
+      - name: Building Jekyll...
+        run: |
           npm run jekyll-build
 
       #- run: echo "Running tests..."
