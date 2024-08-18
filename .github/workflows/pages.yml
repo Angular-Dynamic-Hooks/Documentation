@@ -6,7 +6,7 @@ on:
       - pages
   workflow_dispatch:
 jobs:
-  Running-automated-tests:
+  building-pages:
     runs-on: ubuntu-latest
     steps:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
@@ -19,9 +19,9 @@ jobs:
 
       - run: echo "Installing Ruby & Jekyll..."
       - run: |
-          apt-get update &&\
-          apt-get install -y ruby-dev gcc g++ make &&\
-          gem install bundler
+          sudo apt-get update &&\
+          sudo apt-get install -y ruby-dev gcc g++ make &&\
+          sudo gem install bundler
 
       #- run: echo "Running tests..."
       #- run: npm run ci:test
