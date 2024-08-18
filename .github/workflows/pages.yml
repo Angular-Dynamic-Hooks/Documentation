@@ -25,11 +25,19 @@ jobs:
 
       - run: echo "Installing ruby gems..."
       - run: |
-          sudo bundle install
+          bundle install
 
       - run: echo "Installing npm deps..."
       - run: |
-          sudo npm install
+          npm install
+
+      - run: echo "Building JS..."
+      - run: |
+          npm run ng-build-prod
+
+      - run: echo "Building Jekyll..."
+      - run: |
+          npm run jekyll-build
 
       #- run: echo "Running tests..."
       #- run: npm run ci:test
