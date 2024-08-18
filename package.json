@@ -8,7 +8,9 @@
     "jekyll-build": "bundle exec jekyll build",
     "ng-build": "ng build && rm ./assets/build/index.html",
     "ng-build-prod": "ng build --configuration production && rm ./assets/build/index.html",
-    "ng-watch": "ng build --watch"
+    "ng-watch": "ng build --watch",
+    "docker-build": "docker build . --tag=ngx-dynamic-hooks-docs",
+    "docker-run": "docker run -p 4200:80 ngx-dynamic-hooks-docs"
   },
   "author": "",
   "license": "ISC",

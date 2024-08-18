@@ -8,7 +8,7 @@
 
 ## Introduction
 
-Components are loaded from [hooks]({{ "documentation/#whats-a-hook" | relative_url }}) in the content, but how does the library know how a hook looks like and which component to load for it? This job is accomplished by **HookParsers**. 
+Components are loaded from [hooks]({{ "documentation/#whats-a-hook" | relative_url }}) in the content, but how does the library know what a hook looks like and which component to load for it? This job is accomplished by **HookParsers**. 
 
 HookParsers are what you pass along as the `parsers` input/argument to the library. Each component has one and it can be either:
 
@@ -60,18 +60,18 @@ See the [How to use]({{ "documentation/how-to-use#load-by-any-selector" | relati
 
 So far, we have only used the standard `SelectorHookParser`, which is included in this library for convenience and is easy to use if all you need is to load components by their selectors. However, by creating custom parsers, any element or text pattern you want can be replaced by an Angular component.
 
-Custom parsers can look for either **element hooks** or **text hooks**. Element hooks are straightforward and load components into found html elements while text hooks can replace any arbitrary text pattern with components.
-
 ### What makes a parser
 
-A hook parser is any class that follows the <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/interfacesPublic.ts#L51" target="_blank">`HookParser`</a> interface, which requires the following:
+A hook parser is any class that follows the <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/interfacesPublic.ts#L51" target="_blank">HookParser interface</a>, which requires the following:
 
 * An optional `name` property that is used for black/whitelisting the parser.
 * `findHooks()` or `findHookElements()` to tell the library where to load the components.
 * `loadComponent()` to specify which component class to load.
 * `getBindings()` to return the component inputs/outputs.
 
-You only need to implement either `findHooks()` or `findHookElements()`, depending on whether you want to replace text or HTML elements with components. Here are some more details about the main functions:
+You only need to implement either `findHooks()` or `findHookElements()`, depending on whether you want to replace text or HTML elements with components. 
+
+The following section explains these main functions in detail. If you would rather see a custom parser in action right away, you can [skip ahead to the examples]({{ "documentation/parsers#example-1-minimal" | relative_url }}).
 
 ### findHooks()
 

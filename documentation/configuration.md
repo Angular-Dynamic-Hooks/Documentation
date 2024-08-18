@@ -8,7 +8,18 @@
 
 ## Global settings
 
-You can optionally set up global parsers and options shared between all <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/components/dynamicHooksComponent.ts" target="_blank">`DynamicHooksComponent`</a>s in your app by using the <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/dynamicHooksProviders.ts" target="_blank">`provideDynamicHooks`</a> function in your app providers. [See an example here]({{ "documentation/how-to-use#global-settings" | relative_url }}). 
+You can optionally set up global parsers and options shared between all <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/components/dynamicHooksComponent.ts" target="_blank">`DynamicHooksComponent`</a>s in your app by using the <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/dynamicHooksProviders.ts" target="_blank">`provideDynamicHooks`</a> function in your app providers.
+
+```ts
+import { ApplicationConfig } from '@angular/core';
+import { provideDynamicHooks } from 'ngx-dynamic-hooks';
+
+export const appConfig: ApplicationConfig = {
+  providers: [
+    provideDynamicHooks(...)
+  ]
+};
+```
 
 It accepts a <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/services/settings/settings.ts" target="_blank">`DynamicHooksSettings`</a>-object with the following properties:
 
@@ -17,6 +28,8 @@ Name | Type | Description
 `parsers` | <a href="{{ '/documentation/parsers' | relative_url }}">HookParserEntry</a>`[]` | An list of hook parsers to provide to all <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/components/dynamicHooksComponent.ts" target="_blank">`DynamicHooksComponent`</a>s
 `options` | <a href="{{ '/documentation/configuration#parseoptions' | relative_url }}">ParseOptions</a> | An options object to provide to all <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/components/dynamicHooksComponent.ts" target="_blank">`DynamicHooksComponent`</a>s
 `inheritance` | `number` | An enum option from <a href="{{ '/documentation/configuration#child-settings' | relative_url }}">DynamicHooksInheritance</a>
+
+You can [see an example here]({{ "documentation/how-to-use#global-settings" | relative_url }}). 
 
 ## Child settings
 

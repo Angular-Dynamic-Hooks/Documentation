@@ -18,21 +18,9 @@ This is ideal for mounting Angular components as "frontend widgets" onto HTML th
 
 ## Getting started
 
-To use standalone mode, simply import the <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/standalone.ts#L158" target="_blank">`parse`</a> function from the library and call it with the content, parsers etc. you need. It is the equivalent of [DynamicHooksService.parse]({{ "documentation/how-to-use#programmatic-usage-with-service" | relative_url }}), just outside of Angular.  The full signature looks like this:
+To use standalone mode, simply import the <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/standalone.ts#L158" target="_blank">`parse`</a> function from the library. It is the equivalent of [DynamicHooksService.parse]({{ "documentation/how-to-use#programmatic-usage-with-service" | relative_url }}), just outside of Angular.
 
-```ts
-const parse = async (
-  content: any,
-  parsers: HookParserEntry[],
-  context: any = null,  
-  options: ParseOptions|null = null,
-  targetElement: HTMLElement|null = null,
-  targetHookIndex: HookIndex = {},
-  environmentInjector: EnvironmentInjector|null = null,
-): Promise<ParseResult>
-```
-
-At its most basic, you really only need to pass the **content** as well as a list of **parsers**. The [starter example from the How to use page]({{ "/documentation/how-to-use#starting-out" | relative_url }}) would then look like this in standalone mode:
+At its most basic, you really only need to pass the **content** as well as a list of **parsers**. The [starter example]({{ "/documentation/how-to-use#starting-out" | relative_url }}) would then look like this in standalone mode:
 
 ```ts
 import { parse } from 'ngx-dynamic-hooks';
@@ -56,24 +44,17 @@ Angular components will then be loaded into all hooks/selectors found anywhere i
 
 ## Adding providers
 
-You can **optionally** specify a list of providers for the loaded components to use, just like in a normal Angular app. For this, import the <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/standalone.ts#L50" target="_blank">`createProviders`</a> function:
+You can **optionally** specify a list of providers for the loaded components to use, just like in a normal Angular app. For this, import the <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/standalone.ts#L50" target="_blank">`createProviders`</a> function.
 
-```ts
-const createProviders = (
-  providers: Provider[] = [], 
-  parentScope?: ProvidersScope
-): ProvidersScope
-```
-
-This will return a scope with its own internal <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/standalone.ts#L158" target="_blank">`parse`</a> method that makes use of the specified providers. A simple example could look like this:
+It will create a scope with its own internal <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/standalone.ts#L158" target="_blank">`parse`</a> method that makes use of the specified providers. A simple example could look like this:
 
 ```ts 
+import { provideHttpClient } from '@angular/common/http';
 import { createProviders } from 'ngx-dynamic-hooks';
-import { MyCustomService } from 'somewhere';
 import { ExampleComponent } from 'elsewhere';
 
 const scope = createProviders([
-  MyCustomService,
+  provideHttpClient(),
   // Other providers...
 ]);
 
@@ -90,7 +71,7 @@ const childScope = createProviders([...], parentScope);
 ```
 
 {% include docs/notice.html content='
-  <p><b>Tip</b>: If your service is decorated with <a href="https://angular.dev/guide/di/creating-injectable-service#creating-an-injectable-service" target="_blank"><code>@Injectable(providedIn: "root")</code></a>, you do not even need a scope and the services will be shared naturally.</p>  
+  <p><b>Tip</b>: Services decorated with <a href="https://angular.dev/guide/di/creating-injectable-service#creating-an-injectable-service" target="_blank"><code>@Injectable(providedIn: "root")</code></a> work even without explicitly declaring them as providers and do not need scope.</p>  
 ' %}
 
 ## Building

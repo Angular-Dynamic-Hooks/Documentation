@@ -1,0 +1,5 @@
+.angular
+# Important not copy (different) Gemfile.lock over, thus overwriting the one freshly generated in container. Leads to errors when running Jekyll build.
+Gemfile.lock
+node_modules
+package-lock.json

@@ -167,44 +167,7 @@ For a full guide with stackblitz examples, see the [Writing your own HookParser]
 
 ## Programmatic usage (with service)
 
-You can also parse dynamic content directly in Typescript by injecting the <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/services/dynamicHooksService.ts" target="_blank">`DynamicHooksService`</a> and calling its `parse`-method programmatically.
-
-```ts
-  parse(
-    content: any = null,
-    parsers: HookParserEntry[]|null = null,
-    context: any = null,
-    options: ParseOptions|null = null,
-    globalParsersBlacklist: string[]|null = null,
-    globalParsersWhitelist: string[]|null = null,
-    targetElement: HTMLElement|null = null,
-    targetHookIndex: HookIndex = {},
-    environmentInjector: EnvironmentInjector|null = null,
-    injector: Injector|null = null
-  ): Observable<ParseResult>
-```
-
-This looks complicated, but most of the parameters are actually just [the inputs]({{ "documentation/configuration#dynamichookscomponent" | relative_url }}) for the <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/components/dynamicHooksComponent.ts" target="_blank">`DynamicHooksComponent`</a> component and therefore optional. You really only need to pass the `content` as you would with the component. 
-
-Only some parameters are notable: You can optionally provide a `targetElement` and `targetHookIndex` to fill out for the result. If not, they are automatically created for you. You may also specify custom injectors for the created components. If you don't, the library defaults to the current ones.
-
-The function will return an <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/interfacesPublic.ts#L224" target="_blank">`ParseResult`</a> observable:
-
-```ts
-interface ParseResult {
-    element: any;                                 // The parsed content element
-    hookIndex: HookIndex;                         // An object with the generated hook data
-    context: any;                                 // The used context object  for the result
-    usedParsers: HookParser[];                    // The used parsers for the result
-    usedOptions: ParseOptions;                    // The used options for the result
-    usedInjector: Injector;                       // The used injector for the result
-    usedEnvironmentInjector: EnvironmentInjector; // The used environment injector for the result
-    destroy: () => void;                          // Destroys all loaded components of this result
-}
-```
-`element` is probably the most interesting part here as it contains the finished content with all loaded component elements. <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/interfacesPublic.ts#L12" target="_blank">`hookIndex`</a> might also prove useful, as it is a fairly in-depth data object that holds various tidbits of info concerning the loaded components (as well as the componentRefs). 
-
-Calling this function could then look like so:
+You can also parse dynamic content directly in Typescript by injecting the <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/services/dynamicHooksService.ts" target="_blank">`DynamicHooksService`</a> and calling its `parse`-method programmatically. Here is a simple example:
 
 ```ts
 import { DynamicHooksService } from 'ngx-dynamic-hooks';
@@ -223,6 +186,43 @@ class AppComponent {
   }
 }
 ```
+
+The only required parameter is `content`, but it optionally accepts a lot more:
+
+```ts
+  parse(
+    content: any = null,
+    parsers: HookParserEntry[]|null = null,
+    context: any = null,
+    options: ParseOptions|null = null,
+    globalParsersBlacklist: string[]|null = null,
+    globalParsersWhitelist: string[]|null = null,
+    targetElement: HTMLElement|null = null,
+    targetHookIndex: HookIndex = {},
+    environmentInjector: EnvironmentInjector|null = null,
+    injector: Injector|null = null
+  ): Observable<ParseResult>
+```
+
+If this seems familiar, its because most parameters are just [the inputs]({{ "documentation/configuration#dynamichookscomponent" | relative_url }}) for the <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/components/dynamicHooksComponent.ts" target="_blank">`DynamicHooksComponent`</a> component. 
+
+Only some are notable: You can optionally provide a `targetElement` and `targetHookIndex` to fill out for the result. If not, they are automatically created for you. You may also specify custom injectors for the created components. If you don't, the library defaults to the current ones.
+
+The function will return an <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/interfacesPublic.ts#L224" target="_blank">`ParseResult`</a> observable:
+
+```ts
+interface ParseResult {
+    element: any;                                 // The parsed content element
+    hookIndex: HookIndex;                         // An object with the generated hook data
+    context: any;                                 // The used context object  for the result
+    usedParsers: HookParser[];                    // The used parsers for the result
+    usedOptions: ParseOptions;                    // The used options for the result
+    usedInjector: Injector;                       // The used injector for the result
+    usedEnvironmentInjector: EnvironmentInjector; // The used environment injector for the result
+    destroy: () => void;                          // Destroys all loaded components of this result
+}
+```
+`element` is probably the most interesting part here as it contains the finished content with all loaded component elements. <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/interfacesPublic.ts#L12" target="_blank">`hookIndex`</a> might also prove useful, as it is a fairly in-depth data object that holds various tidbits of info concerning the loaded components (as well as the componentRefs). 
 
 See it in action in this Stackblitz:
 
