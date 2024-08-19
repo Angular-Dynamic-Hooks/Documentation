@@ -71,9 +71,9 @@ export class VersionService {
    * Transforms a full docs url to the equivalent of a different version (irrespective if the page actually exists or not)
    */
   transformUrlForDocsVersion(url: string, version: number): Observable<string|null> {
-    if (url.includes('/documentation/')) {
+    if (url.includes('documentation/')) {
       // Don't use regex in case github pages project path is also 'documentation'
-      const split = url.split('/documentation/');
+      const split = url.split('documentation/');
       let path = split[split.length - 1];
 
       // Cut off "/vX/" from front if exists
