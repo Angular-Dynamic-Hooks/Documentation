@@ -41,7 +41,7 @@ highlights:
       </div>
       <div class="l-header-right">
         <div class="l-site-links">
-          <a class="l-site-link home" href="{{ '/documentation/' | relative_url }}" target="_blank">
+          <a class="l-site-link home" href="{{ '/documentation/' | relative_url }}">
             <div class="l-site-link-icon">📄</div>
             <span class="l-site-link-text">Docs</span>
           </a>
