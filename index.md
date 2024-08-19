@@ -78,8 +78,8 @@ highlights:
         </div>
       </div>
       <div class="l-hero-buttons">
-        <a class="l-hero-button" href="{{ "documentation/quickstart" | relative_url }}" target="_blank">Quickstart</a>
-        <a class="l-hero-button secondary" href="{{ "documentation" | relative_url }}" target="_blank">Docs</a>
+        <a class="l-hero-button" href="{{ "documentation/quickstart" | relative_url }}">Quickstart</a>
+        <a class="l-hero-button secondary" href="{{ "documentation" | relative_url }}">Docs</a>
       </div>
     </div>
     <div class="l-hero-bg">
@@ -239,7 +239,7 @@ parsers = [ExampleComponent];
 
       <div class="l-guide-result">
         <p class="l-guide-result-line"><b>That's it!</b> The content will now be rendered with a working <b>ExampleComponent</b> in it! 🎉</p>
-        <a class="l-guide-result-button" href="{{ "documentation" | relative_url }}" target="_blank">📄 To the full documentation </a>
+        <a class="l-guide-result-button" href="{{ "documentation" | relative_url }}">📄 To the full documentation </a>
       </div>
 
     </div>

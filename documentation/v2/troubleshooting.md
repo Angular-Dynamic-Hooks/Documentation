@@ -1,4 +1,5 @@
 ---
+  canonical_url: '/documentation/troubleshooting'
 ---
 
 # Troubleshooting
