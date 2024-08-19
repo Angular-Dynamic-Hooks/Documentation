@@ -138,9 +138,9 @@ highlights:
         </div>
       </div>
       <div class="l-snippet-text">
-        <p class="l-snippet-line">What if you wanted to load components not just from static templates, but from <b>dynamic content</b> - such as string variables, HTML elements or even the whole browser DOM?</p>
+        <p class="l-snippet-line">What if you wanted to load components not just from static templates, but from <b>dynamic content</b> - such as string variables, HTML elements or even a live webpage?</p>
         <p class="l-snippet-line">By default, this is <b>not easily possible</b>.</p>
-        <p class="l-snippet-line">Angular Dynamic Hooks aims to solve this problem. It offers an easy way to load Angular components into <b>hooks</b> in dynamic content. Hooks can be HTML elements and even text patterns.</p>
+        <p class="l-snippet-line">Angular Dynamic Hooks aims to solve this problem. It offers an easy way to load Angular components into so-called <b>hooks</b>. Hooks can be HTML elements or plain text patterns.</p>
       </div>
     </div>
   </section>
