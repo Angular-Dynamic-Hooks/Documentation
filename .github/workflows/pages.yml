@@ -55,7 +55,7 @@ jobs:
 
       - name: Building Jekyll...
         run: |
-          npm run jekyll-build-pages
+          npm run jekyll-build
         env:
           JEKYLL_ENV: production
           
