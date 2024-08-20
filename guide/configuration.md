@@ -1,8 +1,10 @@
 ---
+title: Configuration
+description: Lists all the options available to configure how Angular components are parsed and loaded from dynamic content by Angular Dynamic Hooks.
 ---
 
 <div class="page-title">
-  <img class="page-title-icon" src="{{ "/assets/images/icons/cog.svg"| relative_url }}">
+  <img class="page-title-icon" src="{{ "/assets/images/icons/cog.svg"| relative_url }}" alt="An icon of a cog">
   <h1 class="page-title-text">Configuration</h1>
 </div>
 

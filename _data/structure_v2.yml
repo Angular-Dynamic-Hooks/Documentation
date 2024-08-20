@@ -5,8 +5,8 @@
   children:
     - title: Installation
       url: /guide/v2/#installation
-    - title: What it does
-      url: /guide/v2/#what-it-does
+    - title: Load components dynamically
+      url: /guide/v2/#load-components-dynamically
     - title: What's a hook?
       url: /guide/v2/#whats-a-hook
     - title: Do the components work normally?
@@ -24,21 +24,21 @@
       url: /guide/v2/quickstart#see-it-in-action
 
 - title: Component features
-  url: /guide/v2/component-features
+  url: /guide/v2/dynamic-component-features
   icon: /assets/images/icons/star.svg
   children:
     - title: Context & Dependency Injection
-      url: /guide/v2/component-features#context--dependency-injection
+      url: /guide/v2/dynamic-component-features#context--dependency-injection
     - title: Inputs
-      url: /guide/v2/component-features#inputs
+      url: /guide/v2/dynamic-component-features#inputs
     - title: Outputs
-      url: /guide/v2/component-features#outputs
+      url: /guide/v2/dynamic-component-features#outputs
     - title: Content projection
-      url: /guide/v2/component-features#content-projection
+      url: /guide/v2/dynamic-component-features#content-projection
     - title: Lifecycle methods
-      url: /guide/v2/component-features#lifecycle-methods
+      url: /guide/v2/dynamic-component-features#lifecycle-methods
     - title: Change detection
-      url: /guide/v2/component-features#change-detection
+      url: /guide/v2/dynamic-component-features#change-detection
 
 - title: Configuration
   url: /guide/v2/configuration
@@ -84,7 +84,7 @@
   icon: /assets/images/icons/list.svg
   children:
     - title: How it works
-      url: /guide/v2/trivia#how-it-works
+      url: /guide/v2/trivia#how-components-are-loaded-dynamically
     - title: Security
       url: /guide/v2/trivia#security
     - title: Caveats

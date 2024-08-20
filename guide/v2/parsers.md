@@ -1,5 +1,7 @@
 ---
-    canonical_url: '/guide/parsers'
+canonical_url: '/guide/parsers'
+title: Parsers
+description: Parsers find component hooks in the dynamic content, specify how the component should be loaded and which inputs and outputs to pass along to it.
 ---
 
 # Parsers
@@ -41,7 +43,7 @@ Property | Type | Default | Description
 
 ## Writing your own HookParser
 
-![Custom hook](https://i.imgur.com/9J9t5ze.png)
+![An example for a custom parser in the Angular Dynamic Hooks library](https://i.imgur.com/9J9t5ze.png)
 
 So far, we have only used the standard `SelectorHookParser`, which is included in this library for convenience and is easy to use if all you need is to load components by their selectors. However, by creating custom parsers, any text pattern you want can be replaced by an Angular component.
 

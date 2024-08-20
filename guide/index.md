@@ -1,9 +1,11 @@
 ---
+title: Getting started
+description: The Angular Dynamic Hooks guide shows you step-by-step how to install and use the library to load Angular components into dynamic content.
 ---
 
 <div class="page-title">
-  <img class="page-title-icon" src="{{ "/assets/images/icons/hand.svg"| relative_url }}">
-  <h1 class="page-title-text">Introduction</h1>
+  <img class="page-title-icon" src="{{ "/assets/images/icons/hand.svg"| relative_url }}" alt="An icon of a waving hand">
+  <h1 class="page-title-text">Getting started</h1>
 </div>
 
 <div class="badges" markdown="1">
@@ -14,11 +16,11 @@
   [![Static Badge](https://img.shields.io/badge/Donate%20-%20Thank%20you!%20-%20%23ff8282?style=flat-square)](https://www.paypal.com/donate/?hosted_button_id=3XVSEZKNQW8HC)
 </div>
 
-Angular Dynamic Hooks allows you to load Angular components into dynamic content, such as html strings (similar to a "dynamic" template) or even already-existing html trees. 
+Angular Dynamic Hooks allows you to load Agular components into any dynamic content, such as HTML strings (similar to a "dynamic" template) or even already-existing HTML structures. 
 
 Works as part of an Angular app or fully standalone. Load components by selectors or **any text pattern**. No JiT-compiler required - [just install and go]( {{ "/guide/quickstart" | relative_url }} ).
 
-![ngx-dynamic-hooks-optimize](https://github.com/angular-dynamic-hooks/ngx-dynamic-hooks/assets/12670925/ef27d405-4663-48a5-97b5-ca068d7b67d8)
+![A short animated gif showing how to use the Angular Dynamic Hooks library to load components](https://github.com/angular-dynamic-hooks/ngx-dynamic-hooks/assets/12670925/ef27d405-4663-48a5-97b5-ca068d7b67d8)
 
 ## Installation
 
@@ -48,19 +50,19 @@ As the library does not rely on a runtime compiler, it works in both JiT- and Ao
 * 🔍 Loads components by their selectors, custom selectors or [any text pattern of your choice]({{ "guide/parsers#writing-your-own-hookparser" | relative_url }})
 * ⚙️ Services, Inputs/Outputs, Lifecycle Methods and other standard features all work normally
 * 💤 Allows [lazy-loading components]({{ "guide/configuration#lazy-loading-components" | relative_url }}) only if they appear in the content
-* 🔒 Can pass custom data safely to your components via an optional [context object]({{ "guide/component-features" | relative_url }})
+* 🔒 Can pass custom data safely to your components via an optional [context object]({{ "guide/dynamic-component-features" | relative_url }})
 
-## What it does
+## Load components dynamically
 
 In Angular, you normally load components by placing their selectors in a template. But what if you wanted to load components not just from static templates, but from arbitrary dynamic content as well - such as string variables, HTML elements or even the whole browser DOM?
 
 By default, **this is not easily possible**.
 
-<a href="https://www.npmjs.com/package/ngx-dynamic-hooks" target="_blank">Angular Dynamic Hooks</a> solves this shortcoming by providing a component (as well as a service and standalone function) that accepts any content of your choice and automatically loads components into it at runtime - similar to a "dynamic template". The library does not need the Just-in-Time Angular compiler to do so, allowing for much smaller bundle sizes. 
+<a href="https://www.npmjs.com/package/ngx-dynamic-hooks" target="_blank">Angular Dynamic Hooks</a> solves this shortcoming by allowing you to load components from any content of your choice at runtime - similar to a "dynamic template". The library does not need the Just-in-Time Angular compiler to do so, resulting in much smaller bundle sizes. 
 
 It is able to do all this in a controlled and secure manner by using so-called **hooks**.
 
-![How hooks work](https://i.imgur.com/e9ygec4.png)
+![An illustration about how hooks work in the Angular Dynamic Hooks library](https://i.imgur.com/e9ygec4.png)
 
 ## What's a hook?
 
@@ -70,7 +72,7 @@ Hooks can be **singletags** (`<hook>`) or **enclosing** (`<hook>...</hook>`). In
 
 Just use your selectors like in a normal Angular template (such as `<app-mycomponent [someInput]="'hello!'">...</app-mycomponent>`) and the corresponding components will be loaded in their place.
 
-![Selector hook](https://i.imgur.com/tjAX6uU.png)
+![An illustration showing how selector hooks work in the Angular Dynamic Hooks library](https://i.imgur.com/tjAX6uU.png)
 
 What is especially neat: Hooks can be anything - not just component selectors! 
 

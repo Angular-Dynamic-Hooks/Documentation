@@ -1,5 +1,7 @@
 ---
-  canonical_url: '/guide/configuration'
+canonical_url: '/guide/configuration'
+title: Configuration
+description: Lists all the options available to configure how Angular components are parsed and loaded from dynamic content by Angular Dynamic Hooks.
 ---
 
 # Configuration

@@ -1,9 +1,11 @@
 ---
+title: Version 3 - What's new?
+description: Version 3 introduces many new features to the Angular Dynamic Hooks library, such as loading components into existing HTML elements and standalone mode.
 ---
 
 # Version 3 - What's new?
 
-![angular_dynamic_hooks_v3](https://github.com/user-attachments/assets/21377754-7f2e-4d54-92bd-e23ba45dbf39)
+![An festive image celebrating the release of version 3 of the Angular Dynamic Hooks library](https://github.com/user-attachments/assets/21377754-7f2e-4d54-92bd-e23ba45dbf39)
 
 Version 3 marks a significant overhaul and modernization of the Angular Dynamic Hooks library. It is now fully up-to-date with **Angular 17+**, easier to use and has several completely new features.
 
@@ -80,7 +82,7 @@ Also, note that `DynamicHooksInheritance.LINEAR` is now the default option (inst
 Several classes, interfaces, methods etc. were renamed to better reflect their new roles. 
 
 - `OutletComponent` is now <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/components/dynamicHooksComponent.ts" target="_blank">`DynamicHooksComponent`</a>
-- `OutletService` is now <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/services/dynamicHooksService.ts" target="_blank">`DynamicHooksService`</a>. Also, the order of the parameters for the `parse` method [has changed]({{ "guide/how-to-use#programmatic-usage-with-service" | relative_url }}).
+- `OutletService` is now <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/services/dynamicHooksService.ts" target="_blank">`DynamicHooksService`</a>. Also, the order of the parameters for the `parse` method [has changed]({{ "guide/how-to-use#load-components-via-service" | relative_url }}).
 - `OutletParseResult` is now <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/interfacesPublic.ts#L224" target="_blank">`ParseResult`</a> and returns more properties
 - `OutletOptions` is now <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/services/settings/options.ts" target="_blank">`ParseOptions`</a>
 - `HookFinder.findStandaloneHooks` is now `HookFinder.findSingletagHooks`. You can now also just use `HookFinder.find` for both singletag or enclosing hooks.

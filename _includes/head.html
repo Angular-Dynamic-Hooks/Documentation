@@ -11,6 +11,17 @@
   <link rel="shortcut icon" href="{{ '/assets/favicons/favicon.ico' | relative_url }}">
   <meta name="msapplication-config" content="/assets/favicons/browserconfig.xml">
   <meta name="theme-color" content="#ffffff">
+
+  {% if page.url == "/" %}
+    <script type="application/ld+json">
+    {
+      "@context" : "https://schema.org",
+      "@type" : "WebSite",
+      "name" : "Angular Dynamic Hooks",
+      "url" : "https://angular-dynamic-hooks.com/"
+    }
+    </script>
+  {% endif %}
     
   {%- seo -%}
   

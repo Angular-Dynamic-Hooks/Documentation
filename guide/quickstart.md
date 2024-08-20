@@ -1,8 +1,10 @@
 ---
+title: Quick start
+description: Learn how to quickly set up a minimal example to load Angular components into dynamic content with the Angular Dynamic Hooks library.
 ---
 
 <div class="page-title">
-  <img class="page-title-icon" src="{{ "/assets/images/icons/rocket.svg"| relative_url }}">
+  <img class="page-title-icon" src="{{ "/assets/images/icons/rocket.svg"| relative_url }}" alt="An icon depicting a rocket">
   <h1 class="page-title-text">Quick start</h1>
 </div>
 
@@ -71,6 +73,6 @@ Please note that the above is a minimal example and that there are plenty more f
 - The [Introduction]({{ "guide" | relative_url }}) page explains what a hook is and what the library is for.
 - The [How to use]({{ "guide/how-to-use" | relative_url }}) page shows you the most common ways to use the library when used as part of an Angular app.
 - The [Standalone mode]({{ "guide/standalone-mode" | relative_url }}) page explains how to use the library without Angular, allowing you to load fully-functional Angular components freely in other contexts (CMS, static HTML, etc).
-- The [Component features]({{ "guide/component-features" | relative_url }}) page shows how to pass data to your dynamically-loaded components, subscribe to their outputs, special lifecycle methods, etc.
+- The [Component features]({{ "guide/dynamic-component-features" | relative_url }}) page shows how to pass data to your dynamically-loaded components, subscribe to their outputs, special lifecycle methods, etc.
 - The [Configuration]({{ "guide/configuration" | relative_url }}) page gives an overview of all the options and settings available to you.
 - The [Parsers]({{ "guide/parsers" | relative_url }}) page lists the various ways to find components - including writing your own parsers!

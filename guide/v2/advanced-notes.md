@@ -1,4 +1,6 @@
 ---
+title: Advanced notes
+description: The page goes over some of the more niche use cases for the Angular Dynamic Hooks library, such as loading dynamic components programmatically.
 ---
 
 # Advanced notes

@@ -1,8 +1,10 @@
 ---
+title: Parsers
+description: Parsers find component hooks in the dynamic content, specify how the component should be loaded and which inputs and outputs to pass along to it.
 ---
 
 <div class="page-title">
-  <img class="page-title-icon" src="{{ "/assets/images/icons/magnifying_glass.svg"| relative_url }}">
+  <img class="page-title-icon" src="{{ "/assets/images/icons/magnifying_glass.svg"| relative_url }}" alt="An icon of a magnifying glass">
   <h1 class="page-title-text">Parsers</h1>
 </div>
 
@@ -56,7 +58,7 @@ See the [How to use]({{ "guide/how-to-use#load-by-any-selector" | relative_url }
 
 ## Writing your own HookParser
 
-![Custom hook](https://i.imgur.com/9J9t5ze.png)
+![An example for a custom parser in the Angular Dynamic Hooks library](https://i.imgur.com/9J9t5ze.png)
 
 So far, we have only used the standard `SelectorHookParser`, which is included in this library for convenience and is easy to use if all you need is to load components by their selectors. However, by creating custom parsers, any element or text pattern you want can be replaced by an Angular component.
 

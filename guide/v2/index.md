@@ -1,8 +1,10 @@
 ---
-  canonical_url: '/guide'
+canonical_url: '/guide'
+title: Getting started
+description: The Angular Dynamic Hooks guide shows you step-by-step how to install and use the library to load Angular components into dynamic content.
 ---
 
-# Introduction
+# Getting started
 
 <div class="badges" markdown="1">
   [![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/angular-dynamic-hooks/ngx-dynamic-hooks/ci-test.yml?style=flat-square&logo=github&label=CI%20tests)](https://github.com/angular-dynamic-hooks/ngx-dynamic-hooks/actions/workflows/ci-test.yml)
@@ -14,7 +16,7 @@
 
 With Angular Dynamic Hooks, you can load fully-functional Angular components from string variables - based on their selector (as in normal templates) or **any pattern of your choice**.
 
-![ngx-dynamic-hooks-optimize](https://github.com/angular-dynamic-hooks/ngx-dynamic-hooks/assets/12670925/ef27d405-4663-48a5-97b5-ca068d7b67d8)
+![A short animated gif showing how to use the Angular Dynamic Hooks library to load components](https://github.com/angular-dynamic-hooks/ngx-dynamic-hooks/assets/12670925/ef27d405-4663-48a5-97b5-ca068d7b67d8)
 
 ## Installation
 
@@ -40,7 +42,7 @@ yarn add ngx-dynamic-hooks
 
 The library is compatible with both the older template engine (view engine) as well as Ivy. It **does not** rely on a runtime compiler and therefore works in both JiT- and AoT-modes. Feel free to use whichever you like.
 
-## What it does
+## Load components dynamically
 
 In Angular, components are loaded when their selector appears in a template. But what if you wanted to load components not just from fixed templates, but arbitrary dynamic content as well - such as from database values, markdown files or any other string variable?
 
@@ -50,7 +52,7 @@ Even the `[innerHTML]`-directive provided by Angular, which is typically used to
 
 <a href="https://www.npmjs.com/package/ngx-dynamic-hooks" target="_blank">Angular Dynamic Hooks</a> aims to solve this shortcoming by providing a component that acts as an enhanced version of `[innerHTML]` of sorts, allowing developers to dynamically load components from strings in a controlled and secure manner by using so-called **hooks**.
 
-![How hooks work](https://i.imgur.com/e9ygec4.png)
+![An illustration about how hooks work in the Angular Dynamic Hooks library](https://i.imgur.com/e9ygec4.png)
 
 ## What's a hook?
 
@@ -60,7 +62,7 @@ Hooks can be **singletags** (`<hook>`) or **enclosing** (`<hook>...</hook>`). In
 
 Just write your selectors just as you would in a normal Angular template (such as `<app-mycomponent [someInput]="'hello!'">...</app-mycomponent>`) and the corresponding components will be loaded in their place.
 
-![Selector hook](https://i.imgur.com/tjAX6uU.png)
+![An illustration showing how selector hooks work in the Angular Dynamic Hooks library](https://i.imgur.com/tjAX6uU.png)
 
 Something to note, though, is that hooks can be anything - not just component selectors! 
 

@@ -6,8 +6,8 @@
       url: /guide/#installation
     - title: Highlights
       url: /guide/#highlights
-    - title: What it does
-      url: /guide/#what-it-does
+    - title: Load components dynamically
+      url: /guide/#load-components-dynamically
     - title: What's a hook?
       url: /guide/#whats-a-hook
     - title: Do the components work normally?
@@ -32,8 +32,8 @@
   url: /guide/how-to-use
   icon: /assets/images/icons/book.svg
   children:
-    - title: Starting out
-      url: /guide/how-to-use#starting-out
+    - title: Parsing dynamic content
+      url: /guide/how-to-use#parsing-dynamic-content
     - title: Context and options
       url: /guide/how-to-use#context-and-options
     - title: Global settings
@@ -42,8 +42,8 @@
       url: /guide/how-to-use#load-by-any-selector
     - title: Custom parsers
       url: /guide/how-to-use#custom-parsers
-    - title: Programmatic usage
-      url: /guide/how-to-use#programmatic-usage-with-service
+    - title: Load components via service
+      url: /guide/how-to-use#load-components-via-service
 
 - title: Standalone mode
   url: /guide/standalone-mode
@@ -53,27 +53,27 @@
       url: /guide/standalone-mode#getting-started
     - title: Adding providers
       url: /guide/standalone-mode#adding-providers
-    - title: Building
-      url: /guide/standalone-mode#building
+    - title: Building the components
+      url: /guide/standalone-mode#building-the-components
     - title: Trivia
       url: /guide/standalone-mode#trivia
 
 - title: Component features
-  url: /guide/component-features
+  url: /guide/dynamic-component-features
   icon: /assets/images/icons/star.svg
   children:
     - title: Context & Dependency Injection
-      url: /guide/component-features#context--dependency-injection
+      url: /guide/dynamic-component-features#context--dependency-injection
     - title: Inputs
-      url: /guide/component-features#inputs
+      url: /guide/dynamic-component-features#inputs
     - title: Outputs
-      url: /guide/component-features#outputs
+      url: /guide/dynamic-component-features#outputs
     - title: Content projection
-      url: /guide/component-features#content-projection
+      url: /guide/dynamic-component-features#content-projection
     - title: Lifecycle methods
-      url: /guide/component-features#lifecycle-methods
+      url: /guide/dynamic-component-features#lifecycle-methods
     - title: Change detection
-      url: /guide/component-features#change-detection
+      url: /guide/dynamic-component-features#change-detection
 
 - title: Configuration
   url: /guide/configuration
@@ -120,7 +120,7 @@
   icon: /assets/images/icons/list.svg
   children:
     - title: How it works
-      url: /guide/trivia#how-it-works
+      url: /guide/trivia#how-components-are-loaded-dynamically
     - title: Security
       url: /guide/trivia#security
     - title: Caveats

@@ -1,5 +1,7 @@
 ---
-  canonical_url: '/guide/quickstart'
+canonical_url: '/guide/quickstart'
+title: Quick start
+description: Learn how to quickly set up a minimal example to load Angular components into dynamic content with the Angular Dynamic Hooks library.
 ---
 
 # Quick start

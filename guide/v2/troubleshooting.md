@@ -1,5 +1,7 @@
 ---
-  canonical_url: '/guide/troubleshooting'
+canonical_url: '/guide/troubleshooting'
+title: Troubleshooting
+description: This page goes over the most common problems and errors you might encounter when using the Angular Dynamic Hooks library and suggests solutions.
 ---
 
 # Troubleshooting
@@ -20,7 +22,7 @@ You most likely have a typo in the input. If its a string, remember to put quota
 
 ### **In my output function, `this` does not point to the parent object of the function**
 
-See the [Outputs-section]({{ "guide/v2/component-features#outputs" | relative_url }}) for a solution to this problem.
+See the [Outputs-section]({{ "guide/v2/dynamic-component-features#outputs" | relative_url }}) for a solution to this problem.
 
 ### **globalParsersBlacklist/whitelist for the `OutletComponent` doesn't work**
 

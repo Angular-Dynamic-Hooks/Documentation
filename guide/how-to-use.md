@@ -1,16 +1,18 @@
 ---
+title: How to use
+description: This page shows the most common ways to utilize the Angular Dynamic Hooks library to load components into dynamic templates or HTML content.
 ---
 
 <div class="page-title">
-  <img class="page-title-icon" src="{{ "/assets/images/icons/book.svg"| relative_url }}">
+  <img class="page-title-icon" src="{{ "/assets/images/icons/book.svg"| relative_url }}" alt="An icon of a book">
   <h1 class="page-title-text">How to use</h1>
 </div>
 
-There are two ways to use the library in Angular: In a template via the [DynamicHooksComponent]({{ "guide/configuration#dynamichookscomponent" | relative_url }}) or programmatically via the [DynamicHooksService]({{ "guide/how-to-use#programmatic-usage-with-service" | relative_url }}).
+There are two ways to use the library in Angular: In a template via the [DynamicHooksComponent]({{ "guide/configuration#dynamichookscomponent" | relative_url }}) or programmatically via the [DynamicHooksService]({{ "guide/how-to-use#load-components-via-service" | relative_url }}).
 
-## Starting out
+## Parsing dynamic content
 
-In the [Quickstart example]({{ 'guide/quickstart' | relative_url }}), we have already seen how to use the component in a minimal way. Just import the <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/components/dynamicHooksComponent.ts" target="_blank">`DynamicHooksComponent`</a> where you need it and pass in your content as well as the components to look for:
+In the [Quickstart example]({{ 'guide/quickstart' | relative_url }}), we have already seen how to use the component in a minimal way. Just import the <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/components/dynamicHooksComponent.ts" target="_blank">`DynamicHooksComponent`</a> where you need it and pass in your content (the "dynamic template") as well as the components to look for:
 
 
 ```ts
@@ -61,7 +63,7 @@ export class AppComponent {
 ></ngx-dynamic-hooks>
 ```
 
-In this example, we're passing the value of `context.someString` from the parent component to the `[message]`-input of `ExampleComponent` with the help of the context object. [See here]({{ 'guide/component-features#context--dependency-injection' | relative_url }}) for detailed info about how to use it.
+In this example, we're passing the value of `context.someString` from the parent component to the `[message]`-input of `ExampleComponent` with the help of the context object. [See here]({{ 'guide/dynamic-component-features#context--dependency-injection' | relative_url }}) for detailed info about how to use it.
 
 Also, as we know the content string is safe and does not contain malicous code, we can set the `sanitize`-option to `false` (`true` by default). You can read about all available options on the [configuration page]({{ 'guide/configuration#parseoptions' | relative_url }}).
 
@@ -165,7 +167,7 @@ A <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c
 
 For a full guide with stackblitz examples, see the [Writing your own HookParser]({{ "guide/parsers#writing-your-own-hookparser" | relative_url }}) section.
 
-## Programmatic usage (with service)
+## Load components via service
 
 You can also parse dynamic content directly in Typescript by injecting the <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/services/dynamicHooksService.ts" target="_blank">`DynamicHooksService`</a> and calling its `parse`-method programmatically. Here is a simple example:
 

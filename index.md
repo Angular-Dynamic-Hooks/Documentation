@@ -27,7 +27,7 @@ highlights:
     desc: Optionally allows <a href="guide/configuration#lazy-loading-components" target="_blank">lazy-loading components</a> only if they appear in the content
   - title: Easy communication
     icon: 🔒
-    desc: Utilize a <a href="guide/component-features" target="_blank">context object</a> to pass data safely to your dynamic components
+    desc: Utilize a <a href="guide/dynamic-component-features" target="_blank">context object</a> to pass data safely to your dynamic components
 ---
 
 <header class="l-header">
@@ -35,7 +35,7 @@ highlights:
     <div class="l-header-inner">
       <div class="l-header-left">
         <a class="l-title" href="{{ "/guide/" | relative_url }}" rel="author">
-          <img class="l-site-logo" src="{{ "/assets/images/ngx-dynamic-hooks-logo-white.svg" | relative_url }}">
+          <img class="l-site-logo" src="{{ "/assets/images/ngx-dynamic-hooks-logo-white.svg" | relative_url }}" alt="The logo for the Angular Dynamic Hooks library">
           <span class="l-site-name">Angular Dynamic Hooks</span>
         </a>
       </div>
@@ -47,13 +47,13 @@ highlights:
           </a>
           <a class="l-site-link npm" href="https://www.npmjs.com/package/ngx-dynamic-hooks" target="_blank">
             <div class="l-site-link-icon">
-              <img src="{{ "/assets/images/npm.svg" | relative_url }}">
+              <img src="{{ "/assets/images/npm.svg" | relative_url }}" alt="The logo for the npm website">
             </div>
             <span class="l-site-link-text">npm</span>
           </a>
           <a class="l-site-link github" href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks" target="_blank">
             <div class="l-site-link-icon">
-              <img src="{{ "/assets/images/github-mark-white.svg" | relative_url }}">
+              <img src="{{ "/assets/images/github-mark-white.svg" | relative_url }}" alt="The logo for Github">
             </div>
             <span class="l-site-link-text">Github</span>
           </a>
@@ -74,7 +74,7 @@ highlights:
       <p class="l-hero-desc"><b>Angular Dynamic Hooks</b> can load Angular components into any dynamic content, such as HTML strings, individual HTML elements or the whole browser page.</p>
       <div class="l-hero-teaser">
         <div class="l-hero-teaser-aspect">
-          <img class="l-hero-teaser-img" src="https://github.com/angular-dynamic-hooks/ngx-dynamic-hooks/assets/12670925/ef27d405-4663-48a5-97b5-ca068d7b67d8" alt="ngx-dynamic-hooks-optimize">
+          <img class="l-hero-teaser-img" src="https://github.com/angular-dynamic-hooks/ngx-dynamic-hooks/assets/12670925/ef27d405-4663-48a5-97b5-ca068d7b67d8" alt="A short animated gif showing how to use the Angular Dynamic Hooks library to load components">
         </div>
       </div>
       <div class="l-hero-buttons">
@@ -100,7 +100,7 @@ highlights:
     <div class="l-wrapper">
       <div class="l-cards-inner">
         <h2 class="l-cards-title">
-          <img class="l-cards-title-logo" src="{{ "/assets/images/ngx-dynamic-hooks-logo.svg" | relative_url }}">
+          <img class="l-cards-title-logo" src="{{ "/assets/images/ngx-dynamic-hooks-logo.svg" | relative_url }}" alt="The logo for the Angular Dynamic Hooks library">
           <span class="l-cards-title-text-mobile">Features overview</span>
           <span class="l-cards-title-text-desktop">Features overview and highlights</span>
         </h2>
@@ -130,7 +130,7 @@ highlights:
           <span class="l-snippet-image-top-hook">&lt;hook&gt;</span>
           <span class="l-snippet-image-dots">...</span>
         </div>
-        <img class="l-snippet-image-center" src="{{ "/assets/images/down_arrow.svg" | relative_url }}">
+        <img class="l-snippet-image-center" src="{{ "/assets/images/down_arrow.svg" | relative_url }}" alt="An arrow pointing downwards">
         <div class="l-snippet-image-bottom">
           <span class="l-snippet-image-dots">...</span>
           <span class="l-snippet-image-bottom-comp">Component</span>
@@ -200,7 +200,7 @@ parsers = [ExampleComponent];
           </div>
         </div>
 
-        <div class="l-guide-arrow"><img src="{{ "/assets/images/narrow_arrow_down.png" | relative_url }}"></div>
+        <div class="l-guide-arrow"><img src="{{ "/assets/images/narrow_arrow_down.png" | relative_url }}" alt="An arrow pointing downwards"></div>
 
         <div class="l-guide-step">
           <div class="l-guide-step-nr">2</div>
@@ -212,7 +212,7 @@ parsers = [ExampleComponent];
           </div>
         </div>
 
-        <div class="l-guide-arrow"><img src="{{ "/assets/images/narrow_arrow_down.png" | relative_url }}"></div>
+        <div class="l-guide-arrow"><img src="{{ "/assets/images/narrow_arrow_down.png" | relative_url }}" alt="An arrow pointing downwards"></div>
 
         <div class="l-guide-step">
           <div class="l-guide-step-nr">3</div>
@@ -224,7 +224,7 @@ parsers = [ExampleComponent];
           </div>
         </div>
 
-        <div class="l-guide-arrow"><img src="{{ "/assets/images/narrow_arrow_down.png" | relative_url }}"></div>
+        <div class="l-guide-arrow"><img src="{{ "/assets/images/narrow_arrow_down.png" | relative_url }}" alt="An arrow pointing downwards"></div>
 
         <div class="l-guide-step">
           <div class="l-guide-step-nr">4</div>

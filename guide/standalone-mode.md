@@ -1,8 +1,10 @@
 ---
+title: Standalone mode
+description: With standalone mode, you can mount Angular components directly into HTML that can come from anywhere - without the need for an Angular app.
 ---
 
 <div class="page-title">
-  <img class="page-title-icon" src="{{ "/assets/images/icons/brackets.svg"| relative_url }}">
+  <img class="page-title-icon" src="{{ "/assets/images/icons/brackets.svg"| relative_url }}" alt="An icon showing a couple of brackets">
   <h1 class="page-title-text">Standalone mode</h1>
 </div>
 
@@ -18,9 +20,9 @@ This is ideal for mounting Angular components as "frontend widgets" onto HTML th
 
 ## Getting started
 
-To use standalone mode, simply import the <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/standalone.ts#L158" target="_blank">`parse`</a> function from the library. It is the equivalent of [DynamicHooksService.parse]({{ "guide/how-to-use#programmatic-usage-with-service" | relative_url }}), just with the difference that <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/standalone.ts#L158" target="_blank">`parse`</a> is framework-agnostic and can be called from anywhere.
+To use standalone mode, simply import the <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/standalone.ts#L158" target="_blank">`parse`</a> function from the library. It is the equivalent of [DynamicHooksService.parse]({{ "guide/how-to-use#load-components-via-service" | relative_url }}), just with the difference that <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/standalone.ts#L158" target="_blank">`parse`</a> is framework-agnostic and can be called from anywhere.
 
-At its most basic, you only need to pass the **content** as well as a list of **parsers**. The [starter example]({{ "/guide/how-to-use#starting-out" | relative_url }}) would then look like this in standalone mode:
+At its most basic, you only need to pass the **content** as well as a list of **parsers**. The [starter example]({{ "/guide/how-to-use#parsing-dynamic-content" | relative_url }}) would then look like this in standalone mode:
 
 ```ts
 import { parse } from 'ngx-dynamic-hooks';
@@ -76,7 +78,7 @@ const childScope = createProviders([...], parentScope);
   <p><b>Tip</b>: Services decorated with <a href="https://angular.dev/guide/di/creating-injectable-service#creating-an-injectable-service" target="_blank"><code>@Injectable(providedIn: "root")</code></a> work without explicitly declaring them as providers and do not need a scope.</p>  
 ' %}
 
-## Building
+## Building the components
 
 In terms of writing code, we are already done. In order to compile Angular components however, special build tools are required. This is typically fully handled by the Angular CLI and its `ng build` command.
 
@@ -142,7 +144,7 @@ When using standalone mode and you're loading Angular components straight into n
 <app-example somePlainInput="Hello!" [someInput]="context.someValue" (someOutput)="context.someFunction($event)"></app-example>
 ```
 
-For more info this, see [the dedicated page about how to use inputs/outputs]({{ "guide/component-features#inputs" | relative_url }}).
+For more info this, see [the dedicated page about how to use inputs/outputs]({{ "guide/dynamic-component-features#inputs" | relative_url }}).
 
 **Tip: DOM events for outputs** 
 

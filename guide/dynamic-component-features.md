@@ -1,9 +1,11 @@
 ---
+title: Dynamic component features
+description: This page shows how the dynamically-loaded components by the Angular Dynamic Hooks library behave, how to exchange data and what lifecycle methods can be used.
 ---
 
 <div class="page-title">
-  <img class="page-title-icon" src="{{ "/assets/images/icons/star.svg"| relative_url }}">
-  <h1 class="page-title-text">Component features</h1>
+  <img class="page-title-icon" src="{{ "/assets/images/icons/star.svg"| relative_url }}" alt="An icon of a star">
+  <h1 class="page-title-text">Dynamic component features</h1>
 </div>
 
 This page is all about the **dynamically-loaded components**: How they behave, how you can exchange data with them and what new lifecycle methods can be used.
@@ -39,7 +41,7 @@ And then use the `context`-keyword to access it in selector hooks:
 
 The context object is typically a simple object literal that provides some values of interest from the parent component, but it can technically be anything - even the parent component itself. You can also use alternative notations to access its properties like `context['name']`, call functions like `context.someFunc()` and even use nested expressions like `context[context.someProp].someFunc(context.someParam)`.
 
-![communication-flow](https://github.com/user-attachments/assets/eadf3992-c07e-4188-8406-441bf562c957)
+![A diagram depicting the communication flow from the parent component to the dynamically-loaded components](https://github.com/user-attachments/assets/eadf3992-c07e-4188-8406-441bf562c957)
 
 {% include docs/notice.html content="
   <h4>About global code</h4>
@@ -58,7 +60,7 @@ You can pass data of almost any type to component `@Input()`s in selector hooks,
 | null/undefined | `[inputName]="null"` |
 | arrays | `[inputName]="['an', 'array', 'of', 'strings']"` |
 | object literals | `[inputName]="{planet: 'Tatooine', population: 200000}"` |
-| context variables (see [previous point]({{ "guide/component-features#context--dependency-injection" | relative_url }})) | `[inputName]="context.someProp"` |
+| context variables (see [previous point]({{ "guide/dynamic-component-features#context--dependency-injection" | relative_url }})) | `[inputName]="context.someProp"` |
 
 The inputs are automatically passed to the dynamic component and will trigger `ngOnChanges()`/`ngOnInit()` normally.
 
@@ -100,7 +102,7 @@ Hooks can be nested without limitations. When using selector hooks, it will look
 As usual, make sure to include an `<ng-content>` in your components so Angular knows where to render the child content.
 
 There are two small caveats, however: 
-1. Parent components cannot use `@ContentChildren()` to get a list of all of the nested components in the content string, as these have to be known at compile time. However, you can still access them via `onDynamicMount()` (see [Lifecycle methods]( {{ "guide/component-features#lifecycle-methods" | relative_url }})). 
+1. Parent components cannot use `@ContentChildren()` to get a list of all of the nested components in the content string, as these have to be known at compile time. However, you can still access them via `onDynamicMount()` (see [Lifecycle methods]( {{ "guide/dynamic-component-features#lifecycle-methods" | relative_url }})). 
 2. Multiple named `<ng-content>` outlets are currently not supported in component selector hooks. 
 
 ## Lifecycle methods

@@ -13,12 +13,14 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: ngx-dynamic-hooks docs
+title: Angular Dynamic Hooks
+tagline: Load fully-functional Angular components into dynamic content
 description: >- # this means to ignore newlines until "baseurl:"
-  The documentation for the ngx-dynamic-hooks library for Angular
+  Angular Dynamic Hooks allows you to load Angular components into dynamic content, such as HTML strings (similar to a “dynamic” template) or HTML elements.
 domain: angular-dynamic-hooks.com               # if you want to force HTTPS, specify the domain without the http at the start, e.g. example.com
-url: https://angular-dynamic-hooks.github.io    # the base hostname and protocol for your site, e.g. http://example.com
+url: https://angular-dynamic-hooks.com          # the base hostname and protocol for your site, e.g. http://example.com
 baseurl: /                                      # place folder name if the site is served in a subfolder
+logo: /assets/images/ngx-dynamic-hooks-logo.svg
 github_username:  mtobisch
 
 # Build settings

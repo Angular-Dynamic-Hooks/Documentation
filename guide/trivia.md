@@ -1,12 +1,14 @@
 ---
+title: Trivia
+description: Angular Dynamic Hooks loads Angular components into dynamic content - but with what methods? And are they safe? The trivia page takes a look under the hood.
 ---
 
 <div class="page-title">
-  <img class="page-title-icon" src="{{ "/assets/images/icons/list.svg"| relative_url }}">
+  <img class="page-title-icon" src="{{ "/assets/images/icons/list.svg"| relative_url }}" alt="An icon for a list">
   <h1 class="page-title-text">Trivia</h1>
 </div>
 
-## How it works
+## How components are loaded dynamically
 
 Angular Dynamic Hooks doesn't rely on any special "hacks" to load components. Most notably, it simply uses the <a href="https://angular.dev/api/core/createComponent" target="_blank">createComponent()</a> function from Angular's public API, which is safe and has been around in some form since Angular 2.
 
@@ -30,7 +32,7 @@ Most notably, it uses Angular's <a href="https://angular.dev/api/platform-browse
 
 To prevent attack vectors through component bindings like inputs, the standard `SelectorHookParser` that comes with this library does not rely on JavaScript's dangerous `eval()` function to evaluate them and instead internally uses `JSON.parse()` to safely turn strings into variables. Ensure that when writing custom parsers for hooks that take their inputs/outputs directly from untrusted content, similar security precautions are taken!
 
-In addition, the scope of code that is accessible to the (perhaps also untrusted) author of the content is limited by the [context object]({{ "guide/component-features" | relative_url }}), which you can customize to your liking. 
+In addition, the scope of code that is accessible to the (perhaps also untrusted) author of the content is limited by the [context object]({{ "guide/dynamic-component-features" | relative_url }}), which you can customize to your liking. 
 
 Finally, which components/hooks can be used by the author can be [freely adjusted]({{ "guide/configuration#dynamichookscomponent" | relative_url }}) for each <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/components/dynamicHooksComponent.ts" target="_blank">`DynamicHooksComponent`</a>, as can their allowed inputs/outputs.
 
@@ -38,7 +40,7 @@ Finally, which components/hooks can be used by the author can be [freely adjuste
 
 1. As this library does not parse the content string as an actual Angular template, template syntax such as `*ngIf`, `*ngFor`, attribute bindings `[style.width]="'100px'"`, interpolation `{% raw %}{{ someVar }}{% endraw %}` etc. will **not** work! This functionality is not planned to be added either, as it would require a fundamentally different approach by relying on the JiT template compiler (which this library intentionally doesn't) or even creating a custom Angular template parser.
 2. Hooks can only load components, not directives. There's no way to dynamically create directives as far as i'm aware. If you want to load a directive, try loading a component that contains that directive instead.
-3. Accessing `@ContentChildren` does not work in dynamically-loaded components, as these have to be known at compile-time. However, you can still access them via [onDynamicMount()]({{ "guide/component-features#lifecycle-methods" | relative_url }}).
+3. Accessing `@ContentChildren` does not work in dynamically-loaded components, as these have to be known at compile-time. However, you can still access them via [onDynamicMount()]({{ "guide/dynamic-component-features#lifecycle-methods" | relative_url }}).
 
 ## Comparison with similar libraries
 
@@ -53,7 +55,7 @@ However, there are a number of advantages this library offers compared to Angula
 * **Pattern flexibility:** You are not limited to load components by unique HTML elements. A hook can have any form, be any element or even consist of just text (see the ["Emoji parser" example]({{ "guide/parsers#example-2-emoji-parser" | relative_url }})).
 * **Lazy-loading:** You can easily set up components to [lazily-load]({{ "guide/configuration#lazy-loading-components" | relative_url }}) only when they appear in the content instead of having to load all the code upfront.
 * **Scope:** When using Angular elements, web components will automatically load from anywhere in the DOM as they are globally registered with the browser. With this library, you can always specify exactly which components to look for in which content.
-* **Communication:** If you have a parent app that uses Angular elements to load componments, it can be difficult to communicate with them. With this library, you can easily use the [context object (or dependency injection)]({{ "guide/component-features" | relative_url }}) to transfer data.
+* **Communication:** If you have a parent app that uses Angular elements to load componments, it can be difficult to communicate with them. With this library, you can easily use the [context object (or dependency injection)]({{ "guide/dynamic-component-features" | relative_url }}) to transfer data.
 * **Bindings:** In Angular elements, all inputs are strings by default and you will have to manually turn them into booleans, arrays, objects etc. yourself. This library parses them automatically for you, much like a normal Angular template.
 * **Projected content:** Angular elements doesn't normally render projected content in the component's `<ng-content>`. There is a workaround involving `<slot>`, but its not ideal. This library renders `<ng-content>` normally.
 

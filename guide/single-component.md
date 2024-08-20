@@ -1,9 +1,11 @@
 ---
+title: Loading a single dynamic component 
+description: With the DynamicHooksSingleComponent, you can easily load just a single Angular component dynamically, pass inputs to it and subscribe to its outputs.
 ---
 
 <div class="page-title">
-  <img class="page-title-icon" src="{{ "/assets/images/icons/circle.svg"| relative_url }}">
-  <h1 class="page-title-text">Single component</h1>
+  <img class="page-title-icon" src="{{ "/assets/images/icons/circle.svg"| relative_url }}" alt="An icon showing a circle">
+  <h1 class="page-title-text">Loading a single dynamic component</h1>
 </div>
 
 While you can always load just one component via the <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/components/dynamicHooksComponent.ts" target="_blank">`DynamicHooksComponent`</a>, sometimes that can feel a bit verbose and it would be more convenient to have a dedicated tool for the job.
