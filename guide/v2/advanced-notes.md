@@ -21,7 +21,7 @@ parse(
 ): Observable<OutletParseResult>;
 ```
 
-Don't worry, most of the parameters are just [the inputs]({{ "documentation/v2/configuration#component-bindings" | relative_url }}) for the `<ngx-dynamic-hooks>` component and therefore optional. You really only need to pass the `content` string as you would with the component. 
+Don't worry, most of the parameters are just [the inputs]({{ "guide/v2/configuration#component-bindings" | relative_url }}) for the `<ngx-dynamic-hooks>` component and therefore optional. You really only need to pass the `content` string as you would with the component. 
 
 Only the last couple of parameters are notable: You can optionally provide a `targetElement` and `targetHookIndex` to fill out for the result. If not, they are automatically created for you. You may also specify a custom injector for the created components. If you don't, it defaults to module injector.
 

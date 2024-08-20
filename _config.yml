@@ -39,16 +39,13 @@ sass:
 # Front matter defaults
 defaults:
   - scope:
-      path: "documentation" # Under which path prefix to set these defaults
+      path: "guide" # Under which path prefix to set these defaults
       type: "pages"
     values:
       layout: "docs"
-  - scope:
-      path: "documentation"
-    values:
       structure: "structure_v3"
   - scope:
-      path: "documentation/v2"
+      path: "guide/v2"
     values:
       structure: "structure_v2"
       deprecated: true

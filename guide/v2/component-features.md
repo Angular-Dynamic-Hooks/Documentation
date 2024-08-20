@@ -1,5 +1,5 @@
 ---
-  canonical_url: '/documentation/component-features'
+  canonical_url: '/guide/component-features'
 ---
 
 # Component features
@@ -54,7 +54,7 @@ You can pass data of almost any type to component `@Input()`s in selector hooks,
 | null/undefined | `[inputName]="null"` |
 | arrays | `[inputName]="['an', 'array', 'of', 'strings']"` |
 | object literals | `[inputName]="{planet: 'Tatooine', population: 200000}"` |
-| context variables (see [previous point]({{ "documentation/v2/component-features#context--dependency-injection" | relative_url }})) | `[inputName]="context.someProp"` |
+| context variables (see [previous point]({{ "guide/v2/component-features#context--dependency-injection" | relative_url }})) | `[inputName]="context.someProp"` |
 
 The inputs are automatically set in the dynamic component and will trigger `ngOnChanges()`/`ngOnInit()` normally.
 
@@ -92,7 +92,7 @@ Hooks can be nested without limitations. When using selector hooks, it will look
 As usual, make sure to include an `<ng-content>` in your parent components so Angular knows where to render the child content.
 
 There are two small caveats, however: 
-1. Parent components cannot use `@ContentChildren()` to get a list of all of the nested components in the content string, as these have to be known at compile time. However, you can still access them via `onDynamicMount()` (see [Lifecycle methods]( {{ "documentation/v2/component-features#lifecycle-methods" | relative_url }})). 
+1. Parent components cannot use `@ContentChildren()` to get a list of all of the nested components in the content string, as these have to be known at compile time. However, you can still access them via `onDynamicMount()` (see [Lifecycle methods]( {{ "guide/v2/component-features#lifecycle-methods" | relative_url }})). 
 2. Multiple named `<ng-content>` outlets are currently not supported in component selector hooks. 
 
 ## Lifecycle methods
@@ -137,4 +137,4 @@ Dynamically-loaded components are connected to Angular change detection and will
 
 The input and output bindings you assign to hooks are checked and updated on every change detection run, which mirrors Angular's default behaviour. This way, if you bind a context property to an input and that property changes, the corresponding component will automatically be updated with the new value for the input and trigger `ngOnChanges()`.
 
-Alternatively, you can also set the option `updateOnPushOnly` to `true` to only update the bindings when the context object changes by reference (see [OutletOptions]({{ "documentation/v2/configuration#outletoptions" | relative_url }})).
+Alternatively, you can also set the option `updateOnPushOnly` to `true` to only update the bindings when the context object changes by reference (see [OutletOptions]({{ "guide/v2/configuration#outletoptions" | relative_url }})).

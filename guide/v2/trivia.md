@@ -1,5 +1,5 @@
 ---
-  canonical_url: '/documentation/trivia'
+  canonical_url: '/guide/trivia'
 ---
 
 # Trivia
@@ -25,19 +25,19 @@ If you are curious about the inner workings of the library, here's a short descr
 
 One of the goals of this library was to make it **safe to use even with potentially unsafe input**, such as user-generated content. It is also designed to grant developers maximum control over which components are allowed to be loaded, and how. It uses the following techniques to achieve this:
 
-Most notably, it uses Angular's `DOMSanitizer` by default to remove all unsafe HTML, CSS and JS in the content string that is not part of a hook. Though not recommended, you may turn this setting off in the [OutletOptions]({{ "documentation/v2/configuration#outletoptions" | relative_url }}). You will then have to ensure yourself that the rendered content does not include <a href="https://en.wikipedia.org/wiki/Cross-site_scripting" target="_blank">Cross Site Scripting attacks (XSS)</a> or other malicious code, however.
+Most notably, it uses Angular's `DOMSanitizer` by default to remove all unsafe HTML, CSS and JS in the content string that is not part of a hook. Though not recommended, you may turn this setting off in the [OutletOptions]({{ "guide/v2/configuration#outletoptions" | relative_url }}). You will then have to ensure yourself that the rendered content does not include <a href="https://en.wikipedia.org/wiki/Cross-site_scripting" target="_blank">Cross Site Scripting attacks (XSS)</a> or other malicious code, however.
 
 Excluded from being checked by the `DOMSanitizer` are the component hooks themselves (as it may remove them depending on their pattern). It is therefore the hook parser's responsibility to ensure that whatever malicious code there may be in the hook is not somehow transferred to the rendered component. For this reason, the standard `SelectorHookParser` that comes with this library does not rely on JavaScript's dangerous `eval()` function to evaluate inputs and outputs and instead internally uses `JSON.parse()` to safely turn strings into variables. Ensure that when writing custom parsers for hooks that take their inputs/outputs directly from the text, similar security precautions are taken!
 
-In addition to this, the scope of code that is accessible by the author of the content string is limited to the [context object]({{ "documentation/v2/component-features" | relative_url }}), which you can customize to your liking. 
+In addition to this, the scope of code that is accessible by the author of the content string is limited to the [context object]({{ "guide/v2/component-features" | relative_url }}), which you can customize to your liking. 
 
-Finally, which components/hooks can be used by the author can be [freely adjusted]({{ "documentation/v2/configuration" | relative_url }}) for each `OutletComponent`, as can their allowed inputs/outputs.
+Finally, which components/hooks can be used by the author can be [freely adjusted]({{ "guide/v2/configuration" | relative_url }}) for each `OutletComponent`, as can their allowed inputs/outputs.
 
 ## Caveats
 
 1. As this library does not parse the content string as an actual Angular template, template syntax such as `*ngIf`, `*ngFor`, attribute bindings `[style.width]="'100px'"`, interpolation `{{ someVar }}` etc. will **not** work! This functionality is not planned to be added either, as it would require a fundamentally different approach by relying on the JiT template compiler (which this library intentionally doesn't) or even creating a custom Angular template parser.
 2. Hooks can only load components, not directives. There's no way to dynamically create directives as far as i'm aware. If you want to load a directive into the content string, try loading a component that contains that directive instead.
-3. Accessing `@ContentChildren` does not work in dynamically-loaded components, as these have to be known at compile-time. However, you can still access them via [onDynamicMount()]({{ "documentation/v2/component-features#lifecycle-methods" | relative_url }}).
+3. Accessing `@ContentChildren` does not work in dynamically-loaded components, as these have to be known at compile-time. However, you can still access them via [onDynamicMount()]({{ "guide/v2/component-features#lifecycle-methods" | relative_url }}).
 
 ## Comparison with similar libraries
 
@@ -47,9 +47,9 @@ Angular elements allows you to register custom HTML elements (like component sel
 
 However, there are a number of advantages this library offers compared to Angular elements:
 
-* **Pattern flexibility:** You are not limited to load components by unique HTML elements. A hook can have any form, be any element or even consist of just text (see ["emoji" example]({{ "documentation/v2/parsers#example-1-emoji-parser-singletag" | relative_url }}) or ["link" example]({{ "documentation/v2/parsers#example-2-internal-link-parser-enclosing" | relative_url }})).
+* **Pattern flexibility:** You are not limited to load components by unique HTML elements. A hook can have any form, be any element or even consist of just text (see ["emoji" example]({{ "guide/v2/parsers#example-1-emoji-parser-singletag" | relative_url }}) or ["link" example]({{ "guide/v2/parsers#example-2-internal-link-parser-enclosing" | relative_url }})).
 * **Scope:** When using Angular elements, web components will automatically load from anywhere in the DOM as they are globally registered with the browser. With this library, you can to specify on each `OutletComponent` individually which exact components to look for.
-* **Communication:** In Angular elements, there is no direct line of communication between the parent component rendering the dynamic content and dynamic components loaded as children (such as the [context object]({{ "documentation/v2/component-features" | relative_url }}) from this library). You will have to fallback on services to transfer data.
+* **Communication:** In Angular elements, there is no direct line of communication between the parent component rendering the dynamic content and dynamic components loaded as children (such as the [context object]({{ "guide/v2/component-features" | relative_url }}) from this library). You will have to fallback on services to transfer data.
 * **Bindings:** Though Angular elements allows passing static inputs as HTML attributes to components, it doesn't parse them. This means that all inputs are strings by default and you will have to manually turn them into booleans, arrays, objects etc. yourself. This library parses them automatically for you, much like a normal Angular template - in addition to accepting actual variables from the context object as well.
 * **Projected content:** Angular elements doesn't normally render projected content in the component's `<ng-content>`. There is a workaround involving `<slot>`, but its not ideal. This library renders `<ng-content>` normally.
 

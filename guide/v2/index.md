@@ -1,5 +1,5 @@
 ---
-  canonical_url: '/documentation'
+  canonical_url: '/guide'
 ---
 
 # Introduction
@@ -30,7 +30,7 @@ or yarn
 yarn add ngx-dynamic-hooks
 ```
 
-[See the Quickstart page]( {{ "/documentation/v2/quickstart" | relative_url }} ) for an example on how to get going right away.
+[See the Quickstart page]( {{ "/guide/v2/quickstart" | relative_url }} ) for an example on how to get going right away.
 
 | Angular | Version | JiT | AoT | Ivy | NPM |
 | --- | --- | --- | --- | --- | --- |
@@ -64,7 +64,7 @@ Just write your selectors just as you would in a normal Angular template (such a
 
 Something to note, though, is that hooks can be anything - not just component selectors! 
 
-As each hook internally has a corresponding <a href="https://github.com/angular-dynamic-hooks/ngx-dynamic-hooks/blob/9b31ba5872a057c33a5464f638ac234fd6144963/projects/ngx-dynamic-hooks/src/lib/interfacesPublic.ts#L49" target="_blank">`HookParser`</a> that tells the library how to find and instantiate components, you can create [custom hook parsers]({{ "/documentation/v2/parsers" | relative_url }}) that look for any text pattern of your choice to be replaced by an Angular component!
+As each hook internally has a corresponding <a href="https://github.com/angular-dynamic-hooks/ngx-dynamic-hooks/blob/9b31ba5872a057c33a5464f638ac234fd6144963/projects/ngx-dynamic-hooks/src/lib/interfacesPublic.ts#L49" target="_blank">`HookParser`</a> that tells the library how to find and instantiate components, you can create [custom hook parsers]({{ "/guide/v2/parsers" | relative_url }}) that look for any text pattern of your choice to be replaced by an Angular component!
 
 ## Do the components work normally?
 

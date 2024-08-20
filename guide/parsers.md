@@ -8,20 +8,20 @@
 
 ## Introduction
 
-Components are loaded from [hooks]({{ "documentation/#whats-a-hook" | relative_url }}) in the content, but how does the library know what a hook looks like and which component to load for it? This job is accomplished by **HookParsers**. 
+Components are loaded from [hooks]({{ "guide/#whats-a-hook" | relative_url }}) in the content, but how does the library know what a hook looks like and which component to load for it? This job is accomplished by **HookParsers**. 
 
 HookParsers are what you pass along as the `parsers` input/argument to the library. Each component has one and it can be either:
 
 1. The component class itself.
-2. A <a href="{{ "documentation/parsers#selectorhookparserconfig" | relative_url }}">SelectorHookParserConfig</a> object literal.
+2. A <a href="{{ "guide/parsers#selectorhookparserconfig" | relative_url }}">SelectorHookParserConfig</a> object literal.
 3. A custom <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/interfacesPublic.ts#L51" target="_blank">`HookParser`</a> instance.
 4. A custom <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/interfacesPublic.ts#L51" target="_blank">`HookParser`</a> class. If this class is available as a provider/service, it will be injected.
 
-Using the component class is the most straightforward option. It internally sets up a `SelectorHookParser` for you which loads components just like in Angular templates. We have been using it in most simple examples, such as in [Quick Start]({{ "documentation/quickstart" | relative_url }}) and most of the [How to use]({{ "documentation/how-to-use" | relative_url }}) page.
+Using the component class is the most straightforward option. It internally sets up a `SelectorHookParser` for you which loads components just like in Angular templates. We have been using it in most simple examples, such as in [Quick Start]({{ "guide/quickstart" | relative_url }}) and most of the [How to use]({{ "guide/how-to-use" | relative_url }}) page.
 
-If you want more control, you can also manually configure a `SelectorHookParser` by passing in a [SelectorHookParserConfig]({{ "documentation/parsers#selectorhookparserconfig" | relative_url }}), which provides additional options.
+If you want more control, you can also manually configure a `SelectorHookParser` by passing in a [SelectorHookParserConfig]({{ "guide/parsers#selectorhookparserconfig" | relative_url }}), which provides additional options.
 
-For even more specific use-cases, you may want to write your own HookParser. See the section [Writing your own HookParser]({{ "documentation/parsers#writing-your-own-hookparser" | relative_url }}) for more info about that.
+For even more specific use-cases, you may want to write your own HookParser. See the section [Writing your own HookParser]({{ "guide/parsers#writing-your-own-hookparser" | relative_url }}) for more info about that.
 
 ## SelectorHookParserConfig
 
@@ -31,7 +31,7 @@ In its simplest form, it just contains the component class like `{component: Exa
 
 Property | Type | Default | Description
 --- | --- | --- | ---
-`component` | `ComponentConfig` | - | The component to be used. Can be its class or a [LazyLoadComponentConfig]({{ "documentation/configuration#lazy-loading-components" | relative_url }}).
+`component` | `ComponentConfig` | - | The component to be used. Can be its class or a [LazyLoadComponentConfig]({{ "guide/configuration#lazy-loading-components" | relative_url }}).
 `name` | `string` | - | The name of the parser. Only required if you want to black- or whitelist it.
 `selector` | `string` | The component selector | The selector to use to find the hook.
 `hostElementTag` | `string` | - | A custom tag to be used for the component host element.
@@ -48,7 +48,7 @@ Property | Type | Default | Description
 `allowContextInBindings` | `boolean` | `true` | Whether to allow the use of context object variables in inputs and outputs.
 `allowContextFunctionCalls` | `boolean` | `true` | Whether to allow calling context object functions in inputs and outputs.
 
-See the [How to use]({{ "documentation/how-to-use#load-by-any-selector" | relative_url }}) page for a simple <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/parsers/selector/selectorHookParserConfig.ts" target="_blank">`SelectorHookParserConfig`</a> example.
+See the [How to use]({{ "guide/how-to-use#load-by-any-selector" | relative_url }}) page for a simple <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/parsers/selector/selectorHookParserConfig.ts" target="_blank">`SelectorHookParserConfig`</a> example.
 
 {% include docs/notice.html content="
   <p>Please note that you cannot use full CSS selectors in the <code>selector</code> field if you set <code>enclosing</code> to <code>false</code> or use a custom <code>bracketStyle</code> as you aren't looking for valid HTML elements at that point. The selector can then only be the direct tag name, e.g. <code>app-example</code>.</p>
@@ -71,7 +71,7 @@ A hook parser is any class that follows the <a href="https://github.com/Angular-
 
 You only need to implement either `findHooks()` or `findHookElements()`, depending on whether you want to replace text or HTML elements with components. 
 
-The following section explains these main functions in detail. If you would rather see a custom parser in action right away, you can [skip ahead to the examples]({{ "documentation/parsers#example-1-minimal" | relative_url }}).
+The following section explains these main functions in detail. If you would rather see a custom parser in action right away, you can [skip ahead to the examples]({{ "guide/parsers#example-1-minimal" | relative_url }}).
 
 ### findHooks()
 
@@ -94,7 +94,7 @@ The opening and closing tags simply refer to the text patterns that signal the s
 
 How your hook looks like and how you find these indexes is completely up to you. You may look for them using Regex patterns or any other parsing method. Though, as a word of warning, do not try to parse enclosing hooks with Regex alone. <a href="https://stackoverflow.com/questions/1732348/regex-match-open-tags-except-xhtml-self-contained-tags/1732454#1732454" target="_blank">That road leads to madness</a>.
 
-To make your life easier, you can just use the <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/services/utils/hookFinder.ts" target="_blank">`HookFinder`</a> service that comes with this library. Its easy to use and safely finds both singletag and enclosing patterns in a string. You can see it in action in the ["Emoji parser" example]({{ "documentation/parsers#example-2-emoji-parser" | relative_url }}).
+To make your life easier, you can just use the <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/services/utils/hookFinder.ts" target="_blank">`HookFinder`</a> service that comes with this library. Its easy to use and safely finds both singletag and enclosing patterns in a string. You can see it in action in the ["Emoji parser" example]({{ "guide/parsers#example-2-emoji-parser" | relative_url }}).
 
 {% include docs/notice.html content="
   <span><code>findHooks()</code> is only needed if you want to find text hooks. For element hooks, see <code>findHookElements()</code>.</span>
@@ -136,7 +136,7 @@ interface HookComponentData {
 }
 ```
 
-You usually only need to fill out the `component` field, which can be the component class or a <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/interfacesPublic.ts#L157" target="_blank">`LazyLoadComponentConfig`</a> (see [Lazy-loading components]({{ "documentation/configuration#lazy-loading-components" | relative_url }})). 
+You usually only need to fill out the `component` field, which can be the component class or a <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/interfacesPublic.ts#L157" target="_blank">`LazyLoadComponentConfig`</a> (see [Lazy-loading components]({{ "guide/configuration#lazy-loading-components" | relative_url }})). 
 
 You may optionally also specify a custom host element tag, provide your own injectors or use custom content to replace the existing `<ng-content>` (each entry in the outer array represends a `<ng-content>`-slot and the inner array its content).
 

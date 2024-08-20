@@ -25,17 +25,17 @@ It accepts a <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks
 
 Name | Type | Description
 --- | --- | ---
-`parsers` | <a href="{{ '/documentation/parsers' | relative_url }}">HookParserEntry</a>`[]` | An list of hook parsers to provide to all <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/components/dynamicHooksComponent.ts" target="_blank">`DynamicHooksComponent`</a>s
-`options` | <a href="{{ '/documentation/configuration#parseoptions' | relative_url }}">ParseOptions</a> | An options object to provide to all <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/components/dynamicHooksComponent.ts" target="_blank">`DynamicHooksComponent`</a>s
-`inheritance` | `number` | An enum option from <a href="{{ '/documentation/configuration#child-settings' | relative_url }}">DynamicHooksInheritance</a>
+`parsers` | <a href="{{ '/guide/parsers' | relative_url }}">HookParserEntry</a>`[]` | An list of hook parsers to provide to all <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/components/dynamicHooksComponent.ts" target="_blank">`DynamicHooksComponent`</a>s
+`options` | <a href="{{ '/guide/configuration#parseoptions' | relative_url }}">ParseOptions</a> | An options object to provide to all <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/components/dynamicHooksComponent.ts" target="_blank">`DynamicHooksComponent`</a>s
+`inheritance` | `number` | An enum option from <a href="{{ '/guide/configuration#child-settings' | relative_url }}">DynamicHooksInheritance</a>
 
-You can [see an example here]({{ "documentation/how-to-use#global-settings" | relative_url }}). 
+You can [see an example here]({{ "guide/how-to-use#global-settings" | relative_url }}). 
 
 ## Child settings
 
 You can provide additional parsers and options simply by calling <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/dynamicHooksProviders.ts" target="_blank">`provideDynamicHooks`</a> again in the `providers`-fields of child injector contexts, such on <a href="https://angular.dev/api/router/Route#providers" target="_blank">specific routes</a> or even directly on <a href="https://angular.dev/api/core/Component#providers" target="_blank">components</a>. 
 
-The child settings will be merged with other provided settings according to the value of the optional `inheritance` property in the [DynamicHooksSettings]({{ "documentation/configuration#global-settings" | relative_url }}) object. It accepts a value from the <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/services/settings/settings.ts" target="_blank">`DynamicHooksInheritance`</a> enum, which are as follows:
+The child settings will be merged with other provided settings according to the value of the optional `inheritance` property in the [DynamicHooksSettings]({{ "guide/configuration#global-settings" | relative_url }}) object. It accepts a value from the <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/services/settings/settings.ts" target="_blank">`DynamicHooksInheritance`</a> enum, which are as follows:
 
 1. `DynamicHooksInheritance.Linear`: (Default) Only merges with settings from direct ancestor injectors (such a father and grandfather injectors, but not "uncle" injectors).
 2. `DynamicHooksInheritance.All`: Merges with settings from all injectors in the app.
@@ -64,14 +64,14 @@ Input name | Type | Description
 `context` | `any` | An optional object to pass data to the dynamically-loaded components
 `globalParsersBlacklist` | `string[]` | An optional list of global parsers to blacklist, identified by their name
 `globalParsersWhitelist` | `string[]` | An optional list of global parsers to whitelist, identified by their name
-`parsers` | <a href="{{ '/documentation/parsers' | relative_url }}">HookParserEntry</a>`[]` | An optional list of hook parsers to use instead of the global parsers
-`options` | <a href="{{ '/documentation/configuration#parseoptions' | relative_url }}">ParseOptions</a> | An optional options object to use instead of the global options
+`parsers` | <a href="{{ '/guide/parsers' | relative_url }}">HookParserEntry</a>`[]` | An optional list of hook parsers to use instead of the global parsers
+`options` | <a href="{{ '/guide/configuration#parseoptions' | relative_url }}">ParseOptions</a> | An optional options object to use instead of the global options
 
 There is also an output you may subscribe to:
 
 Output name | Type | Description
 --- | --- | ---
-`componentsLoaded` | `Observable<LoadedComponent[]>` | Will trigger once all components have loaded (including [lazy-loaded ones]({{ "documentation/configuration#lazy-loading-components" | relative_url }}))
+`componentsLoaded` | `Observable<LoadedComponent[]>` | Will trigger once all components have loaded (including [lazy-loaded ones]({{ "guide/configuration#lazy-loading-components" | relative_url }}))
 
 Each <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/interfacesPublic.ts#L238" target="_blank">`LoadedComponent`</a> from the output represents a dynamically-created component and contains some information you may find interesting:
 
@@ -86,7 +86,7 @@ interface LoadedComponent {
 
 ## ParseOptions
 
-You can define <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/services/settings/options.ts" target="_blank">`ParseOptions`</a> both in the global settings as well as on each <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/components/dynamicHooksComponent.ts" target="_blank">`DynamicHooksComponent`</a> indidually (to overwrite the global values). 
+You can define <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/services/settings/options.ts" target="_blank">`ParseOptions`</a> whenever you parse content - either in the global settings, as an input to each <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/components/dynamicHooksComponent.ts" target="_blank">`DynamicHooksComponent`</a> or as a parameter when using the library programmatically.
 
 These options can be used to customize the parsing behaviour:
 
@@ -121,7 +121,7 @@ interface LazyLoadComponentConfig {
 
 `importPromise` should be a function that returns the import promise for the component file while `importName` should be the name of the exported component class to be used.
 
-With standard selector hooks, you can use this <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/interfacesPublic.ts#L157" target="_blank">`LazyLoadComponentConfig`</a> in the `component`-field of a [SelectorHookParserConfig]({{ "documentation/parsers#selectorhookparserconfig" | relative_url }}). You also need to manually specify a selector to look for, as it cannot be known before loading the component class. An example would look like so:
+With standard selector hooks, you can use this <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/interfacesPublic.ts#L157" target="_blank">`LazyLoadComponentConfig`</a> in the `component`-field of a [SelectorHookParserConfig]({{ "guide/parsers#selectorhookparserconfig" | relative_url }}). You also need to manually specify a selector to look for, as it cannot be known before loading the component class. An example would look like so:
 
 ```ts
 import { Component } from '@angular/core';

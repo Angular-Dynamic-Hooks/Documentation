@@ -6,11 +6,11 @@
   <h1 class="page-title-text">How to use</h1>
 </div>
 
-There are two ways to use the library in Angular: In a template via the [DynamicHooksComponent]({{ "documentation/configuration#dynamichookscomponent" | relative_url }}) or programmatically via the [DynamicHooksService]({{ "documentation/how-to-use#programmatic-usage-with-service" | relative_url }}).
+There are two ways to use the library in Angular: In a template via the [DynamicHooksComponent]({{ "guide/configuration#dynamichookscomponent" | relative_url }}) or programmatically via the [DynamicHooksService]({{ "guide/how-to-use#programmatic-usage-with-service" | relative_url }}).
 
 ## Starting out
 
-In the [Quickstart example]({{ 'documentation/quickstart' | relative_url }}), we have already seen how to use the component in a minimal way. Just import the <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/components/dynamicHooksComponent.ts" target="_blank">`DynamicHooksComponent`</a> where you need it and pass in your content as well as the components to look for:
+In the [Quickstart example]({{ 'guide/quickstart' | relative_url }}), we have already seen how to use the component in a minimal way. Just import the <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/components/dynamicHooksComponent.ts" target="_blank">`DynamicHooksComponent`</a> where you need it and pass in your content as well as the components to look for:
 
 
 ```ts
@@ -61,9 +61,9 @@ export class AppComponent {
 ></ngx-dynamic-hooks>
 ```
 
-In this example, we're passing the value of `context.someString` from the parent component to the `[message]`-input of `ExampleComponent` with the help of the context object. [See here]({{ 'documentation/component-features#context--dependency-injection' | relative_url }}) for detailed info about how to use it.
+In this example, we're passing the value of `context.someString` from the parent component to the `[message]`-input of `ExampleComponent` with the help of the context object. [See here]({{ 'guide/component-features#context--dependency-injection' | relative_url }}) for detailed info about how to use it.
 
-Also, as we know the content string is safe and does not contain malicous code, we can set the `sanitize`-option to `false` (`true` by default). You can read about all available options on the [configuration page]({{ 'documentation/configuration#parseoptions' | relative_url }}).
+Also, as we know the content string is safe and does not contain malicous code, we can set the `sanitize`-option to `false` (`true` by default). You can read about all available options on the [configuration page]({{ 'guide/configuration#parseoptions' | relative_url }}).
 
 See it in action in this Stackblitz:
 
@@ -77,7 +77,7 @@ See it in action in this Stackblitz:
 
 If you use <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/components/dynamicHooksComponent.ts" target="_blank">`DynamicHooksComponent`</a> more than once, it can become tedious to manually pass along the desired parsers and options every time.
 
-Instead, you can also register them [globally]({{ "documentation/configuration#global-settings" | relative_url }}) in your app providers with <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/dynamicHooksProviders.ts" target="_blank">`provideDynamicHooks`</a>:
+Instead, you can also register them [globally]({{ "guide/configuration#global-settings" | relative_url }}) in your app providers with <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/dynamicHooksProviders.ts" target="_blank">`provideDynamicHooks`</a>:
 
 ```ts
 import { ApplicationConfig } from '@angular/core';
@@ -115,7 +115,7 @@ See it in action in this Stackblitz:
   <span>If you are using modules, you can put the call to "provideDynamicHooks" into the "providers" decorator field of your module instead.</span>
 ' %}
 
-You can also call <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/dynamicHooksProviders.ts" target="_blank">`provideDynamicHooks`</a> again in the providers fields of child injectors, such as in lazily-loaded routes. These [child settings]({{ "documentation/configuration#child-settings" | relative_url }}) will automatically inherit the root settings according to the Angular injector hierarchy.
+You can also call <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/dynamicHooksProviders.ts" target="_blank">`provideDynamicHooks`</a> again in the providers fields of child injectors, such as in lazily-loaded routes. These [child settings]({{ "guide/configuration#child-settings" | relative_url }}) will automatically inherit the root settings according to the Angular injector hierarchy.
 
 ## Load by any selector
 
@@ -147,7 +147,7 @@ export class AppComponent {
 }
 ```
 
-As you can see, we replaced the `ExampleComponent` class in the parsers array with a more explicit configuration object that specifies a `selector`. This is a [SelectorHookParserConfig]({{ "documentation/parsers#selectorhookparserconfig" | relative_url }}) and it offers several options to customize how a component is parsed from the content.
+As you can see, we replaced the `ExampleComponent` class in the parsers array with a more explicit configuration object that specifies a `component` and `selector`. This is a [SelectorHookParserConfig]({{ "guide/parsers#selectorhookparserconfig" | relative_url }}) and it offers several options to customize how a component is parsed from the content.
 
 See it in action in this Stackblitz:
 
@@ -163,7 +163,7 @@ If you need even more flexiblity (such as replacing pure text with components), 
 
 A <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/interfacesPublic.ts#L51" target="_blank">`HookParser`</a> is quite simple and just needs three methods: One that tells the library how to find the hooks, one that returns the component class and one that returns the input/output values.
 
-For a full guide with stackblitz examples, see the [Writing your own HookParser](http://localhost:4000/ngx-dynamic-hooks/documentation/parsers#writing-your-own-hookparser) section.
+For a full guide with stackblitz examples, see the [Writing your own HookParser]({{ "guide/parsers#writing-your-own-hookparser" | relative_url }}) section.
 
 ## Programmatic usage (with service)
 
@@ -204,7 +204,7 @@ The only required parameter is `content`, but it optionally accepts a lot more:
   ): Observable<ParseResult>
 ```
 
-If this seems familiar, its because most parameters are just [the inputs]({{ "documentation/configuration#dynamichookscomponent" | relative_url }}) for the <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/components/dynamicHooksComponent.ts" target="_blank">`DynamicHooksComponent`</a> component. 
+If this seems familiar, its because most parameters are just [the inputs]({{ "guide/configuration#dynamichookscomponent" | relative_url }}) for the <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/components/dynamicHooksComponent.ts" target="_blank">`DynamicHooksComponent`</a> component. 
 
 Only some are notable: You can optionally provide a `targetElement` and `targetHookIndex` to fill out for the result. If not, they are automatically created for you. You may also specify custom injectors for the created components. If you don't, the library defaults to the current ones.
 

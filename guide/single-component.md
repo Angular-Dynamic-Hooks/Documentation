@@ -29,7 +29,7 @@ Input name | Type | Description
 `outputs` | Object literal | An object literal where the keys are the output names and the values are functions that will be called when they emit.
 `options` | <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/components/dynamicSingleComponent.ts#L10" target="_blank">`DynamicHooksSingleOptions`</a> | A couple of options to modify how the component works.
 
-A <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/components/dynamicSingleComponent.ts#L10" target="_blank">`DynamicHooksSingleOptions`</a> object is just an abbreviated version of a [ParseOptions]({{ "documentation/configuration#parseoptions" | relative_url }}) object and works the same:
+A <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/components/dynamicSingleComponent.ts#L10" target="_blank">`DynamicHooksSingleOptions`</a> object is just an abbreviated version of a [ParseOptions]({{ "guide/configuration#parseoptions" | relative_url }}) object and works the same:
 
 ```ts
 interface DynamicHooksSingleOptions {

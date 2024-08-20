@@ -16,7 +16,7 @@
 
 Angular Dynamic Hooks allows you to load Angular components into dynamic content, such as html strings (similar to a "dynamic" template) or even already-existing html trees. 
 
-Works as part of an Angular app or fully standalone. Load components by selectors or **any text pattern**. No JiT-compiler required - [just install and go]( {{ "/documentation/quickstart" | relative_url }} ).
+Works as part of an Angular app or fully standalone. Load components by selectors or **any text pattern**. No JiT-compiler required - [just install and go]( {{ "/guide/quickstart" | relative_url }} ).
 
 ![ngx-dynamic-hooks-optimize](https://github.com/angular-dynamic-hooks/ngx-dynamic-hooks/assets/12670925/ef27d405-4663-48a5-97b5-ca068d7b67d8)
 
@@ -28,7 +28,7 @@ Simply install via npm (or yarn)
 npm install ngx-dynamic-hooks
 ```
 
-[See the Quickstart page]( {{ "/documentation/quickstart" | relative_url }} ) for an example on how to get going right away.
+[See the Quickstart page]( {{ "/guide/quickstart" | relative_url }} ) for an example on how to get going right away.
 
 | Angular | Version | NPM |
 | --- | --- | --- |
@@ -42,13 +42,13 @@ As the library does not rely on a runtime compiler, it works in both JiT- and Ao
 
 * ⭐ Loads fully-functional Angular components into dynamic content
 * 📖 Parses both strings and HTML structures
-* 🚀 Can be used [fully standalone]({{ "documentation/standalone-mode" | relative_url }}) (load components directly into HTML without Angular)
+* 🚀 Can be used [fully standalone]({{ "guide/standalone-mode" | relative_url }}) (load components directly into HTML without Angular)
 * 🏃 Works **without** needing the JiT compiler
 * 💻 Works **with** Server-Side-Rendering
-* 🔍 Loads components by their selectors, custom selectors or [any text pattern of your choice]({{ "documentation/parsers#writing-your-own-hookparser" | relative_url }})
+* 🔍 Loads components by their selectors, custom selectors or [any text pattern of your choice]({{ "guide/parsers#writing-your-own-hookparser" | relative_url }})
 * ⚙️ Services, Inputs/Outputs, Lifecycle Methods and other standard features all work normally
-* 💤 Allows [lazy-loading components]({{ "documentation/configuration#lazy-loading-components" | relative_url }}) only if they appear in the content
-* 🔒 Can pass custom data safely to your components via an optional [context object]({{ "documentation/component-features" | relative_url }})
+* 💤 Allows [lazy-loading components]({{ "guide/configuration#lazy-loading-components" | relative_url }}) only if they appear in the content
+* 🔒 Can pass custom data safely to your components via an optional [context object]({{ "guide/component-features" | relative_url }})
 
 ## What it does
 
@@ -74,7 +74,7 @@ Just use your selectors like in a normal Angular template (such as `<app-mycompo
 
 What is especially neat: Hooks can be anything - not just component selectors! 
 
-Each hook internally has a corresponding <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/interfacesPublic.ts#L51" target="_blank">`HookParser`</a> that tells the library where and how to instantiate the component. You can easily create [your own hook parsers]({{ "/documentation/parsers" | relative_url }}) that replace any HTML element or text pattern of your choice with Angular components!
+Each hook internally has a corresponding <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/interfacesPublic.ts#L51" target="_blank">`HookParser`</a> that tells the library where and how to instantiate the component. You can easily create [your own hook parsers]({{ "/guide/parsers" | relative_url }}) that replace any HTML element or text pattern of your choice with Angular components!
 
 ## Do the components work normally?
 

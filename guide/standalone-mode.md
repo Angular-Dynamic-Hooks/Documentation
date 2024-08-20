@@ -12,15 +12,15 @@ This is ideal for mounting Angular components as "frontend widgets" onto HTML th
 
 {% include docs/notice.html content='
   <h4>Fun fact</h4>
-  <p>You are seeing standalone mode in action right now! Though this documentation consists only of static HTML files, all interactive elements are actually Angular components! Like this one:</p>  
+  <p>You are seeing standalone mode in action right now! Though this documentation consists only of plain HTML files, all interactive elements are actually Angular components! Like this one:</p>  
   <app-example message="This is an Angular component!"></app-example>
 ' %}
 
 ## Getting started
 
-To use standalone mode, simply import the <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/standalone.ts#L158" target="_blank">`parse`</a> function from the library. It is the equivalent of [DynamicHooksService.parse]({{ "documentation/how-to-use#programmatic-usage-with-service" | relative_url }}), just outside of Angular.
+To use standalone mode, simply import the <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/standalone.ts#L158" target="_blank">`parse`</a> function from the library. It is the equivalent of [DynamicHooksService.parse]({{ "guide/how-to-use#programmatic-usage-with-service" | relative_url }}), just with the difference that <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/standalone.ts#L158" target="_blank">`parse`</a> is framework-agnostic and can be called from anywhere.
 
-At its most basic, you really only need to pass the **content** as well as a list of **parsers**. The [starter example]({{ "/documentation/how-to-use#starting-out" | relative_url }}) would then look like this in standalone mode:
+At its most basic, you only need to pass the **content** as well as a list of **parsers**. The [starter example]({{ "/guide/how-to-use#starting-out" | relative_url }}) would then look like this in standalone mode:
 
 ```ts
 import { parse } from 'ngx-dynamic-hooks';
@@ -34,13 +34,15 @@ parse(content, parsers).then(result => {
 });
 ```
 
+The full list of parameters <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/standalone.ts#L158" target="_blank">can be found here</a>.
+
 Often, you may want to parse the whole page for components. In such cases, you can simply pass `document.body` as content: 
 
 ```ts
 parse(document.body, parsers)
 ```
 
-Angular components will then be loaded into all hooks/selectors found anywhere in the browser. For a live example of standalone mode being used, see the Stackblitz embeds further below.
+Angular components will then be loaded into all hooks/selectors found anywhere in the browser.
 
 ## Adding providers
 
@@ -71,7 +73,7 @@ const childScope = createProviders([...], parentScope);
 ```
 
 {% include docs/notice.html content='
-  <p><b>Tip</b>: Services decorated with <a href="https://angular.dev/guide/di/creating-injectable-service#creating-an-injectable-service" target="_blank"><code>@Injectable(providedIn: "root")</code></a> work even without explicitly declaring them as providers and do not need scope.</p>  
+  <p><b>Tip</b>: Services decorated with <a href="https://angular.dev/guide/di/creating-injectable-service#creating-an-injectable-service" target="_blank"><code>@Injectable(providedIn: "root")</code></a> work without explicitly declaring them as providers and do not need a scope.</p>  
 ' %}
 
 ## Building
@@ -80,8 +82,8 @@ In terms of writing code, we are already done. In order to compile Angular compo
 
 With standalone mode, we have two options: 
 
-- We can simply also use `ng build` to compile our standalone mode code (recommended).
-- If you have a specialized Webpack build pipeline, we can add Angular plugins to Webpack in order to compile our code **without the Angular CLI**.
+- We can simply also use `ng build` (**recommended**).
+- If you have a specialized Webpack build pipeline, we can add Angular plugins to Webpack in order to compile our code **without** the Angular CLI.
 
 
 ### a) Build with the CLI
@@ -120,7 +122,7 @@ When you have an existing Webpack-based build pipeline and only wish to incorpor
 
 - You will have to adjust `webpack.config.js` to support Angular component compilation (see example below for a working config).
 - The bundle size will be larger as with a CLI-compiled Angular app, as a manual Webpack config lacks some of the magic the Angular compiler internally uses.
-- You will have to import `zone.js` at the top of your entry file.
+- If you use it, you will have to import `zone.js` at the top of your entry file.
 
 That said, the rest of the code can be identical as when using the CLI. Here is the same example as before, just with Webpack-compilation this time:
 
@@ -131,6 +133,31 @@ That said, the rest of the code can be identical as when using the CLI. Here is 
 ></app-stackblitz>
 
 ## Trivia
+
+### Using Inputs/outputs
+
+When using standalone mode and you're loading Angular components straight into normal HTML elements, you might be wondering how to pass and receive data from the components. The answer is: Just like in templates! Simply use Angular-style input/output attributes:
+
+```html
+<app-example somePlainInput="Hello!" [someInput]="context.someValue" (someOutput)="context.someFunction($event)"></app-example>
+```
+
+For more info this, see [the dedicated page about how to use inputs/outputs]({{ "guide/component-features#inputs" | relative_url }}).
+
+**Tip: DOM events for outputs** 
+
+In standalone mode, the `triggerDOMEvents` option of the [ParseOptions]({{ "guide/configuration#parseoptions" | relative_url }}) is true by default. This means that alternatively to subscribing to outputs via element attributes, you can also subscribe to them as DOM events triggered from the host element. 
+
+For example, we could also subscribe to the `someOutput` output of the example component above like this:
+
+```ts
+  // Get host element
+  let componentHostElement = document.querySelector('app-example');
+  // Register to output
+  componentHostElement.addEventListener('someOutput', value => {
+    // Do whatever
+  });
+```
 
 ### React to DOM changes
 
@@ -195,4 +222,4 @@ However, Angular Dynamic Hooks offers several advantages that go beyond what Ang
 - You can easily **lazy-load** components only when they appear on the page.
 - Inputs are automatically parsed into their data types, rather than leaving them as strings.
 
-See the full comparison of this library with Angular Elements [on the Trivia page]({{ 'documentation/trivia#angular-elements' | relative_url }}).
+See the full comparison of this library with Angular Elements [on the Trivia page]({{ 'guide/trivia#angular-elements' | relative_url }}).

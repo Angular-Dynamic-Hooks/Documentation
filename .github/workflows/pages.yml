@@ -21,7 +21,7 @@ concurrency:
   group: "pages"
   cancel-in-progress: false
 
-# Much of the following is copied from: https://github.com/Angular-Dynamic-Hooks/Documentation/new/main?filename=.github%2Fworkflows%2Fjekyll.yml&pages_workflow_template=pages%2Fjekyll
+# Much of the following is copied from: https://github.com/Angular-Dynamic-Hooks/documentation/new/main?filename=.github%2Fworkflows%2Fjekyll.yml&pages_workflow_template=pages%2Fjekyll
 jobs:
   build:
     runs-on: ubuntu-latest

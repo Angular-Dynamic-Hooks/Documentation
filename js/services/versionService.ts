@@ -22,7 +22,7 @@ export class VersionService {
       const versions: number[] = [];
 
       for (const page of infoJson.pages) {
-        if (page.url.startsWith('/documentation/')) {
+        if (page.url.startsWith('/guide/')) {
           const versionNr = this.getDocsVersionFromUrl(page.url)!;
           if (versionNr && !versions.includes(versionNr)) {
             versions.push(versionNr);
@@ -50,7 +50,7 @@ export class VersionService {
    * Extracts the version of the specified url
    */
   getDocsVersionFromUrl(url: string): number|null {
-    const match = url.match(/\/documentation\/v(\d)\//);
+    const match = url.match(/\/guide\/v(\d)\//);
     if (match) {
       return parseInt(match[1]);
     } else {
@@ -63,7 +63,7 @@ export class VersionService {
    */
   generateDocsUrl(version: number, docsPath: string = '') {
     return this.getLatestVersion().pipe(map(latestVersion => {
-      return this.baseUrl + '/documentation/' + (latestVersion === version ? '' : `v${version}/`) + docsPath;
+      return this.baseUrl + '/guide/' + (latestVersion === version ? '' : `v${version}/`) + docsPath;
     }));    
   }
   
@@ -71,9 +71,8 @@ export class VersionService {
    * Transforms a full docs url to the equivalent of a different version (irrespective if the page actually exists or not)
    */
   transformUrlForDocsVersion(url: string, version: number): Observable<string|null> {
-    if (url.includes('documentation/')) {
-      // Don't use regex in case github pages project path is also 'documentation'
-      const split = url.split('documentation/');
+    if (url.includes('guide/')) {
+      const split = url.split('guide/');
       let path = split[split.length - 1];
 
       // Cut off "/vX/" from front if exists

@@ -1,5 +1,5 @@
 ---
-  canonical_url: '/documentation/quickstart'
+  canonical_url: '/guide/quickstart'
 ---
 
 # Quick start
@@ -58,4 +58,4 @@ The following <a href="https://stackblitz.com/edit/ngx-dynamic-hooks-quickstart"
   image="{{ "/assets/images/stackblitz/quickstart_v2.jpg" | relative_url }}"
 ></app-stackblitz>
 
-This is a very simple example. Check out the [Configuration]({{ "documentation/v2/configuration" | relative_url }}) or even [Writing your own HookParser]({{ "documentation/v2/parsers#writing-your-own-hookparser" | relative_url }}) sections to find out how to tailor everything to your exact needs.
+This is a very simple example. Check out the [Configuration]({{ "guide/v2/configuration" | relative_url }}) or even [Writing your own HookParser]({{ "guide/v2/parsers#writing-your-own-hookparser" | relative_url }}) sections to find out how to tailor everything to your exact needs.

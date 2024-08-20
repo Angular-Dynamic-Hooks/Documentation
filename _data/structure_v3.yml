@@ -1,134 +1,134 @@
 - title: Introduction
-  url: /documentation/
+  url: /guide/
   icon: /assets/images/icons/hand.svg
   children:
     - title: Installation
-      url: /documentation/#installation
+      url: /guide/#installation
     - title: Highlights
-      url: /documentation/#highlights
+      url: /guide/#highlights
     - title: What it does
-      url: /documentation/#what-it-does
+      url: /guide/#what-it-does
     - title: What's a hook?
-      url: /documentation/#whats-a-hook
+      url: /guide/#whats-a-hook
     - title: Do the components work normally?
-      url: /documentation/#do-the-components-work-normally
+      url: /guide/#do-the-components-work-normally
     - title: What this library doesn't do
-      url: /documentation/#what-this-library-doesnt-do
+      url: /guide/#what-this-library-doesnt-do
 
 - title: Quick start
-  url: /documentation/quickstart
+  url: /guide/quickstart
   icon: /assets/images/icons/rocket.svg
   children:
     - title: Minimal example
-      url: /documentation/quickstart#minimal-example
+      url: /guide/quickstart#minimal-example
     - title: See it in action
-      url: /documentation/quickstart#see-it-in-action
+      url: /guide/quickstart#see-it-in-action
     - title: About using modules
-      url: /documentation/quickstart#about-using-modules
+      url: /guide/quickstart#about-using-modules
     - title: Next steps
-      url: /documentation/quickstart#next-steps
+      url: /guide/quickstart#next-steps
 
 - title: How to use
-  url: /documentation/how-to-use
+  url: /guide/how-to-use
   icon: /assets/images/icons/book.svg
   children:
     - title: Starting out
-      url: /documentation/how-to-use#starting-out
+      url: /guide/how-to-use#starting-out
     - title: Context and options
-      url: /documentation/how-to-use#context-and-options
+      url: /guide/how-to-use#context-and-options
     - title: Global settings
-      url: /documentation/how-to-use#global-settings
+      url: /guide/how-to-use#global-settings
     - title: Load by any selector
-      url: /documentation/how-to-use#load-by-any-selector
+      url: /guide/how-to-use#load-by-any-selector
     - title: Custom parsers
-      url: /documentation/how-to-use#custom-parsers
+      url: /guide/how-to-use#custom-parsers
     - title: Programmatic usage
-      url: /documentation/how-to-use#programmatic-usage-with-service
+      url: /guide/how-to-use#programmatic-usage-with-service
 
 - title: Standalone mode
-  url: /documentation/standalone-mode
+  url: /guide/standalone-mode
   icon: /assets/images/icons/brackets.svg
   children:
     - title: Getting started
-      url: /documentation/standalone-mode#getting-started
+      url: /guide/standalone-mode#getting-started
     - title: Adding providers
-      url: /documentation/standalone-mode#adding-providers
+      url: /guide/standalone-mode#adding-providers
     - title: Building
-      url: /documentation/standalone-mode#building
+      url: /guide/standalone-mode#building
     - title: Trivia
-      url: /documentation/standalone-mode#trivia
+      url: /guide/standalone-mode#trivia
 
 - title: Component features
-  url: /documentation/component-features
+  url: /guide/component-features
   icon: /assets/images/icons/star.svg
   children:
     - title: Context & Dependency Injection
-      url: /documentation/component-features#context--dependency-injection
+      url: /guide/component-features#context--dependency-injection
     - title: Inputs
-      url: /documentation/component-features#inputs
+      url: /guide/component-features#inputs
     - title: Outputs
-      url: /documentation/component-features#outputs
+      url: /guide/component-features#outputs
     - title: Content projection
-      url: /documentation/component-features#content-projection
+      url: /guide/component-features#content-projection
     - title: Lifecycle methods
-      url: /documentation/component-features#lifecycle-methods
+      url: /guide/component-features#lifecycle-methods
     - title: Change detection
-      url: /documentation/component-features#change-detection
+      url: /guide/component-features#change-detection
 
 - title: Configuration
-  url: /documentation/configuration
+  url: /guide/configuration
   icon: /assets/images/icons/cog.svg
   children:
     - title: Global settings
-      url: /documentation/configuration#global-settings
+      url: /guide/configuration#global-settings
     - title: Child settings
-      url: /documentation/configuration#child-settings
+      url: /guide/configuration#child-settings
     - title: DynamicHooksComponent
-      url: /documentation/configuration#dynamichookscomponent
+      url: /guide/configuration#dynamichookscomponent
     - title: ParseOptions
-      url: /documentation/configuration#parseoptions
+      url: /guide/configuration#parseoptions
     - title: Lazy-loading components
-      url: /documentation/configuration#lazy-loading-components
+      url: /guide/configuration#lazy-loading-components
     - title: Alternate platforms
-      url: /documentation/configuration#alternate-platforms
+      url: /guide/configuration#alternate-platforms
 
 - title: Parsers
-  url: /documentation/parsers
+  url: /guide/parsers
   icon: /assets/images/icons/magnifying_glass.svg
   children:
   - title: Introduction
-    url: /documentation/parsers#introduction
+    url: /guide/parsers#introduction
   - title: SelectorHookParserConfig
-    url: /documentation/parsers#selectorhookparserconfig
+    url: /guide/parsers#selectorhookparserconfig
   - title: Writing your own HookParser
-    url: /documentation/parsers#writing-your-own-hookparser
+    url: /guide/parsers#writing-your-own-hookparser
   - title: Example 1 - Minimal
-    url: /documentation/parsers#example-1-minimal
+    url: /guide/parsers#example-1-minimal
   - title: Example 2 - Emoji parser
-    url: /documentation/parsers#example-2-emoji-parser
+    url: /guide/parsers#example-2-emoji-parser
   - title: Example 3 - Image parser
-    url: /documentation/parsers#example-3-image-parser
+    url: /guide/parsers#example-3-image-parser
   - title: Example 4 - Link parser
-    url: /documentation/parsers#example-4-link-parser
+    url: /guide/parsers#example-4-link-parser
 
 - title: Single component
-  url: /documentation/single-component
+  url: /guide/single-component
   icon: /assets/images/icons/circle.svg
 
 - title: Trivia
-  url: /documentation/trivia
+  url: /guide/trivia
   icon: /assets/images/icons/list.svg
   children:
     - title: How it works
-      url: /documentation/trivia#how-it-works
+      url: /guide/trivia#how-it-works
     - title: Security
-      url: /documentation/trivia#security
+      url: /guide/trivia#security
     - title: Caveats
-      url: /documentation/trivia#caveats
+      url: /guide/trivia#caveats
     - title: Comparison with similar libraries
-      url: /documentation/trivia#comparison-with-similar-libraries
+      url: /guide/trivia#comparison-with-similar-libraries
     - title: Special thanks
-      url: /documentation/trivia#special-thanks
+      url: /guide/trivia#special-thanks
 
 - title: Troubleshooting
-  url: /documentation/troubleshooting
+  url: /guide/troubleshooting
