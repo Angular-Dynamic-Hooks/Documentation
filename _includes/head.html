@@ -36,6 +36,8 @@
   {%- feed_meta -%}  
   
   <script>
+    window.baseUrl = "{{ '' | relative_url }}"
+
     // Immediately apply darkmode styling if relevant to prevent flickering
     let currentTheme = localStorage.getItem('theme');
     if (
@@ -46,4 +48,21 @@
       document.documentElement.setAttribute("data-theme", 'dark');
     }
   </script>
+
+
+  {% for file in site.static_files %}
+    {% if file.path contains "/assets/build/" and file.path contains "polyfills" and file.path contains ".js" %}
+      {% unless file.path contains ".map"%}
+        <script defer type="module" src="{{ file.path | relative_url }}"></script>
+      {% endunless %}
+    {% endif %}
+  {% endfor %}
+
+  {% for file in site.static_files %}
+    {% if file.path contains "/assets/build/" and file.path contains "main" and file.path contains ".js" %}
+      {% unless file.path contains ".map"%}
+        <script defer type="module" src="{{ file.path | relative_url }}"></script>
+      {% endunless %}
+    {% endif %}
+  {% endfor %}
 </head>
