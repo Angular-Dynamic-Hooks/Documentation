@@ -48,7 +48,7 @@ As the library does not rely on a runtime compiler, it works in both JiT- and Ao
 ## Highlights
 
 * ⭐ Loads fully-functional Angular components into dynamic content
-* 📖 Parses both strings and HTML structures
+* 📖 Parses both strings and HTML trees to load components into them like a template
 * 🚀 Can be used [fully standalone]({{ "guide/standalone-mode" | relative_url }}) (load components directly into HTML without Angular)
 * 🏃 Works **without** needing the JiT compiler
 * 💻 Works **with** Server-Side-Rendering
