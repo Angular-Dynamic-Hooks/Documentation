@@ -2,7 +2,7 @@
 
 # Angular Dynamic Hooks Documentation
 
-This repository houses the landing page and documentation of the Angular Dynamic Hooks website.
+This repository houses the landing page and documentation of the [Angular Dynamic Hooks website](https://angular-dynamic-hooks.com/).
 
 It mostly consists of a Jekyll app that is automatically built via a custom Github Actions workflow and published to Github Pages when new commits are pushed.
 

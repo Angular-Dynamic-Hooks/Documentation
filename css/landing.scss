@@ -66,7 +66,7 @@
         display: flex;
       }
       .l-site-links > *:not(:last-child) {
-        margin: 0px 15px 0px 0px;
+        margin: 0px 10px 0px 0px;
 
         @include minSm() {
           margin: 0px 25px 0px 0px;
@@ -77,7 +77,6 @@
           display: flex;
           align-items: center;
           color: white !important;
-          font-size: 15px;
         }
 
           .l-site-link-icon {
@@ -287,19 +286,17 @@
           margin: 0px 15px 0px 0px;
         }
 
-        .l-cards-title-text-mobile {
-          @include minSm() {
+        .l-cards-title-text {
+          
+        }
+
+          .l-cards-title-text-extended {
             display: none;
-          }
-        }
 
-        .l-cards-title-text-desktop {
-          display: none;
-
-          @include minSm() {
-            display: inline;
+            @include minSm() {
+              display: inline;
+            }
           }
-        }
 
       .l-cards-list {
         display: flex;

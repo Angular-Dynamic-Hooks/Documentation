@@ -39,7 +39,7 @@ highlights:
           <span class="l-site-name">Angular Dynamic Hooks</span>
         </a>
       </div>
-      <div class="l-header-right">
+      <nav class="l-header-right">
         <div class="l-site-links">
           <a class="l-site-link home" href="{{ '/guide/' | relative_url }}">
             <div class="l-site-link-icon">📄</div>
@@ -62,7 +62,7 @@ highlights:
             <span class="l-site-link-text">Donate</span>
           </a>
         </div>
-      </div>
+      </nav>
     </div>
   </div>
 </header>
@@ -101,8 +101,7 @@ highlights:
       <div class="l-cards-inner">
         <h2 class="l-cards-title">
           <img class="l-cards-title-logo" src="{{ "/assets/images/ngx-dynamic-hooks-logo.svg" | relative_url }}" alt="The logo for the Angular Dynamic Hooks library">
-          <span class="l-cards-title-text-mobile">Features overview</span>
-          <span class="l-cards-title-text-desktop">Features overview and highlights</span>
+          <span class="l-cards-title-text">Features overview <span class="l-cards-title-text-extended">and highlights</span></span>
         </h2>
         <div class="l-cards-list"> 
           {% for item in page.highlights %}

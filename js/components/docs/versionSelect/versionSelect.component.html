@@ -4,7 +4,7 @@
     <div class='version-select-display' (click)="toggleDropdown()">
       <span class="version-select-display-label">Version</span>
       <span class="version-select-display-version">{{ currentVersion }}.x</span>
-      <img class="version-select-display-arrow" [src]="infoService.baseUrl + '/assets/images/narrow_arrow_down.png'">
+      <img class="version-select-display-arrow" [src]="infoService.baseUrl + '/assets/images/narrow_arrow_down.png'" alt="An arrow pointing downwards">
     </div>
 
     <div #dropdownContainer class='version-select-dropdown-container' [ngClass]="{open: dropdownIsOpen}">
