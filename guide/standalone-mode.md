@@ -14,7 +14,7 @@ This is ideal for mounting Angular components as "frontend widgets" onto HTML th
 
 {% include docs/notice.html content='
   <h4>Fun fact</h4>
-  <p>You are seeing standalone mode in action right now! Though this documentation consists only of plain HTML files, all interactive elements are actually Angular components! Like this one:</p>  
+  <p>You are seeing standalone mode in action right now! Though this documentation consists only of prerendered HTML files, all interactive elements are actually Angular components! Like this one:</p>  
   <app-example message="This is an Angular component!"></app-example>
 ' %}
 
