@@ -155,12 +155,32 @@
               }
             }
 
+  .footer-middle {
+    display: flex;
+    justify-content: center;
+    padding: 8px 30px;
+    background-color: #28292f;
+  }
+
+    .disclaimer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      font-size: 12px;
+      color: #a2a2a2;
+
+      p {
+        margin: 0px;
+      }
+    }
+
   .footer-bottom {
     display: flex;
     background-color: #222224;
     width: 100%;
     justify-content: center;
-    padding: 5px 30px;
+    padding: 8px 30px;
     box-sizing: border-box;
     font-size: 11px;
     color: darkgrey;

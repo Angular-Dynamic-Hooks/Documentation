@@ -14,7 +14,7 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 title: Angular Dynamic Hooks
-tagline: Load fully-functional Angular components into dynamic content
+tagline: Load components anywhere
 description: >- # this means to ignore newlines until "baseurl:"
   Angular Dynamic Hooks allows you to load Angular components into dynamic content, such as HTML strings (similar to a “dynamic” template) or HTML elements.
 domain: angular-dynamic-hooks.com               # if you want to force HTTPS, specify the domain without the http at the start, e.g. example.com
