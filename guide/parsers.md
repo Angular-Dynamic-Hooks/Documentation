@@ -39,6 +39,7 @@ Property | Type | Default | Description
 `hostElementTag` | `string` | - | A custom tag to be used for the component host element.
 `injector` | <a href="https://angular.dev/api/core/Injector" target="_blank">`Injector`</a> | The nearest one | The Injector to create the component with.
 `environmentInjector` | <a href="https://angular.dev/api/core/EnvironmentInjector" target="_blank">`EnvironmentInjector`</a> | The nearest one | The EnvironmentInjector to create the component with.
+`parseWithRegex` | `boolean` | `false` | Whether to use regex rather than HTML/DOM-based methods to find the hook elements.
 `enclosing` | `boolean` | `true` | Whether the selector is enclosing (`<hook>...</hook>`) or not (`<hook>`).
 `bracketStyle` | `{opening: string, closing: string}` | `{opening: '<', closing: '>'}` | The brackets to use for the selector.
 `parseInputs` | `boolean` | `true` | Whether to parse inputs into data types or leave them as strings.
@@ -53,7 +54,8 @@ Property | Type | Default | Description
 See the [How to use]({{ "guide/how-to-use#load-by-any-selector" | relative_url }}) page for a simple <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/parsers/selector/selectorHookParserConfig.ts" target="_blank">`SelectorHookParserConfig`</a> example.
 
 {% include docs/notice.html content="
-  <p>Please note that you cannot use full CSS selectors in the <code>selector</code> field if you set <code>enclosing</code> to <code>false</code> or use a custom <code>bracketStyle</code> as you aren't looking for valid HTML elements at that point. The selector can then only be the direct tag name, e.g. <code>app-example</code>.</p>
+  <p>The SelectorHookParser uses HTML/DOM-based methods to find hook elements by default. However, it will switch over to <b>regex-based parsing</b> if either <code>parseWithRegex</code> is true, <code>enclosing</code> is false or you use a custom <code>bracketStyle</code>. This allows the library to also find elements that are technically not valid HTML.</p>
+  <p>However, please note that when using regex-based parsing, you cannot use full CSS selectors in the <code>selector</code> field. The selector can then only be the direct tag name, e.g. <code>app-example</code>.</p>
 " %}
 
 ## Writing your own HookParser

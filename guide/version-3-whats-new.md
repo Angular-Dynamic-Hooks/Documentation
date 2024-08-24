@@ -123,6 +123,19 @@ If you were previously using `DynamicHooksModule.forChild()`, you can now simply
 
 Also, note that `DynamicHooksInheritance.LINEAR` is now the default option (instead of `ALL`) as its more in line with angular's default behaviour.
 
+### Switch to HTML-based parsing
+
+In v2 of the library, the standard parser to find hooks used regular expressions to find them in the content. In v3, this was replaced by HTML/DOM-based parsing to improve robustness and to make it easier to write custom hooks.
+
+If you encounter any issues with this switch and configurations that previously worked fine now throw errors, you can return to regex-based parsing by enabling it as an option in your [SelectorHookParserConfig]({{ "guide/parsers#selectorhookparserconfig" | relative_url}}), like this:
+
+```ts
+const parsers: HookParserEntry[] = [{
+  component: ExampleComponent,
+  parseWithRegex: true
+}];
+```
+
 ### Renamings
 
 Several classes, interfaces, methods etc. were renamed to better reflect their new roles. 
