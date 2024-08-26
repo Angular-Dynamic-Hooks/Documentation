@@ -10,7 +10,7 @@
   page.url contains '.txt'
 %}{% else %}
   <url>
-    <loc>https://www.{{ site.domain }}{{ page.url | relative_url }}</loc>
+    <loc>https://{{ site.domain }}{{ page.url | relative_url }}</loc>
   </url>
 {% endif %}{% endfor %}
 </urlset>
