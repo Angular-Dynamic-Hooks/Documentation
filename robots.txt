@@ -2,6 +2,9 @@
 ---
 
 User-agent: *
+
+Disallow: /defaultsite
+
 Allow: /
 
 Sitemap: https://www.{{ site.domain }}/sitemap.xml
