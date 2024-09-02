@@ -22,7 +22,7 @@ This is ideal for mounting Angular components as "frontend widgets" onto HTML th
 
 To use standalone mode, simply import the <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/standalone.ts#L158" target="_blank">`parse`</a> function from the library. It is the equivalent of [DynamicHooksService.parse]({{ "guide/how-to-use#load-components-via-service" | relative_url }}), just with the difference that <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/standalone.ts#L158" target="_blank">`parse`</a> is framework-agnostic and can be called from anywhere.
 
-At its most basic, you only need to pass the **content** as well as a list of **parsers**. The [starter example]({{ "/guide/how-to-use#parsing-dynamic-content" | relative_url }}) would then look like this in standalone mode:
+At its most basic, you only need to pass the **content** as well as a list of **parsers**. The [starter example]({{ "/guide/how-to-use#parsing-content" | relative_url }}) would then look like this in standalone mode:
 
 ```ts
 import { parse } from 'ngx-dynamic-hooks';

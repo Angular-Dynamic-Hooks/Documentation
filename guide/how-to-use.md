@@ -10,7 +10,7 @@ description: This page shows the most common ways to utilize the Angular Dynamic
 
 There are two ways to use the library in Angular: In a template via the [DynamicHooksComponent]({{ "guide/configuration#dynamichookscomponent" | relative_url }}) or programmatically via the [DynamicHooksService]({{ "guide/how-to-use#load-components-via-service" | relative_url }}).
 
-## Parsing dynamic content
+## Parsing content
 
 In the [Quickstart example]({{ 'guide/quickstart' | relative_url }}), we have already seen how to use the component in a minimal way. Just import the <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/components/dynamicHooksComponent.ts" target="_blank">`DynamicHooksComponent`</a> where you need it and pass in your content (the "dynamic template") as well as the components to look for:
 
@@ -38,9 +38,23 @@ export class AppComponent {
   <span>This example uses a string as the content, but you can always also use an actual HTML element. The hooks/components will be loaded in the same way.</span>
 ' %}
 
+## Using inputs & outputs
+
+You can easily pass data to your dynamic components, just like in normal Angular templates. Assuming our `ExampleComponent` has an input called `message`, you could use it like so:
+
+```ts
+  content = `<app-example [message]="'Hello there!'"></app-example>`;
+```
+
+Outputs can be used as in templates as well. Here's an example that calls a function from the context object (see next section):
+
+```ts
+  content = `<app-example (myOutput)="context.doSomething()"></app-example>`;
+```
+
 ## Context and options
 
-There are several more inputs for the <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/components/dynamicHooksComponent.ts" target="_blank">`DynamicHooksComponent`</a>, most notably **context** to pass data to the loaded components and **options** to configure how the content should be parsed. 
+There are several more inputs for the <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/components/dynamicHooksComponent.ts" target="_blank">`DynamicHooksComponent`</a>, most notably **context** to bind data to the loaded components and **options** to configure how the content should be parsed. 
 
 ```ts
 @Component({
@@ -63,7 +77,7 @@ export class AppComponent {
 ></ngx-dynamic-hooks>
 ```
 
-In this example, we're passing the value of `context.someString` from the parent component to the `[message]`-input of `ExampleComponent` with the help of the context object. [See here]({{ 'guide/dynamic-component-features#context--dependency-injection' | relative_url }}) for detailed info about how to use it.
+In this example, we're passing the value of `context.someString` from the parent component to the `[message]`-input of `ExampleComponent` with the help of the context object. You can put whatever you want into the context object and use it in the inputs/outputs of the dynamic components. [See here]({{ 'guide/dynamic-component-features#context--dependency-injection' | relative_url }}) for detailed info about how to use it.
 
 Also, as we know the content string is safe and does not contain malicous code, we can set the `sanitize`-option to `false` (`true` by default). You can read about all available options on the [configuration page]({{ 'guide/configuration#parseoptions' | relative_url }}).
 
@@ -73,7 +87,7 @@ See it in action in this Stackblitz:
   url="https://stackblitz.com/github/Angular-Dynamic-Hooks/Example-v3-Context" 
   fileQueryParam="file=src%2Fapp%2Fapp.component.ts"
   image="{{ "/assets/images/stackblitz/context.jpg" | relative_url }}"
-></app-stackblitz >
+></app-stackblitz>
 
 ## Global settings
 

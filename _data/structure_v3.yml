@@ -32,8 +32,10 @@
   url: /guide/how-to-use
   icon: /assets/images/icons/book.svg
   children:
-    - title: Parsing dynamic content
-      url: /guide/how-to-use#parsing-dynamic-content
+    - title: Parsing content
+      url: /guide/how-to-use#parsing-content
+    - title: Using inputs & outputs
+      url: /guide/how-to-use#using-inputs--outputs
     - title: Context and options
       url: /guide/how-to-use#context-and-options
     - title: Global settings
