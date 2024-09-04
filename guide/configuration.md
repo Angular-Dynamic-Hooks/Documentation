@@ -110,20 +110,11 @@ Option name | Type | Default | Description
 
 ## Lazy-loading components
 
-You can configure components to lazy-load only when its corresponding hook appears in the content. This reduces the initial bundle size and saves bandwidth if the hook does not appear at all.
+You can configure components to lazy-load only when its corresponding hook appears in the content. This reduces bundle sizes and saves bandwidth if the hook does not appear at all.
 
-To enable this feature, you need to use a <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/interfacesPublic.ts#L157" target="_blank">`LazyLoadComponentConfig`</a> when setting up your hook parsers:
+**Using this feature is easy:** Instead of using the component class directly, use a function that returns a promise with the component class instead. This works similar to <a href="https://angular.dev/guide/ngmodules/lazy-loading" target="_blank">lazy-loading routes in Angular</a>.
 
-```ts
-interface LazyLoadComponentConfig {
-    importPromise: () => Promise<any>;
-    importName: string;
-}
-```
-
-`importPromise` should be a function that returns the import promise for the component file while `importName` should be the name of the exported component class to be used.
-
-With standard selector hooks, you can use this <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/interfacesPublic.ts#L157" target="_blank">`LazyLoadComponentConfig`</a> in the `component`-field of a [SelectorHookParserConfig]({{ "guide/parsers#selectorhookparserconfig" | relative_url }}). You also need to manually specify a selector to look for, as it cannot be known before loading the component class. An example would look like so:
+You can put that function in the `component`-field of a [SelectorHookParserConfig]({{ "guide/parsers#selectorhookparserconfig" | relative_url }}). You also need to manually specify a selector, as it cannot be known before loading the component class, like so:
 
 ```ts
 import { Component } from '@angular/core';
@@ -137,10 +128,7 @@ export class AppComponent {
   content = 'Load a component here: <app-lazy></app-lazy>';
   parsers = [
     {
-      component: {
-        importPromise: () => import('./components/lazyComponent'),
-        importName: 'LazyComponent'
-      },
+      component: () => import('./components/lazyComponent').then(m => m.LazyComponent),
       selector: 'app-lazy'
     }
   ]
@@ -153,10 +141,10 @@ export class AppComponent {
 
 That's all there is to it! `LazyComponent` will now be lazily-loaded if `<app-lazy>...</app-lazy>` is found in the content.
 
-**Tip:** It you are using a custom parser, you can return a <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/interfacesPublic.ts#L157" target="_blank">`LazyLoadComponentConfig`</a> as part of `loadComponent()` instead.
+**Tip:** It you are using a custom parser, you can return the lazy-loading function as part of `loadComponent()` instead.
 
 {% include docs/notice.html content="
-  <p>Note that <code>importPromise</code> must contain a function returning the import-promise, not the import-promise itself! Otherwise the promise would be executed right where it is defined, which defeats the point of lazy-loading.</p>
+  <p>Note that it must be a function that returns a promise, not the promise itself! Otherwise the promise would be executed right where it is defined, which defeats the point of lazy-loading.</p>
 " %}
 
 ## Alternate platforms

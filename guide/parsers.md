@@ -33,7 +33,7 @@ In its simplest form, it just contains the component class like `{component: Exa
 
 Property | Type | Default | Description
 --- | --- | --- | ---
-`component` | `ComponentConfig` | - | The component to be used. Can be its class or a [LazyLoadComponentConfig]({{ "guide/configuration#lazy-loading-components" | relative_url }}).
+`component` | `ComponentConfig` | - | The component to be used. Can be its class or a function that returns a promise with the class (lazy-loading).
 `name` | `string` | - | The name of the parser. Only required if you want to black- or whitelist it.
 `selector` | `string` | The component selector | The selector to use to find the hook.
 `hostElementTag` | `string` | - | A custom tag to be used for the component host element.
