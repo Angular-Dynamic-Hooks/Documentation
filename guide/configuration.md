@@ -104,7 +104,7 @@ Option name | Type | Default | Description
 `triggerDOMEvents` | `boolean` | `depends` | Whether to emit <a href="https://developer.mozilla.org/en-US/docs/Web/Events/Creating_and_triggering_events" target="_blank">CustomEvents</a> from the component host elements when an output emits. The event name will be the output name. Defaults to true in standalone mode, otherwise false.
 `ignoreInputAliases` | `boolean` | `false` | Whether to ignore input aliases like `@Input('someAlias')` in dynamic components and use the actual property names instead.
 `ignoreOutputAliases` | `boolean` | `false` | Whether to ignore output aliases like `@Output('someAlias')` in dynamic components and use the actual property names instead.
-`acceptInputsForAnyProperty` | `boolean` | `false` | Whether to disregard `@Input()`-decorators completely and allow passing in values to any property in dynamic components.
+`acceptInputsForAnyProperty` | `boolean` | `false` | Whether to disregard `@Input()`-decorators completely and allow passing in values to any property in dynamic components. Does not trigger ngOnChanges and can cause issues with change detection in zoneless mode.
 `acceptOutputsForAnyObservable` | `boolean` | `false` | Whether to disregard `@Output()`-decorators completely and allow subscribing to any `Observable` in dynamic components.
 `logOptions` | `LogOptions` | `{dev: true}` | Accepts a `LogOptions` object to customize when to log text, warnings and errors.
 
