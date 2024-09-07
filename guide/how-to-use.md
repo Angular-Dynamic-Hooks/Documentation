@@ -40,7 +40,7 @@ export class AppComponent {
 
 ## Using inputs & outputs
 
-You can easily pass data to your dynamic components, just like in normal Angular templates. Assuming our `ExampleComponent` has an input called `message`, you could use it like so:
+You can easily [pass data]({{ 'guide/dynamic-component-features#inputs' | relative_url }}) to your dynamic components, just like in normal Angular templates. Assuming our `ExampleComponent` has an input called `message`, you could use it like so:
 
 ```ts
   content = `<app-example [message]="'Hello there!'"></app-example>`;
