@@ -12,7 +12,7 @@ description: Parsers find component hooks in the dynamic content, specify how th
 
 Components are loaded from [hooks]({{ "guide/#whats-a-hook" | relative_url }}) in the content, but how does the library know what a hook looks like and which component to load for it? This job is accomplished by **Hook parsers**. 
 
-They are what you pass along as the `parsers` input/argument to the library. Each component has one and each must be of the type <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/services/settings/parserEntry.ts" target="_blank">`HookParserEntry`</a> , which can be either:
+They are what you pass along as the `parsers` input/argument to the library. Each component has one and each must be of the type <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynamic-hooks/blob/1a94c3517235a2b2d571379d1cfce88958cb3f66/projects/ngx-dynamic-hooks/src/lib/services/settings/parserEntry.ts" target="_blank">`HookParserEntry`</a>, which can be either:
 
 1. The component class itself.
 2. A <a href="{{ "guide/parsers#selectorhookparserconfig" | relative_url }}">SelectorHookParserConfig</a> object literal.
