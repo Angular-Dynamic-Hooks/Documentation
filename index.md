@@ -6,7 +6,7 @@ highlights:
     desc: Loads fully-functional Angular components into dynamic content at runtime
   - title: Parse any content
     icon: 📖
-    desc: Can parse both HTML strings and already-existing HTML trees for components
+    desc: Can parse both strings and already-loaded HTML content
   - title: Standalone mode
     icon: 🚀
     desc: Can be used <a href="guide/standalone-mode" target="_blank">fully standalone</a> to load components into HTML without Angular
@@ -71,7 +71,7 @@ highlights:
   <section class="l-hero">
     <div class="l-hero-wrapper">
       <h1 class="l-hero-title">Load Angular components anywhere</h1>
-      <p class="l-hero-desc"><b>Angular Dynamic Hooks</b> can load Angular components into any dynamic content, such as HTML strings, individual HTML elements or the whole browser page.</p>
+      <p class="l-hero-desc"><b>Angular Dynamic Hooks</b> can load Angular components into any dynamic content, such as strings, individual HTML elements or the whole browser page.</p>
       <div class="l-hero-teaser">
         <div class="l-hero-teaser-aspect">
           <img class="l-hero-teaser-img" src="https://github.com/angular-dynamic-hooks/ngx-dynamic-hooks/assets/12670925/ef27d405-4663-48a5-97b5-ca068d7b67d8" alt="A short animated gif showing how to use the Angular Dynamic Hooks library to load components">
@@ -139,7 +139,7 @@ highlights:
       <div class="l-snippet-text">
         <p class="l-snippet-line">What if you wanted to load components not just from static templates, but from <b>dynamic content</b> - such as string variables, HTML elements or even a live webpage?</p>
         <p class="l-snippet-line">By default, this is <b>not easily possible</b>.</p>
-        <p class="l-snippet-line">Angular Dynamic Hooks aims to solve this problem. It offers an easy way to load Angular components into so-called <b>hooks</b>. Hooks can be HTML elements or plain text patterns.</p>
+        <p class="l-snippet-line">Angular Dynamic Hooks aims to solve this problem. It offers a simple way to load Angular components into so-called <b>hooks</b>. Hooks can be HTML elements or text patterns.</p>
       </div>
     </div>
   </section>
