@@ -8,7 +8,7 @@ description: With standalone mode, you can mount Angular components directly int
   <h1 class="page-title-text">Standalone mode</h1>
 </div>
 
-Angular Dynamic Hooks can be used in standalone mode, allowing you to load Angular components into standard HTML **without an Angular app**.
+Angular Dynamic Hooks can be used in standalone mode, allowing you to load Angular components independently **without a central Angular app**.
 
 This is ideal for mounting Angular components as "frontend widgets" onto HTML that can come from anywhere, such as a CMS like Wordpress, a dedicated backend framework like Laravel or even just static HTML pages.
 
