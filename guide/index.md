@@ -16,7 +16,7 @@ description: The Angular Dynamic Hooks guide shows you step-by-step how to insta
   [![Static Badge](https://img.shields.io/badge/Donate%20-%20Thank%20you!%20-%20%23ff8282?style=flat-square)](https://www.paypal.com/donate/?hosted_button_id=3XVSEZKNQW8HC)
 </div>
 
-Angular Dynamic Hooks allows you to load Agular components into any dynamic content, such as HTML strings (similar to a "dynamic" template) or even already-existing HTML structures. 
+Angular Dynamic Hooks allows you to load Angular components into any dynamic content, such as HTML strings (similar to a "dynamic" template) or even already-existing HTML elements.
 
 Works as part of an Angular app or fully standalone. Load components by selectors or **any text pattern**. No JiT-compiler required - [just install and go]( {{ "/guide/quickstart" | relative_url }} ).
 
