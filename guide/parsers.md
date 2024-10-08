@@ -37,14 +37,14 @@ Property | Type | Default | Description
 `name` | `string` | - | The name of the parser. Only required if you want to black- or whitelist it.
 `selector` | `string` | The component selector | The selector to use to find the hook.
 `hostElementTag` | `string` | - | A custom tag to be used for the component host element.
-`injector` | <a href="https://angular.dev/api/core/Injector" target="_blank">`Injector`</a> | The nearest one | The Injector to create the component with.
-`environmentInjector` | <a href="https://angular.dev/api/core/EnvironmentInjector" target="_blank">`EnvironmentInjector`</a> | The nearest one | The EnvironmentInjector to create the component with.
 `parseWithRegex` | `boolean` | `false` | Whether to use regex rather than HTML/DOM-based methods to find the hook elements.
 `allowSelfClosing` | `boolean` | `true` | Whether to allow using self-closing tags (`<hook/>`). Must use **regex** mode for this (see box below).
 `enclosing` | `boolean` | `true` | **Deprecated**: Whether the selector is enclosing (`<hook>...</hook>`) or not (`<hook>`). Use `allowSelfClosing` for a more modern approach.
 `bracketStyle` | `{opening: string, closing: string}` | `{opening: '<', closing: '>'}` | The brackets to use for the selector.
 `parseInputs` | `boolean` | `true` | Whether to parse inputs into data types or leave them as strings.
 `unescapeStrings` | `boolean` | `true` | Whether to remove escaping backslashes from inputs.
+`injector` | <a href="https://angular.dev/api/core/Injector" target="_blank">`Injector`</a> | The nearest one | The Injector to create the component with.
+`environmentInjector` | <a href="https://angular.dev/api/core/EnvironmentInjector" target="_blank">`EnvironmentInjector`</a> | The nearest one | The EnvironmentInjector to create the component with.
 `inputsBlacklist` | `string[]` | `null` | A list of inputs to ignore.
 `inputsWhitelist` | `string[]` | `null` | A list of inputs to allow exclusively.
 `outputsBlacklist` | `string[]` | `null` | A list of outputs to ignore.
