@@ -43,7 +43,7 @@ You can now use the <a href="https://github.com/Angular-Dynamic-Hooks/ngx-dynami
 <ngx-dynamic-hooks [content]="content" [parsers]="parsers"></ngx-dynamic-hooks>
 ```
 
-That's it! If `<app-example>` is the selector of `ExampleComponent`, it will automatically be loaded in its place, just like in a normal template.
+That's it! If `app-example` is the selector of `ExampleComponent`, it will automatically be loaded in its place, just like in a normal template.
 
 ## See it in action
 
